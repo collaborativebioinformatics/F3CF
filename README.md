@@ -2,13 +2,13 @@
 
 ## Team 8: Team 8: Rapid accretion of phenotype-genotype metagraphs from varied datasets
 
-victor.enrique.goitea (Team Leader)
-chris.hart
-Davor Vukadin
-Henrik Formoe
-edvin.smajlovic
-Sebastian Krog (Writer)
-+ online?
+* victor.enrique.goitea (Team Leader)
+* chris.hart
+* Davor Vukadin
+* Henrik Formoe
+* edvin.smajlovic
+* Sebastian Krog (Writer)
+* (Others online?)
 
 ## Simplified usecase
 
