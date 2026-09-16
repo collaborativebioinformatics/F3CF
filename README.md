@@ -1,4 +1,5 @@
 # Metametagraphs
+Nordic Conference on Future Health 2026 (14–16 September 2026)
 
 ## Team 8: Rapid accretion of phenotype-genotype metagraphs from varied datasets
 
