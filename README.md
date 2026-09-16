@@ -2,12 +2,12 @@
 
 ## Team 8: Rapid accretion of phenotype-genotype metagraphs from varied datasets
 
-* Victor Enrique Goitea (Team Leader)
+* Victor Enrique Goitea
 * Chris Hart
 * Davor Vukadin
 * Henrik Formoe
 * Edvin Smajlovic
-* Sebastian Krog (Writer)
+* Sebastian Krog [writer]
 * Elakiya Sivakumar
 
 ## Simplified usecase
