@@ -9,7 +9,6 @@
 * Edvin Smajlovic
 * Sebastian Krog (Writer)
 * Elakiya Sivakumar
-* (Others online?)
 
 ## Simplified usecase
 
