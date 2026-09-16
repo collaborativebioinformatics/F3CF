@@ -20,7 +20,7 @@ does querried subhierachy phenotype differences within EHRs show variation in ge
 2. Acquire larger (synthetic?) data access.
 3. Up and running on Gefion.
 4. Data cleaning ready for collaborative filtering.
-5. Minimal model that extracts information from EHRs to enrich phenotype definitions
+5. Model that extracts information from EHRs to enrich phenotype definitions
    - Decide on which EHR data types (e.g. ICD10 codes)
    - Define subphenotypes (phenotype ontologies, ICD10 etc.)
 6. Display dissimilar genotypes for a given phenotype or set of subphenotypes
