@@ -1,5 +1,7 @@
 ```mermaid
-graph FD;
-    Stage1-->Stage2;
-    Stage2-->Profit;
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
 ```
