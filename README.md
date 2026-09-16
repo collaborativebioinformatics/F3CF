@@ -1,13 +1,14 @@
 # Metametagraphs
 
-## Team 8: Team 8: Rapid accretion of phenotype-genotype metagraphs from varied datasets
+## Team 8: Rapid accretion of phenotype-genotype metagraphs from varied datasets
 
-* victor.enrique.goitea (Team Leader)
-* chris.hart
+* Victor Enrique Goitea (Team Leader)
+* Chris Hart
 * Davor Vukadin
 * Henrik Formoe
-* edvin.smajlovic
+* Edvin Smajlovic
 * Sebastian Krog (Writer)
+* Elakiya Sivakumar
 * (Others online?)
 
 ## Simplified usecase
@@ -17,7 +18,7 @@ does querried subhierachy phenotype differences within EHRs show variation in ge
 
 ## Milestones
 1. Modelled data examples.
-2. Acquire larger (synthetic) data access.
+2. Acquire larger (synthetic?) data access.
 3. Up and running on Gefion.
 4. Data cleaning ready for collaborative filtering.
 5. Minimal model that extracts information from EHRs to enrich phenotype definitions
