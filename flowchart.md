@@ -1,6 +1,8 @@
 ```mermaid
 graph TD;
-    DataAcquesition-->ModelData;
+    DataAcquisition-->GefionSetup;
+    GefionSetup-->ModelData;
+    ModelData-->OMOPwithTeam5;
     ModelData-->CollaborativeFiltering;
     CollaborativeFiltering-->DemonstrateVariation;
 ```
