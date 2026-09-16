@@ -1,7 +1,7 @@
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
+    stage1-->B;
+    stage1-->C;
     B-->D;
     C-->D;
 ```
