@@ -2,27 +2,41 @@
 
 ## Team 8: Team 8: Rapid accretion of phenotype-genotype metagraphs from varied datasets
 
-WTF are we trying to do:
-From several varied data sources (which?), create a knowledge metagraph (what is meta about it?) of linked phenotypes to genotypes (how are they linked?).
+victor.enrique.goitea (Team Leader)
+chris.hart
+Davor Vukadin
+Henrik Formoe
+edvin.smajlovic
+Sebastian Krog (Writer)
++ online?
 
-
-**Simplified usecase**
+## Simplified usecase
 
 In a federated environment, given one or more genotype-phenotype maps, and one or more sets of electronic health record data,
 does querried subhierachy phenotype differences within EHRs show variation in genotype associations?
 
-
-**Milestones**
+## Milestones
 1. Modelled data examples.
 2. Acquire larger (synthetic) data access.
 3. Up and running on Gefion.
-4. Data ready for collaborative filtering.
+4. Data cleaning ready for collaborative filtering.
 5. Minimal model that extracts information from EHRs to enrich phenotype definitions
-   - Decide on which EHR data types
-   - Define subphenotypes
-6. Display disimilar genotypes for a given phenotype or set of subphenotypes
+   - Decide on which EHR data types (e.g. ICD10 codes)
+   - Define subphenotypes (phenotype ontologies, ICD10 etc.)
+6. Display dissimilar genotypes for a given phenotype or set of subphenotypes
 7. Simple interface to query phenotype or subtypes
 
-Useful datasets:
+## Useful datasets
 Odyssey consortion EHR data
 UK biobank synthetic genotype-phenotype map data
+
+## Flowchart
+
+```mermaid
+graph TD;
+    A{"Data Acquisition: Odyssey EHR, UKB synth"}-->B{"Gefion Setup: Gentype-Phenotype data"};
+    B-->C{"Model Data"};
+    C-->D{"Explore OMOP with Team5"};
+    C-->E{"Use Collaborative Filtering to develop associations"};
+    E-->F{"Demonstrate Variation in genotype associations with a fine-grained phenotype example - e.g. High Chol -> HDL"};
+```
