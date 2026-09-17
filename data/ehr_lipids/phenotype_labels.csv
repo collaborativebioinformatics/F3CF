@@ -1,0 +1,33 @@
+phenotype_id,label
+HP:0003119,Abnormal circulating lipid concentration
+HP:0003077,Hyperlipidemia
+HP:0003124,Hypercholesterolemia
+HP:0003141,Elevated circulating LDL-C concentration
+HP:0003233,Decreased circulating HDL-C concentration
+HP:0002155,Hypertriglyceridemia
+HP:6000521,Elevated circulating lipoprotein(a) concentration
+HP:0031798,Elevated circulating apolipoprotein B concentration
+HP:0010874,Tendon xanthomatosis
+HP:0001084,Corneal arcus
+HP:0001114,Xanthelasma
+HP:0000822,Hypertension
+HP:0001677,Coronary artery atherosclerosis
+HP:0001658,Myocardial infarction
+HP:0001681,Angina pectoris
+HP:0002140,Ischemic stroke
+HP:0001712,Left ventricular hypertrophy
+HP:0001095,Hypertensive retinopathy
+HP:0000819,Diabetes mellitus
+HP:0005978,Type II diabetes mellitus
+HP:0003074,Hyperglycemia
+HP:0000855,Insulin resistance
+HP:0001513,Obesity
+HP:0001397,Hepatic steatosis
+HP:0000488,Retinopathy
+HP:0000093,Proteinuria
+HP:0012622,Chronic kidney disease
+HP:0002099,Asthma
+HP:0030828,Wheezing
+HP:0003193,Allergic rhinitis
+HP:0000964,Eczematoid dermatitis
+HP:0002094,Dyspnea
