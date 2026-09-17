@@ -41,3 +41,10 @@ graph LR;
     C-->E{"Use Collaborative Filtering to develop associations"};
     E-->F{"Demonstrate Variation in genotype associations with a fine-grained phenotype example - e.g. High Chol -> HDL"};
 ```
+
+
+## Step 1
+
+Minimal example of collaborative filtering on gene x phenotypes.
+
+For this, we propose to use genebass. https://app.genebass.org
