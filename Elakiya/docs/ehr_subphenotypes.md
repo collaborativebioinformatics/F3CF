@@ -20,6 +20,8 @@ python -m metametagraphs.ehr build --source omop --input path/to/cdm_dir  --out 
 python -m metametagraphs.ehr validate-rules [--rules my_rules.csv] [--nodes my_nodes.csv]
 python -m metametagraphs.ehr export-f3cf --build /tmp/mmg_subpheno --out /tmp/mmg_f3cf --site clinic_a
 python -m metametagraphs.ehr build --source toy --input /tmp/mmg_toy --out /tmp/mmg_subpheno --f3cf-site clinic_a   # build + export in one step
+python -m metametagraphs.ehr export-hpo --build /tmp/mmg_subpheno --out /tmp/mmg_hpo/site-1 --site site-1 [--phenotype-ids ../data/ehr_lipids/phenotype_ids.txt]
+python -m metametagraphs.ehr build --source toy --input /tmp/mmg_toy --out /tmp/mmg_subpheno --hpo-site site-1       # build + HPO export
 python -m pytest -q                  # tests/ehr, network-free, about 6 s (pytest.ini sets pythonpath)
 ```
 
@@ -73,8 +75,48 @@ names (for example `dyslipidaemia.high_ldl` to LDL cholesterol). Only medication
 medication rule are exported (currently lipid-lowering therapy and self-reported blood pressure
 medication).
 
+## HPO export (patient x HPO, federated CF layout)
+
+`export-hpo` (or `build --hpo-site NAME`, which writes to `OUT/hpo/`) converts the subphenotype
+matrix into the patient x HPO layout used by `scripts/federated_cf_*.py` and `data/federated`:
+
+| file | content |
+| --- | --- |
+| `patient_phenotypes.csv` | header `row_id,<HP ids>`; rows `<site>_<person_id>`; 0/1 |
+| `phenotype_ids.txt` | the global HPO id list (given with `--phenotype-ids`, or the bundled catalog) |
+| `hpo_mapping_report.csv` | one row per crosswalk mapping (node positives, exported columns, notes), per unmapped node, and per exported column (positives, prevalence) |
+
+How it works:
+
+* **The crosswalk.** `resources/hpo_crosswalk.csv` maps every hand node to HPO. Each row has:
+  * a `match` type: exact, broader, narrower, related or unmapped;
+  * `implies = yes` for exact and broader rows only, because those are the only cases where a
+    positive node guarantees the HPO term.
+
+  Lipid-lowering therapy and blood pressure medication are treatments, so they stay unmapped.
+* **Missing HPO terms.** HPO has no terms for familial hypercholesterolemia, mixed
+  hyperlipidemia, essential or secondary hypertension, or allergic / non-allergic asthma, so
+  those nodes map to the broader term.
+* **Ancestor propagation.** Terms propagate to their HPO ancestors (true path rule), but only to
+  ancestors present in the id list. HPO places Hypertriglyceridemia under Hyperlipidemia; it does
+  not place Elevated LDL-C or Hypercholesterolemia there.
+* **Output columns.** The columns are the ids the rules can reach, in id-list order. With
+  `--phenotype-ids ../data/ehr_lipids/phenotype_ids.txt` (PR #3), the columns are a subset of that
+  list, so `scripts/federated_cf_data.load_site()` reads the file directly.
+* **Offline validation.** Terms are checked against `resources/hpo_subset/hp_excerpt.obo`
+  (id, name and is_a of 157 terms from hp.obo release 2026-09-01; see its SOURCES.md).
+
+Results with the PR #3 id list (12 of its 32 terms are reachable):
+
+| input | patients | columns | prevalences |
+| --- | --- | --- | --- |
+| toy UKB layout | 400 | 12 | abnormal lipid concentration 50%, elevated LDL-C 41%, hypercholesterolemia 41%, decreased HDL-C 17%, hypertriglyceridemia 17%, hypertension 28%, type II diabetes 20%, asthma 15% |
+| Eunomia fixture | 12 | 12 | abnormal lipid concentration 42%, hypertension 42%, hypertriglyceridemia 17%, decreased HDL-C 8%, type II diabetes 8% |
+
 ## How the rest of Team 8 plugs in
 
+* **Federated CF prototype (`scripts/`)**: use `export-hpo --phenotype-ids <global list>` per site;
+  the output is a `site-k/patient_phenotypes.csv` for `load_site()`.
 * **F3CF**: use `patient_phenotype.csv` and `patient_drug.csv` (above) as each clinic's local
   relations.
 * **Collaborative filtering / metagraph**: read `subphenotype_matrix.parquet` as the person x
