@@ -153,46 +153,44 @@ The model jointly optimizes all available relations, sharing common embeddings a
 
 ## Exploring the latent space
 
-There are several ways to explore the shared latent space:
+F3CF learns a shared latent structure for globally aligned entities such as phenotypes, drugs, and genomic features, while patient representations remain local to each institution.
 
-* **Patient-centric exploration** — find nearby patients, phenotypes, PRS profiles, and candidate drugs.
-* **Phenotype-centric exploration** — inspect which patients, genetic-risk profiles, and drugs cluster around a phenotype.
-* **Drug-centric exploration** — identify phenotypic or genetic subgroups associated with a drug or drug response.
-* **Population-level exploration** — cluster patients into latent subgroups and compare those groups by phenotype burden, PRS, treatment, and outcomes.
+This enables several forms of exploration:
+
+* **Patient-level exploration** — a local patient representation can be queried against the shared model to identify associated phenotypes, genetic-risk features, and drugs without sharing the patient embedding across sites.
+* **Phenotype-level exploration** — examine which drugs, genomic features, and local patient profiles are most strongly associated with a phenotype.
+* **Drug-level exploration** — investigate which phenotypic or genomic patterns are associated with a drug or treatment response.
+* **Population-level exploration** — within each site, compare or cluster local patient representations relative to the globally learned latent structure.
+
+The latent space can also be projected into two or three dimensions for visualization, while relation-specific similarities are evaluated in the full learned space.
 
 ## Exploring data source relationships
 
-Rather than representing data sources as entities themselves, each data source can be treated as a set of observations contributing to the shared latent space. Its effect can then be measured indirectly.
+Data sources can be assessed by measuring how the learned structure or downstream performance changes when a source is added, removed, or perturbed.
 
-For a data source $D_k$, examine:
-
-$$
-\Delta Z_k = Z_{\text{all}} - Z_{\text{without }k}
-$$
-
-This measures how much the learned latent space changes when source $D_k$ is removed.
-
-Similarly, for a target clinic $C$, source utility can be defined as:
+For a data source $D_k$, its structural contribution can be measured by comparing models trained with and without that source:
 
 $$
-U(D_k \rightarrow C) = \text{Performance}(C + D_k) - \text{Performance}(C)
+S(D_k) =
+d\left(
+Z_{\mathrm{all}},
+Z_{\mathrm{without}\;D_k}
+\right)
 $$
 
-This measures whether a source adds useful information to the clinic without assigning the source its own embedding.
+where $d(\cdot,\cdot)$ is an alignment-aware measure of change in the latent structure, such as changes in pairwise similarities, nearest-neighbour structure, or clustering.
 
-Sources can also be compared through the entities they influence. For example:
-
-$$
-\text{Source A} \rightarrow \{\text{phenotype embeddings it constrains}\}
-$$
-
-versus
+For a target clinic $C$, the utility of an external data source can be defined as:
 
 $$
-\text{Source B} \rightarrow \{\text{phenotype embeddings it constrains}\}
+U(D_k \rightarrow C)
+=
+\mathrm{Perf}(C \mid D_k)
+-
+\mathrm{Perf}(C)
 $$
 
-This enables analysis of overlap, complementarity, coverage, and influence between data sources.
+where performance is evaluated on a defined task at the target clinic.
 
 ## Future aspects
 
