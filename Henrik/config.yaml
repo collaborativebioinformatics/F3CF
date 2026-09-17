@@ -1,49 +1,13 @@
 # All pipeline settings. Scripts have no defaults: the Snakefile passes every value from here.
 
-downloads:
-  gwas: https://ftp.ebi.ac.uk/pub/databases/gwas/releases/latest/gwas-catalog-associations_ontology-annotated-full.zip
-  opentargets: https://ftp.ebi.ac.uk/pub/databases/opentargets/platform/26.06/output
-  clinvar: https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/variant_summary.txt.gz
-  string: https://stringdb-downloads.org/download
+gwas_url: https://ftp.ebi.ac.uk/pub/databases/gwas/releases/latest/gwas-catalog-associations_ontology-annotated-full.zip
+p_threshold: 5.0e-8       # genome-wide significance
 
-# Gene-phenotype sources: raw input for scripts/parse_<name>.py, plus its score threshold (if any)
-sources:
-  gwas:
-    raw: data/gwas_catalog.tsv
-    threshold: 5.0e-8   # keep associations with p < threshold (genome-wide significance)
-  opentargets:
-    raw: data/opentargets
-    threshold: 0.1      # keep associations with overall score >= threshold
-  clinvar:
-    raw: data/clinvar_variant_summary.txt.gz
-    threshold: null     # filtered on significance and review status instead (see parse_clinvar.py)
+first_year: 2010          # replay: graph at year Y = edges first reported in or before Y
+last_year: 2025
 
-string:
-  min_score: 700        # keep gene-gene links with STRING combined score > min_score
-
-cf:
-  test_fraction: 0.10   # share of edges held out for evaluation
-  n_components: 64      # TruncatedSVD rank
-  top_k: 50             # recall@K
-  seed: 42              # collab_filter mask and bootstrap
-  n_boot: 100           # bootstrap resamples for collab_filter's per-source CIs
-
-temporal:                 # main accretion demo: replay GWAS Catalog history year by year
-  first_year: 2010
-  last_year: 2025
-  k_fraction: 0.01            # second recall column: K = 1% of phenotypes known before the year
-  top_studies: 5              # publications (PubMed IDs) listed per year
-  exclusion_years: [2018, 2022, 2025]   # rerun these years without their top publications
-
-cmf:                      # collective matrix factorization on the temporal splits (K = temporal.k_fraction)
-  alpha: 1.0              # weight of the STRING gene-gene reconstruction loss
-  lambda: 1.0             # L2 regularization on all factors
-  n_iter: 10              # alternating least squares iterations, starting from the SVD solution
-  degree_low: 5           # gene-degree groups: fewer than 5 phenotypes before the test year ...
-  degree_high: 20         # ... and more than 20
-
-accretion:                # random-chunk accretion (secondary)
-  seeds: [1, 2, 3, 4, 5]   # one fixed held-out GWAS test set per seed
-  gwas_fractions: [0.01, 0.02, 0.05, 0.10, 0.20, 0.30, 0.50, 0.75, 1.00]
-  sources: [opentargets, clinvar]   # added after full GWAS, in this order
-  propagation_weight: 0.5  # weight of phenotypes propagated from STRING neighbors
+dim: 64                   # embedding dimensions, shared by SNPs, genes and phenotypes
+lambda: 1.0               # L2 regularization on all embeddings
+n_iter: 20                # alternating least squares iterations per year, warm-started from the previous year
+seed: 42                  # initial embeddings
+min_relative_norm: 1.0e-3 # skip drift for entities whose embedding norm is below this x the median of their type

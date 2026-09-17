@@ -1,6 +1,6 @@
 # Reads:  data/gwas_catalog.tsv (GWAS Catalog associations with ontology annotations)
-# Writes: data/edges_gwas.csv (gene, phenotype, score = strongest -log10 p, source, date/year/first_pmids = first report)
-# Does:   keeps associations with p < threshold, splits multi-gene / multi-trait rows, one edge per pair
+# Writes: data/edges_gwas.csv (snp, target, target_type = gene | phenotype, date and year of first report)
+# Does:   turns genome-wide significant single-SNP associations into SNP-gene and SNP-phenotype edges
 
 import math
 import sys
@@ -8,59 +8,42 @@ import pandas as pd
 
 INPUT, OUTPUT, P_THRESHOLD = sys.argv[1], sys.argv[2], float(sys.argv[3])
 
-# Load
 print(f"[parse_gwas] Loading {INPUT} ...")
-df = pd.read_csv(INPUT, sep="\t", low_memory=False)
-print(f"[parse_gwas]   {len(df):,} associations, {df.shape[1]} columns")
+df = pd.read_csv(INPUT, sep="\t", low_memory=False,
+                 usecols=["SNPS", "MAPPED_GENE", "MAPPED_TRAIT_URI", "PVALUE_MLOG", "DATE"])
+print(f"[parse_gwas]   {len(df):,} associations")
 
-# Keep only the columns we need, drop rows with missing values
-df = df[["MAPPED_GENE", "MAPPED_TRAIT_URI", "PVALUE_MLOG", "DATE", "PUBMEDID"]]  # DATE = publication date
-df = df.dropna()
 df["PVALUE_MLOG"] = pd.to_numeric(df["PVALUE_MLOG"], errors="coerce")
-df = df.dropna()
-print(f"[parse_gwas]   {len(df):,} rows after dropping missing values")
-
-# The Catalog lists hits down to p < 1e-5; keep only p < P_THRESHOLD (5e-8 = genome-wide significance)
 df = df[df["PVALUE_MLOG"] > -math.log10(P_THRESHOLD)]
-print(f"[parse_gwas]   {len(df):,} rows with p < {P_THRESHOLD:g}")
+print(f"[parse_gwas]   {len(df):,} with p < {P_THRESHOLD:g}")
 
-# Split multi-gene rows into one row per gene.
-# MAPPED_GENE uses "A, B" (several genes), "A - B" (SNP between two genes),
-# "A; B" and "A x B" (SNP-SNP interactions). All mean "these genes", so split on all of them.
-print("[parse_gwas] Splitting multi-gene rows ...")
-df["gene"] = df["MAPPED_GENE"].str.split(r",|;| - | x ", regex=True)
-df = df.explode("gene")
-df["gene"] = df["gene"].str.strip()
+# One rs ID per row. Rows listing several SNPs (haplotypes, SNP-SNP interactions) can't be paired with
+# their genes, and positional IDs like "chr12:111446804" are not rs IDs: both are dropped.
+rs_ids = df["SNPS"].str.findall(r"rs\d+")
+df = df[rs_ids.str.len() == 1].assign(snp=rs_ids.str[0])
+print(f"[parse_gwas]   {len(df):,} with exactly one rs ID")
 
-# A row can also map to several traits ("uri1, uri2"), so split those too
-df["phenotype"] = df["MAPPED_TRAIT_URI"].str.split(",")
-df = df.explode("phenotype")
-# Keep the short ontology ID ("http://www.ebi.ac.uk/efo/EFO_0000180" -> "EFO_0000180"),
-# the format OpenTargets and most other sources use
-df["phenotype"] = df["phenotype"].str.strip().str.split("/").str[-1]
+# SNP-gene edges. MAPPED_GENE uses "A, B" (several genes) and "A - B" (SNP between two genes);
+# "NA - GENE" means no gene on that side, so "NA" is not a gene.
+genes = df[["snp", "DATE"]].assign(target=df["MAPPED_GENE"].str.split(r",|;| - | x ", regex=True))
+genes = genes.explode("target").dropna(subset=["target"])
+genes = genes.assign(target=genes["target"].str.strip(), target_type="gene")
+genes = genes[(genes["target"] != "") & (genes["target"] != "NA")]
 
-# "NA - GENE" means no gene on that side of the SNP, so "NA" is a placeholder, not a gene
-df = df[(df["gene"] != "") & (df["gene"] != "NA") & (df["phenotype"] != "")]
-print(f"[parse_gwas]   {len(df):,} gene-phenotype rows")
+# SNP-phenotype edges, as short ontology IDs ("http://www.ebi.ac.uk/efo/EFO_0000180" -> "EFO_0000180")
+phenos = df[["snp", "DATE"]].assign(target=df["MAPPED_TRAIT_URI"].str.split(","))
+phenos = phenos.explode("target").dropna(subset=["target"])
+phenos = phenos.assign(target=phenos["target"].str.strip().str.split("/").str[-1], target_type="phenotype")
+phenos = phenos[phenos["target"] != ""]
 
-# Same gene-phenotype pair is often reported by many studies: keep the strongest p-value, and date the
-# pair by its first report (a pair found in 2012 and again in 2018 is a 2012 edge)
-edges = (
-    df.groupby(["gene", "phenotype"], as_index=False)
-    .agg(score=("PVALUE_MLOG", "max"), date=("DATE", "min"))
-)
-edges.insert(3, "source", "gwas_catalog")
+# Date each edge by its first report (an edge found in 2012 and again in 2018 is a 2012 edge)
+edges = (pd.concat([genes, phenos])
+         .groupby(["snp", "target", "target_type"], as_index=False)["DATE"].min()
+         .rename(columns={"DATE": "date"}))
 edges["year"] = edges["date"].str[:4].astype(int)
 
-# Publications (PubMed IDs) that reported the pair in its first year, e.g. "30595370;36224396"
-df["year"] = df["DATE"].str[:4].astype(int)
-first = df.merge(edges[["gene", "phenotype", "year"]], on=["gene", "phenotype", "year"])
-first = first[["gene", "phenotype", "PUBMEDID"]].drop_duplicates().sort_values("PUBMEDID")
-pmids = first.groupby(["gene", "phenotype"])["PUBMEDID"].agg(lambda s: ";".join(s.astype(str)))
-edges["first_pmids"] = pmids.reindex(pd.MultiIndex.from_frame(edges[["gene", "phenotype"]])).to_numpy()
-
-print(f"[parse_gwas]   genes: {edges['gene'].nunique():,}  "
-      f"phenotypes: {edges['phenotype'].nunique():,}  edges: {len(edges):,}")
-
+for target_type, part in edges.groupby("target_type"):
+    print(f"[parse_gwas]   SNP-{target_type} edges: {len(part):,}  "
+          f"(SNPs {part['snp'].nunique():,}, {target_type}s {part['target'].nunique():,})")
 edges.to_csv(OUTPUT, index=False)
 print(f"[parse_gwas] Saved {OUTPUT}")
