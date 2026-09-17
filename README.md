@@ -25,6 +25,14 @@ does querried subhierachy phenotype differences within EHRs show variation in ge
 Odyssey consortion EHR data
 UK biobank synthetic genotype-phenotype map data
 
+## Infographs
+
+Choose one of:
+- [Infograph 1](images/infograph1.png)
+- [Infograph 2](images/infograph2.png)
+- [Infograph 3](images/infograph3.png)
+- [Infograph 4](images/infograph4.png)
+
 ## Flowchart
 
 ```mermaid
