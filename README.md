@@ -52,11 +52,12 @@ For this, we propose to use genebass. https://app.genebass.org
 ## Federated collaborative filtering (NVFLARE)
 
 Each site has a binary `N × P` patient–phenotype matrix (1 = diagnosis present)
-and may also have a continuous `G × P` PRS / genome–phenotype matrix. Local
-truncated SVD produces `P × 32` phenotype embeddings for each stream. NVFLARE
-averages them into two global matrices:
+and may also have a continuous `G × P` PRS / genome–phenotype matrix. Sites train
+a reconstruction loss against **shared** `P × 32` phenotype embeddings; patient
+and genome vectors stay local. NVFLARE FedAverages those tables and L2-normalizes
+each phenotype vector.
 
-- genome-less embeddings from `N × P`
+- genome-less embeddings from `N × P` (binary reconstruction)
 - genome-based embeddings from `G × P` (only sites that have genetic data)
 
 ```bash

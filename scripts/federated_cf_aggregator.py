@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""NVFLARE aggregator for genome-less and genome-based phenotype embeddings."""
+"""NVFLARE aggregator: FedAvg of shared normalized phenotype embeddings."""
 
 from __future__ import annotations
 
@@ -16,6 +16,8 @@ from federated_cf_embeddings import (
     NONGENETIC_WEIGHT_KEY,
     EmbeddingContribution,
     aggregate_contributions,
+    l2_normalize_rows,
+    to_numpy,
 )
 
 try:
@@ -34,13 +36,6 @@ except ImportError:  # pragma: no cover - unit tests without NVFLARE
             self.meta = meta or {}
 
 
-def _as_float_array(value: Any, name: str) -> np.ndarray:
-    array = np.asarray(value, dtype=np.float32)
-    if array.ndim != 2 and name.endswith("embeddings"):
-        raise ValueError(f"{name} must be a 2-D embedding matrix")
-    return array
-
-
 def _scalar(value: Any, default: float = 0.0) -> float:
     if value is None:
         return default
@@ -48,8 +43,8 @@ def _scalar(value: Any, default: float = 0.0) -> float:
 
 
 def _contribution(params: dict[str, Any], embedding_key: str, mask_key: str, weight_key: str) -> EmbeddingContribution:
-    embeddings = _as_float_array(params[embedding_key], embedding_key)
-    mask = np.asarray(params.get(mask_key, np.ones(embeddings.shape[0], dtype=np.float32)), dtype=np.float32)
+    embeddings = l2_normalize_rows(to_numpy(params[embedding_key]))
+    mask = to_numpy(params.get(mask_key, np.ones(embeddings.shape[0], dtype=np.float32))).reshape(-1)
     weight = _scalar(params.get(weight_key, 0.0))
     if mask.shape != (embeddings.shape[0],):
         raise ValueError(f"{mask_key} must have shape ({embeddings.shape[0]},)")
@@ -71,11 +66,7 @@ def aggregate_client_params(
 
 
 class PhenotypeEmbeddingAggregator(ModelAggregator):
-    """Average site phenotype embeddings, keeping the two streams separate.
-
-    Clients without a G×P matrix send ``genetic_weight=0`` and are excluded from
-    the genome-based global embedding.
-    """
+    """FedAvg the shared phenotype tables; skip genetic updates from sites without G×P."""
 
     def __init__(self) -> None:
         super().__init__()
@@ -117,7 +108,10 @@ try:
         """FedAvg that also writes the two global embedding matrices as ``.npz``."""
 
         def save_model_file(self, model: FLModel, filepath: str) -> None:
-            arrays = {key: np.asarray(value) for key, value in (model.params or {}).items()}
+            arrays = {
+                key: l2_normalize_rows(to_numpy(value)) if "embeddings" in key else np.asarray(value)
+                for key, value in (model.params or {}).items()
+            }
             np.savez(str(_Path(filepath).with_suffix(".npz")), **arrays)
             super().save_model_file(model, filepath)
 

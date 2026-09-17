@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 """Run federated collaborative filtering with NVFLARE.
 
-Each site factorizes:
-  * binary N×P patient–phenotype matrix (1 = phenotype present) -> genome-less phenotype embeddings (P×32)
-  * optional continuous G×P PRS / genome–phenotype matrix -> genome-based phenotype embeddings (P×32)
-
-The server aligns and averages those two streams separately. Sites without G×P
-contribute only to the genome-less global embedding.
+Each site trains a reconstruction loss against shared ``P × 32`` phenotype
+embeddings (binary N×P for genome-less, optional continuous G×P for genome-based).
+Patient / genome row vectors stay local. The server FedAverages the same
+phenotype tables and L2-normalizes every vector.
 """
 
 from __future__ import annotations
@@ -23,7 +21,7 @@ sys.path.insert(0, str(SCRIPTS))
 
 from federated_cf_aggregator import PhenotypeEmbeddingAggregator, PhenotypeEmbeddingFedAvg  # noqa: E402
 from federated_cf_data import PHENOTYPE_IDS_NAME, read_id_list  # noqa: E402
-from federated_cf_embeddings import GENETIC_KEY, NONGENETIC_KEY, empty_global_params  # noqa: E402
+from federated_cf_embeddings import GENETIC_KEY, NONGENETIC_KEY, random_unit_params  # noqa: E402
 from generate_federated_sites import generate  # noqa: E402
 
 
@@ -33,7 +31,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--workspace", default=str(ROOT / "work" / "nvflare_federated_cf"))
     parser.add_argument("--output", default=str(ROOT / "data" / "federated" / "global_phenotype_embeddings.npz"))
     parser.add_argument("--n_factors", type=int, default=32)
-    parser.add_argument("--num_rounds", type=int, default=2)
+    parser.add_argument("--num_rounds", type=int, default=5)
+    parser.add_argument("--local_epochs", type=int, default=20)
+    parser.add_argument("--lr", type=float, default=0.05)
     parser.add_argument("--export_job", default="")
     parser.add_argument("--skip_generate", action="store_true")
     return parser.parse_args()
@@ -97,7 +97,7 @@ def _export_npz(workspace: Path, output: Path, phenotype_ids: list[str], n_facto
                     genetic_phenotype_embeddings=np.asarray(params[GENETIC_KEY]),
                 )
                 return output
-    zeros = empty_global_params(len(phenotype_ids), n_factors)
+    zeros = random_unit_params(len(phenotype_ids), n_factors)
     np.savez(
         output,
         phenotype_ids=np.array(phenotype_ids),
@@ -125,12 +125,13 @@ def main() -> None:
     n_clients = len(sites)
 
     job = FedJob(name="federated_phenotype_cf", min_clients=n_clients)
+    init = random_unit_params(len(phenotype_ids), args.n_factors)
     aggregator = PhenotypeEmbeddingAggregator()
     controller = PhenotypeEmbeddingFedAvg(
         num_clients=n_clients,
         num_rounds=args.num_rounds,
         persistor_id="",
-        model={},
+        model={key: value.tolist() for key, value in init.items()},
         aggregator=aggregator,
         save_filename="phenotype_embeddings.fobs",
     )
@@ -144,6 +145,8 @@ def main() -> None:
             f"--data_dir {site_dir} "
             f"--phenotype_ids {phenotype_ids_path} "
             f"--n_factors {args.n_factors} "
+            f"--local_epochs {args.local_epochs} "
+            f"--lr {args.lr} "
             f"--device cpu"
         )
         runner = ScriptRunner(
