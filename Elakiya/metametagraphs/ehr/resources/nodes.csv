@@ -1,0 +1,28 @@
+node_id,label,parent,exclusive_group,priority,logic,window_days,description,source
+dyslipidaemia,Dyslipidaemia (disorders of lipoprotein metabolism),,,,code>=2 | code>=1 & med>=1,730,"Two diagnosis codes, or one code plus lipid-lowering therapy, within two years; children roll up regardless",project rule (two-code / code plus treatment pattern)
+dyslipidaemia.high_ldl,High LDL-C,dyslipidaemia,,,any,,"LDL-C >= 160 mg/dL (4.14 mmol/L) at any measurement, or coded pure hypercholesterolaemia","NCEP ATP III (NIH Publication 01-3670, 2001), Table 2"
+dyslipidaemia.high_ldl.severe,Severe hypercholesterolaemia,dyslipidaemia.high_ldl,,,any,,Highest LDL-C >= 190 mg/dL (4.91 mmol/L),"NCEP ATP III Table 2 (very high); 2018 AHA/ACC guideline (LDL-C >= 190 mg/dL, DOI 10.1161/CIR.0000000000000625)"
+dyslipidaemia.high_ldl.severe.dlcn_possible,"DLCN LDL-C criterion: possible FH range (LDL-C 5.0-8.5 mmol/L, 3 or 5 points)",dyslipidaemia.high_ldl.severe,dlcn_ldl,1,any,,Highest LDL-C >= 5.0 mmol/L; LDL-C points alone put the DLCN score in the possible FH band (3-5),"Dutch Lipid Clinic Network criteria, as tabulated in CADTH Lomitapide review 2015 (NCBI Bookshelf NBK362539, Table 10) and ESC/EAS 2019"
+dyslipidaemia.high_ldl.severe.dlcn_probable,"DLCN LDL-C criterion: probable FH (LDL-C > 8.5 mmol/L, 8 points)",dyslipidaemia.high_ldl.severe,dlcn_ldl,2,any,,Highest LDL-C > 8.5 mmol/L; 8 points put the DLCN score in the probable FH band (6-8) on LDL-C alone,"Dutch Lipid Clinic Network criteria, as tabulated in CADTH Lomitapide review 2015 (NCBI Bookshelf NBK362539, Table 10) and ESC/EAS 2019"
+dyslipidaemia.low_hdl,Low HDL-C (sex-specific),dyslipidaemia,,,any,,"Most recent HDL-C < 40 mg/dL (1.03 mmol/L) in men, < 50 mg/dL (1.29 mmol/L) in women, or coded lipoprotein deficiency",NCEP ATP III Table 8 (metabolic syndrome HDL cutoffs)
+dyslipidaemia.high_tg,High triglycerides,dyslipidaemia,,,any,,"Highest TG >= 200 mg/dL (2.26 mmol/L), or coded hyperglyceridaemia","NCEP ATP III (NIH Publication 01-3670, 2001), triglyceride classification"
+dyslipidaemia.high_tg.very_high,Very high triglycerides,dyslipidaemia.high_tg,,,any,,Highest TG >= 500 mg/dL (5.65 mmol/L),"NCEP ATP III (NIH Publication 01-3670, 2001), triglyceride classification"
+dyslipidaemia.mixed,Mixed hyperlipidaemia (coded),dyslipidaemia,,,any,,Diagnosis code for mixed hyperlipidaemia,WHO ICD-10 E78.2
+dyslipidaemia.high_tc,High total cholesterol,dyslipidaemia,,,any,,Total cholesterol >= 240 mg/dL (6.21 mmol/L),"NCEP ATP III (NIH Publication 01-3670, 2001), Table 2"
+dyslipidaemia.high_lpa,Elevated Lp(a),dyslipidaemia,,,any,,Lp(a) > 50 mg/dL or > 105 nmol/L,"2025 Focused Update of the 2019 ESC/EAS dyslipidaemia guidelines (Eur Heart J 46(42):4359), as summarised by PACE-CME"
+dyslipidaemia.high_lpa.very_high,Very high Lp(a),dyslipidaemia.high_lpa,,,any,,"Lp(a) > 180 mg/dL or > 430 nmol/L (not observable in UKB field 30790, whose reported maximum is 189 nmol/L)","2019 ESC/EAS dyslipidaemia guidelines (Eur Heart J 41(1):111, DOI 10.1093/eurheartj/ehz455)"
+dyslipidaemia.high_apob,Elevated apolipoprotein B,dyslipidaemia,,,any,,"ApoB >= 130 mg/dL (1.30 g/L), a risk-enhancing factor",2018 AHA/ACC guideline risk-enhancing factors (Family Heart Foundation summary)
+dyslipidaemia.treated,Lipid-lowering therapy,dyslipidaemia,,,any,,"At least two prescriptions of a lipid-regulating drug, or self-reported cholesterol-lowering medication",WHO ATC C10; BNF section 2.12; UKB fields 6177/6153
+t2d,Type 2 diabetes,,,,any,,Coded type 2 diabetes; children roll up,WHO ICD-10 E11; ClinicalCodes.org; OpenSAFELY diabetes codelist
+t2d.renal,T2D with renal complications,t2d,,,any,,Coded renal complication of type 2 diabetes,WHO ICD-10 E11.2; ClinicalCodes.org; OpenSAFELY diabetes codelist
+t2d.ophthalmic,T2D with ophthalmic complications,t2d,,,any,,Coded ophthalmic complication of type 2 diabetes,WHO ICD-10 E11.3; ClinicalCodes.org; OpenSAFELY diabetes codelist
+t2d.poor_control,T2D with poor glycaemic control,t2d,,,code>=1 | lab>=1,,"Coded poor control, or most recent HbA1c >= 75 mmol/mol (9.0%)",NICE NG28 recommendation 1.7.26 (HbA1c 75 mmol/mol threshold)
+hypertension,Hypertension,,,,any,,Coded hypertension; children roll up,WHO ICD-10 I10-I15; ClinicalCodes.org; OpenSAFELY hypertension codelist
+hypertension.essential,Essential hypertension,hypertension,,,any,,Coded essential hypertension,WHO ICD-10 I10
+hypertension.secondary,Secondary hypertension,hypertension,,,any,,Coded secondary hypertension,WHO ICD-10 I15
+hypertension.organ_damage,Hypertensive heart or kidney disease,hypertension,,,any,,Coded hypertensive heart and/or renal disease,WHO ICD-10 I11-I13
+hypertension.treated,Blood pressure medication (self-reported),hypertension,,,any,,UKB touchscreen answer 'Blood pressure medication',"UKB Showcase fields 6177/6153, data-coding 100625"
+asthma,Asthma,,,,any,,Coded asthma; children roll up,WHO ICD-10 J45-J46; ClinicalCodes.org; OpenSAFELY asthma codelist
+asthma.allergic,Allergic asthma,asthma,,,any,,Coded predominantly allergic / extrinsic asthma,WHO ICD-10 J45.0
+asthma.non_allergic,Non-allergic asthma,asthma,,,any,,Coded non-allergic / intrinsic asthma,WHO ICD-10 J45.1
+asthma.severe,Severe or acute asthma,asthma,,,any,,Coded status asthmaticus / acute exacerbation / brittle asthma,WHO ICD-10 J46; ClinicalCodes.org

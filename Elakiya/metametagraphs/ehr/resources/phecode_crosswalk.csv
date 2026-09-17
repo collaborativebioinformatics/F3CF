@@ -1,0 +1,21 @@
+node_id,phecode_version,phecode,relation,phecode_label
+dyslipidaemia,1.2,272,broader,272 Disorders of lipoid metabolism
+dyslipidaemia,1.2,272.1,close,272.1 Hyperlipidemia
+dyslipidaemia.high_ldl,1.2,272.11,close,272.11 Hypercholesterolemia
+dyslipidaemia.high_tg,1.2,272.12,close,272.12 Hyperglyceridemia
+dyslipidaemia.mixed,1.2,272.13,equivalent,272.13 Mixed hyperlipidemia
+t2d,1.2,250.2,equivalent,250.2 Type 2 diabetes
+t2d.renal,1.2,250.22,equivalent,250.22 Type 2 diabetes with renal manifestations
+t2d.ophthalmic,1.2,250.23,equivalent,250.23 Type 2 diabetes with ophthalmic manifestations
+hypertension,1.2,401,equivalent,401 Hypertension
+hypertension.essential,1.2,401.1,equivalent,401.1 Essential hypertension
+hypertension.organ_damage,1.2,401.2,close,401.2 Hypertensive heart and/or renal disease
+asthma,1.2,495,equivalent,495 Asthma
+dyslipidaemia,X,EM_239,close,EM_239 Hyperlipidemia
+dyslipidaemia.high_ldl,X,EM_239.1,close,EM_239.1 Hypercholesterolemia
+dyslipidaemia.high_tg,X,EM_239.2,close,EM_239.2 Hyperglyceridemia
+dyslipidaemia.mixed,X,EM_239.3,equivalent,EM_239.3 Mixed hyperlipidemia
+t2d,X,EM_202.2,equivalent,EM_202.2 Type 2 diabetes
+hypertension,X,CV_401,equivalent,CV_401 Hypertension
+hypertension.essential,X,CV_401.1,equivalent,CV_401.1 Essential hypertension
+asthma,X,RE_475,equivalent,RE_475 Asthma

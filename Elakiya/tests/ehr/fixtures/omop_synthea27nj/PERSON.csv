@@ -1,0 +1,13 @@
+person_id,gender_concept_id,year_of_birth,month_of_birth,day_of_birth,birth_datetime,race_concept_id,ethnicity_concept_id,location_id,provider_id,care_site_id,person_source_value,gender_source_value,gender_source_concept_id,race_source_value,race_source_concept_id,ethnicity_source_value,ethnicity_source_concept_id
+5,8507,1988,9,22,1988-09-22 00:00:00,8527,38003563,,,,1b196f94-9358-acec-e497-56a8747585f7,M,0,white,0,hispanic,0
+7,8507,1938,2,22,1938-02-22 00:00:00,8527,38003564,,,,34f08c59-6fb0-6cf4-f22f-7c425faaba09,M,0,white,0,nonhispanic,0
+8,8532,1967,1,17,1967-01-17 00:00:00,8527,38003563,,,,35d4168f-5339-7951-8614-50bed3eed975,F,0,white,0,hispanic,0
+9,8507,1978,6,1,1978-06-01 00:00:00,8527,38003564,,,,3a776ff9-f08a-4079-e8c1-45010fd56a94,M,0,white,0,nonhispanic,0
+10,8507,1971,8,22,1971-08-22 00:00:00,0,38003564,,,,4437acab-e00d-57b7-776f-f86ea7d61036,M,0,hawaiian,0,nonhispanic,0
+12,8532,1996,3,18,1996-03-18 00:00:00,8515,38003564,,,,5f229e94-454d-5778-c48f-7498b817a5a6,F,0,asian,0,nonhispanic,0
+13,8507,1986,8,10,1986-08-10 00:00:00,8527,38003564,,,,642012ab-d8da-ff57-f2f3-58e4d426d825,M,0,white,0,nonhispanic,0
+16,8532,1970,9,27,1970-09-27 00:00:00,8527,38003564,,,,86b515a3-42cf-63a6-0479-d5be959b9803,F,0,white,0,nonhispanic,0
+20,8532,1953,9,21,1953-09-21 00:00:00,8516,38003563,,,,c00118cf-9c1e-0dfb-da52-8c16044a0aef,F,0,black,0,hispanic,0
+22,8532,1968,10,9,1968-10-09 00:00:00,8527,38003563,,,,d6989f5c-bddb-5f8a-3a7d-ed9bb7e21a7f,F,0,white,0,hispanic,0
+26,8507,1938,2,22,1938-02-22 00:00:00,8527,38003564,,,,e62f0b53-3021-a25f-494d-8b320aa8c1f0,M,0,white,0,nonhispanic,0
+28,8532,1970,7,10,1970-07-10 00:00:00,8527,38003564,,,,f23802db-6b1f-b3ff-06ba-f949fd963c33,F,0,white,0,nonhispanic,0

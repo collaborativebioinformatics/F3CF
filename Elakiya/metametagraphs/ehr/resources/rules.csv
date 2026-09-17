@@ -1,0 +1,104 @@
+rule_id,node_id,rule_type,code_system,code,match,analyte,op,threshold,unit,sex,aggregation,min_count,verified,source
+R001,dyslipidaemia,code,icd10,E78.0,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R002,dyslipidaemia,code,icd10,E78.1,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R003,dyslipidaemia,code,icd10,E78.2,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R004,dyslipidaemia,code,icd10,E78.3,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R005,dyslipidaemia,code,icd10,E78.4,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R006,dyslipidaemia,code,icd10,E78.5,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R007,dyslipidaemia,code,read2,C32..,prefix,,,,,any,,,no,Read v2 chapter C32 disorders of lipoid metabolism (not found in a checked codelist)
+R008,dyslipidaemia,code,omop,432867,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); Hyperlipidemia (SNOMED 55822004)
+R009,dyslipidaemia,code,snomed,55822004,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); Hyperlipidemia
+R010,dyslipidaemia.high_ldl,code,icd10,E78.0,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map; pure hypercholesterolaemia
+R011,dyslipidaemia.high_ldl,code,read2,C320.,prefix,,,,,any,,,no,Read v2 pure hypercholesterolaemia (not found in a checked codelist)
+R012,dyslipidaemia.high_ldl,lab,,,,ldl_c,>=,4.14,mmol/L,any,any,,yes,"NCEP ATP III (NIH Publication 01-3670, 2001), Table 2; 160 mg/dL x 0.02586"
+R013,dyslipidaemia.high_ldl.severe,lab,,,,ldl_c,>=,4.91,mmol/L,any,worst,,yes,NCEP ATP III / 2018 AHA/ACC; 190 mg/dL x 0.02586
+R014,dyslipidaemia.high_ldl.severe.dlcn_possible,lab,,,,ldl_c,>=,5.0,mmol/L,any,worst,,yes,"Dutch Lipid Clinic Network criteria, as tabulated in CADTH Lomitapide review 2015 (NCBI Bookshelf NBK362539, Table 10) and ESC/EAS 2019"
+R015,dyslipidaemia.high_ldl.severe.dlcn_probable,lab,,,,ldl_c,>,8.5,mmol/L,any,worst,,yes,"Dutch Lipid Clinic Network criteria, as tabulated in CADTH Lomitapide review 2015 (NCBI Bookshelf NBK362539, Table 10) and ESC/EAS 2019"
+R016,dyslipidaemia.low_hdl,code,icd10,E78.6,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map; lipoprotein deficiency
+R017,dyslipidaemia.low_hdl,lab,,,,hdl_c,<,1.03,mmol/L,male,most_recent,,yes,NCEP ATP III Table 8; 40 mg/dL x 0.02586
+R018,dyslipidaemia.low_hdl,lab,,,,hdl_c,<,1.29,mmol/L,female,most_recent,,yes,NCEP ATP III Table 8; 50 mg/dL x 0.02586
+R019,dyslipidaemia.low_hdl,lab,,,,hdl_c,<,1.03,mmol/L,unknown,most_recent,,yes,project choice: male cutoff when sex is unknown (conservative)
+R020,dyslipidaemia.high_tg,code,icd10,E78.1,prefix,,,,,any,,,yes,"WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map; pure hyperglyceridaemia, hyperchylomicronaemia"
+R021,dyslipidaemia.high_tg,code,icd10,E78.3,prefix,,,,,any,,,yes,"WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map; pure hyperglyceridaemia, hyperchylomicronaemia"
+R022,dyslipidaemia.high_tg,code,read2,C321.,prefix,,,,,any,,,no,Read v2 pure hyperglyceridaemia (not found in a checked codelist)
+R023,dyslipidaemia.high_tg,code,omop,4120314,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); Hypertriglyceridemia (SNOMED 302870006)
+R024,dyslipidaemia.high_tg,code,snomed,302870006,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); Hypertriglyceridemia
+R025,dyslipidaemia.high_tg,lab,,,,tg,>=,2.26,mmol/L,any,worst,,yes,NCEP ATP III triglyceride classification; 200 mg/dL x 0.01129
+R026,dyslipidaemia.high_tg.very_high,lab,,,,tg,>=,5.65,mmol/L,any,worst,,yes,NCEP ATP III triglyceride classification; 500 mg/dL x 0.01129
+R027,dyslipidaemia.mixed,code,icd10,E78.2,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R028,dyslipidaemia.mixed,code,read2,C322.,prefix,,,,,any,,,no,Read v2 mixed hyperlipidaemia (not found in a checked codelist)
+R029,dyslipidaemia.high_tc,lab,,,,tc,>=,6.21,mmol/L,any,any,,yes,"NCEP ATP III (NIH Publication 01-3670, 2001), Table 2; 240 mg/dL x 0.02586"
+R030,dyslipidaemia.high_lpa,lab,,,,lpa_molar,>,105,nmol/L,any,any,,yes,ESC/EAS 2025 focused update
+R031,dyslipidaemia.high_lpa,lab,,,,lpa_mass,>,50,mg/dL,any,any,,yes,ESC/EAS 2025 focused update
+R032,dyslipidaemia.high_lpa.very_high,lab,,,,lpa_molar,>,430,nmol/L,any,any,,yes,ESC/EAS 2019 (Lp(a) > 430 nmol/L)
+R033,dyslipidaemia.high_lpa.very_high,lab,,,,lpa_mass,>,180,mg/dL,any,any,,yes,ESC/EAS 2019 (Lp(a) > 180 mg/dL)
+R034,dyslipidaemia.high_apob,lab,,,,apob,>=,1.30,g/L,any,any,,yes,2018 AHA/ACC risk-enhancing factor apoB >= 130 mg/dL
+R035,dyslipidaemia.treated,med,bnf,0212,prefix,,,,,any,,2,yes,"BNF section 2.12 Lipid-regulating drugs (OpenPrescribing BNF 2.12 page); UKB gp_scripts bnf_code, dots removed"
+R036,dyslipidaemia.treated,med,atc,C10,prefix,,,,,any,,2,yes,WHO ATC C10 Lipid modifying agents (atcddd.fhi.no)
+R037,dyslipidaemia.treated,med,drug_name,\b(?:simva|lova|prava|fluva|atorva|ceriva|rosuva|pitava)statin\b,regex,,,,,any,,2,yes,WHO ATC C10AA substances C10AA01-C10AA08 (atcddd.fhi.no)
+R038,dyslipidaemia.treated,med,omop,1539463,exact,,,,,any,,2,yes,"Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); simvastatin 10 MG, simvastatin 20 MG, atorvastatin 80 MG Oral Tablet (RxNorm)"
+R039,dyslipidaemia.treated,med,omop,1539411,exact,,,,,any,,2,yes,"Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); simvastatin 10 MG, simvastatin 20 MG, atorvastatin 80 MG Oral Tablet (RxNorm)"
+R040,dyslipidaemia.treated,med,omop,1545959,exact,,,,,any,,2,yes,"Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); simvastatin 10 MG, simvastatin 20 MG, atorvastatin 80 MG Oral Tablet (RxNorm)"
+R041,dyslipidaemia.treated,med,ukb_field,6177=1,exact,,,,,any,,1,yes,"UKB Showcase fields 6177 (men) / 6153 (women), data-coding 100625: 1 = Cholesterol lowering medication"
+R042,dyslipidaemia.treated,med,ukb_field,6153=1,exact,,,,,any,,1,yes,"UKB Showcase fields 6177 (men) / 6153 (women), data-coding 100625: 1 = Cholesterol lowering medication"
+R043,t2d,code,icd10,E11,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R044,t2d,code,read2,C10F.,prefix,,,,,any,,,yes,ClinicalCodes.org article 2 codelist diabetes
+R045,t2d,code,ctv3,X40J5,exact,,,,,any,,,yes,"OpenSAFELY codelist opensafely/diabetes/2020-04-15 (github.com/opensafely/risk-factors-research, MIT); Type II diabetes mellitus"
+R046,t2d,code,ctv3,C109.,prefix,,,,,any,,,yes,"OpenSAFELY codelist opensafely/diabetes/2020-04-15 (github.com/opensafely/risk-factors-research, MIT); C109. Type II diabetes mellitus and children"
+R047,t2d,code,omop,201826,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); Type 2 diabetes mellitus (SNOMED 44054006)
+R048,t2d,code,snomed,44054006,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets)
+R049,t2d.renal,code,icd10,E11.2,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R050,t2d.renal,code,read2,C10F0,exact,,,,,any,,,yes,ClinicalCodes.org article 2 codelist diabetes
+R051,t2d.renal,code,read2,C10FC,exact,,,,,any,,,yes,ClinicalCodes.org article 2 codelist diabetes
+R052,t2d.renal,code,read2,C10FL,exact,,,,,any,,,yes,ClinicalCodes.org article 2 codelist diabetes
+R053,t2d.renal,code,read2,C10FM,exact,,,,,any,,,yes,ClinicalCodes.org article 2 codelist diabetes
+R054,t2d.renal,code,ctv3,C1090,exact,,,,,any,,,yes,"OpenSAFELY codelist opensafely/diabetes/2020-04-15 (github.com/opensafely/risk-factors-research, MIT); Type II diabetes mellitus with renal complications"
+R055,t2d.renal,code,omop,45757499,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); proteinuria / microalbuminuria due to T2DM; disorder of kidney due to diabetes (not type specific)
+R056,t2d.renal,code,omop,45769905,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); proteinuria / microalbuminuria due to T2DM; disorder of kidney due to diabetes (not type specific)
+R057,t2d.renal,code,omop,192279,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); proteinuria / microalbuminuria due to T2DM; disorder of kidney due to diabetes (not type specific)
+R058,t2d.ophthalmic,code,icd10,E11.3,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R059,t2d.ophthalmic,code,read2,C10F1,exact,,,,,any,,,yes,ClinicalCodes.org article 2 codelist diabetes
+R060,t2d.ophthalmic,code,read2,C10F6,exact,,,,,any,,,yes,ClinicalCodes.org article 2 codelist diabetes
+R061,t2d.ophthalmic,code,read2,C10FE,exact,,,,,any,,,yes,ClinicalCodes.org article 2 codelist diabetes
+R062,t2d.ophthalmic,code,read2,C10FQ,exact,,,,,any,,,yes,ClinicalCodes.org article 2 codelist diabetes
+R063,t2d.ophthalmic,code,ctv3,C1091,exact,,,,,any,,,yes,"OpenSAFELY codelist opensafely/diabetes/2020-04-15 (github.com/opensafely/risk-factors-research, MIT); Type II diabetes mellitus with ophthalmic complications"
+R064,t2d.ophthalmic,code,omop,4226121,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); retinopathy due to T2DM concepts
+R065,t2d.ophthalmic,code,omop,43530685,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); retinopathy due to T2DM concepts
+R066,t2d.ophthalmic,code,omop,43530656,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); retinopathy due to T2DM concepts
+R067,t2d.ophthalmic,code,omop,45770830,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); retinopathy due to T2DM concepts
+R068,t2d.poor_control,code,read2,C10F7,exact,,,,,any,,,yes,ClinicalCodes.org article 2 codelist diabetes; Type 2 diabetes mellitus - poor control
+R069,t2d.poor_control,lab,,,,hba1c,>=,75,mmol/mol,any,most_recent,,yes,NICE NG28 recommendation 1.7.26 (HbA1c 75 mmol/mol [9.0%] or higher)
+R070,hypertension,code,icd10,I10,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R071,hypertension,code,icd10,I11,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R072,hypertension,code,icd10,I12,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R073,hypertension,code,icd10,I13,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R074,hypertension,code,icd10,I15,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R075,hypertension,code,ctv3,XE0Ub,exact,,,,,any,,,yes,"OpenSAFELY codelist opensafely/hypertension/2020-04-28 (github.com/opensafely/risk-factors-research, MIT); Hypertension"
+R076,hypertension.essential,code,icd10,I10,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R077,hypertension.essential,code,read2,G20..,prefix,,,,,any,,,yes,"ClinicalCodes.org article 1 (hypertension, asthma) codelist hypertension"
+R078,hypertension.essential,code,ctv3,XE0Uc,exact,,,,,any,,,yes,"OpenSAFELY codelist opensafely/hypertension/2020-04-28 (github.com/opensafely/risk-factors-research, MIT); Essential hypertension"
+R079,hypertension.essential,code,ctv3,G20..,prefix,,,,,any,,,yes,"OpenSAFELY codelist opensafely/hypertension/2020-04-28 (github.com/opensafely/risk-factors-research, MIT); G20.. High blood pressure (& [essential hypertension])"
+R080,hypertension.essential,code,omop,320128,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); Essential hypertension (SNOMED 59621000)
+R081,hypertension.essential,code,snomed,59621000,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets)
+R082,hypertension.secondary,code,icd10,I15,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R083,hypertension.secondary,code,read2,G24..,prefix,,,,,any,,,yes,"ClinicalCodes.org article 1 (hypertension, asthma) codelist hypertension"
+R084,hypertension.organ_damage,code,icd10,I11,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R085,hypertension.organ_damage,code,icd10,I12,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R086,hypertension.organ_damage,code,icd10,I13,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R087,hypertension.treated,med,ukb_field,6177=2,exact,,,,,any,,1,yes,"UKB Showcase fields 6177/6153, data-coding 100625: 2 = Blood pressure medication"
+R088,hypertension.treated,med,ukb_field,6153=2,exact,,,,,any,,1,yes,"UKB Showcase fields 6177/6153, data-coding 100625: 2 = Blood pressure medication"
+R089,asthma,code,icd10,J45,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R090,asthma,code,icd10,J46,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R091,asthma,code,read2,H33..,prefix,,,,,any,,,yes,"ClinicalCodes.org article 1 (hypertension, asthma) codelist asthma"
+R092,asthma,code,ctv3,H33..,prefix,,,,,any,,,yes,"OpenSAFELY codelist opensafely/asthma-diagnosis/2020-04-15 (github.com/opensafely/risk-factors-research, MIT); H33.. Asthma"
+R093,asthma,code,omop,317009,exact,,,,,any,,,yes,"Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); Asthma, Childhood asthma"
+R094,asthma,code,omop,4051466,exact,,,,,any,,,yes,"Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets); Asthma, Childhood asthma"
+R095,asthma,code,snomed,195967001,exact,,,,,any,,,yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets)
+R096,asthma.allergic,code,icd10,J45.0,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R097,asthma.allergic,code,read2,H330.,prefix,,,,,any,,,yes,"ClinicalCodes.org article 1 (hypertension, asthma) codelist asthma"
+R098,asthma.non_allergic,code,icd10,J45.1,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R099,asthma.non_allergic,code,read2,H331.,prefix,,,,,any,,,yes,"ClinicalCodes.org article 1 (hypertension, asthma) codelist asthma"
+R100,asthma.severe,code,icd10,J46,prefix,,,,,any,,,yes,WHO ICD-10; code present in PhecodeX 1.0 WHO map and Phecode 1.2 ICD-10 map
+R101,asthma.severe,code,read2,H333.,exact,,,,,any,,,yes,"ClinicalCodes.org article 1 (hypertension, asthma) codelist asthma"
+R102,asthma.severe,code,read2,H334.,exact,,,,,any,,,yes,"ClinicalCodes.org article 1 (hypertension, asthma) codelist asthma"
+R103,asthma.severe,code,read2,H33z0,exact,,,,,any,,,yes,"ClinicalCodes.org article 1 (hypertension, asthma) codelist asthma"
