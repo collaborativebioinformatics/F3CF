@@ -139,8 +139,6 @@ Because the model is relational and modular, new clinics, entities, columns, or 
 
 The resulting latent space can be explored for tasks such as patient stratification, drug-response prediction, genotype–phenotype discovery, and estimating whether external biobank data add useful information to a specific clinic.
 
-## The math
-
 Each data source is represented as a relation matrix, for example patient–drug, patient–phenotype, or phenotype–PRS.
 
 F3CF learns low-dimensional embeddings such that:
