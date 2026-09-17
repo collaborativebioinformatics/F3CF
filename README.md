@@ -204,9 +204,7 @@ Relationships could also be extended using known relational graphs, ontologies, 
 
 Such extensions could turn F3CF into a framework for exploring a federated **meta-knowledge graph**, where clinical observations, genomic associations, treatments, phenotypes, and existing biomedical knowledge contribute to a common latent representation. This could enable exploration of relationships that are not directly observed in any single dataset while preserving the distributed nature of the underlying data.
 
-## Team 8 — Nordic Conference on Future Health 2026
-
-14–16 September 2026
+## Team 8 — Nordic Conference on Future Health 2026, 14–16 September 2026
 
 * Victor Enrique Goitea
 * Chris Hart
