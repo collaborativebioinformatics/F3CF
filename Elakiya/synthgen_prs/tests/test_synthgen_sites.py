@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "Elakiya" / "synthgen_prs"))
 
-from build_sites import SITES, build, load_synthgen, logistic_effects, standardize  # noqa: E402
+from build_synthgen_sites import SITES, build, load_synthgen, logistic_effects, standardize  # noqa: E402
 from federated_cf_data import load_site, read_id_list, read_labeled_matrix  # noqa: E402
 
 DATA = ROOT / "data" / "synthgen_federated"
