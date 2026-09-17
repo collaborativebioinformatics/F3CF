@@ -31,6 +31,9 @@ cf:
 temporal:                 # main accretion demo: replay GWAS Catalog history year by year
   first_year: 2010
   last_year: 2025
+  k_fraction: 0.01            # second recall column: K = 1% of phenotypes known before the year
+  top_studies: 5              # publications (PubMed IDs) listed per year
+  exclusion_years: [2018, 2022, 2025]   # rerun these years without their top publications
 
 accretion:                # random-chunk accretion (secondary)
   seeds: [1, 2, 3, 4, 5]   # one fixed held-out GWAS test set per seed

@@ -7,12 +7,13 @@ configfile: "config.yaml"
 SOURCES = config["sources"]
 CF = config["cf"]
 ACC = config["accretion"]
+TEMP = config["temporal"]
 URL = config["downloads"]
 
 
 rule all:
     input:
-        "results/temporal_accretion.csv",
+        "results/temporal_years.csv",
         "results/figures/temporal_accretion.pdf",
         "results/predictions.csv",
         "results/accretion.csv",
@@ -123,23 +124,28 @@ rule temporal_accretion:
         script="scripts/temporal_accretion.py",
         cf="scripts/cf.py",
         gwas="data/edges_gwas.csv",
+        catalog="data/gwas_catalog.tsv",
     output:
-        "results/temporal_accretion.csv",
+        years="results/temporal_years.csv",
+        studies="results/temporal_top_studies.csv",
+        excluded="results/temporal_excluding_top_studies.csv",
     params:
-        years=f"{config['temporal']['first_year']} {config['temporal']['last_year']}",
+        exclusion_years=",".join(str(y) for y in TEMP["exclusion_years"]),
     shell:
-        "python {input.script} {input.gwas} {output} {params.years}"
-        " {CF[n_components]} {CF[top_k]} {CF[seed]}"
+        "python {input.script} {input.gwas} {input.catalog} {output.years} {output.studies} {output.excluded}"
+        " {TEMP[first_year]} {TEMP[last_year]} {CF[n_components]} {CF[top_k]} {TEMP[k_fraction]} {CF[seed]}"
+        " {TEMP[top_studies]} {params.exclusion_years}"
 
 
 rule plot_temporal:
     input:
         script="scripts/plot_temporal.py",
-        summary="results/temporal_accretion.csv",
+        years="results/temporal_years.csv",
+        excluded="results/temporal_excluding_top_studies.csv",
     output:
         "results/figures/temporal_accretion.pdf",
     shell:
-        "python {input.script} {input.summary} {output} {CF[top_k]}"
+        "python {input.script} {input.years} {input.excluded} {output} {CF[top_k]}"
 
 
 # Secondary accretion demo (random chunks). Fixed held-out GWAS test set per seed; train on growing

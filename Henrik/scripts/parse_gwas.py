@@ -1,5 +1,5 @@
 # Reads:  data/gwas_catalog.tsv (GWAS Catalog associations with ontology annotations)
-# Writes: data/edges_gwas.csv (gene, phenotype, score = strongest -log10 p, source, date/year = first report)
+# Writes: data/edges_gwas.csv (gene, phenotype, score = strongest -log10 p, source, date/year/first_pmids = first report)
 # Does:   keeps associations with p < threshold, splits multi-gene / multi-trait rows, one edge per pair
 
 import math
@@ -14,7 +14,7 @@ df = pd.read_csv(INPUT, sep="\t", low_memory=False)
 print(f"[parse_gwas]   {len(df):,} associations, {df.shape[1]} columns")
 
 # Keep only the columns we need, drop rows with missing values
-df = df[["MAPPED_GENE", "MAPPED_TRAIT_URI", "PVALUE_MLOG", "DATE"]]  # DATE = study publication date
+df = df[["MAPPED_GENE", "MAPPED_TRAIT_URI", "PVALUE_MLOG", "DATE", "PUBMEDID"]]  # DATE = publication date
 df = df.dropna()
 df["PVALUE_MLOG"] = pd.to_numeric(df["PVALUE_MLOG"], errors="coerce")
 df = df.dropna()
@@ -51,6 +51,13 @@ edges = (
 )
 edges.insert(3, "source", "gwas_catalog")
 edges["year"] = edges["date"].str[:4].astype(int)
+
+# Publications (PubMed IDs) that reported the pair in its first year, e.g. "30595370;36224396"
+df["year"] = df["DATE"].str[:4].astype(int)
+first = df.merge(edges[["gene", "phenotype", "year"]], on=["gene", "phenotype", "year"])
+first = first[["gene", "phenotype", "PUBMEDID"]].drop_duplicates().sort_values("PUBMEDID")
+pmids = first.groupby(["gene", "phenotype"])["PUBMEDID"].agg(lambda s: ";".join(s.astype(str)))
+edges["first_pmids"] = pmids.reindex(pd.MultiIndex.from_frame(edges[["gene", "phenotype"]])).to_numpy()
 
 print(f"[parse_gwas]   genes: {edges['gene'].nunique():,}  "
       f"phenotypes: {edges['phenotype'].nunique():,}  edges: {len(edges):,}")
