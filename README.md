@@ -44,7 +44,16 @@ graph LR;
 
 
 ## Step 1
+Phenotypes x PRS (Genetic libality) and Phenotypes x patient
 
-Minimal example of collaborative filtering on gene x phenotypes.
+We create two matrices for collaborative filtering.
 
-For this, we propose to use genebass. https://app.genebass.org
+- Individually calculated PRS x phenotype.
+- Patient x phenotype
+
+We would expect genetic risk to cluster around genetically linked phenotypes, and that similar phenotypes cluster too.
+Discrepancies between the two matrices would then represent ... ?
+
+## Step X
+
+Use this on real data.
