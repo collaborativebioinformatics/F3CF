@@ -1,22 +1,23 @@
 # F3CF: A Flexible Federated Framework for Multi-Relational Collaborative Factorization
-F3CF is a framework for federated exploration of a shared multi-relational, multi-institutional latent knowledge space.
 
-## DEMO
+F3CF is a framework for federated exploration of a shared, multi-relational, multi-institutional latent knowledge space.
+
+## Demo
 
 Insert demo here.
 
 ## Mission
 
-## Infographs
+## Infographics
 
 Choose one of:
-- [Infograph 1](images/infograph1.png)
-- [Infograph 2](images/infograph2.png)
-- [Infograph 3](images/infograph3.png)
-- [Infograph 4](images/infograph4.png)
+
+* [Infographic 1](images/infograph1.png)
+* [Infographic 2](images/infograph2.png)
+* [Infographic 3](images/infograph3.png)
+* [Infographic 4](images/infograph4.png)
 
 ## Milestones
-
 
 ## Flowchart
 
@@ -130,14 +131,15 @@ flowchart TB
 
 ## How it works
 
-F3CF represents distributed clinical and biobank data as a set of related matrices, such as patient–drug, patient–phenotype, and phenotype–genotype (e.g. by PRS) relationships. Each site trains locally on the relations it holds, while shared entity representations are updated collaboratively across sites.
+F3CF represents distributed clinical and biobank data as a set of related matrices, such as patient–drug, patient–phenotype, and phenotype–genotype (e.g., PRS) relationships. Each site trains locally on the relations it holds, while shared entity representations are updated collaboratively across sites.
 
-The framework learns a common N-dimensional latent space in which patients, phenotypes, drugs, PRS, and other entities can be compared and clustered. Patient-level representations can remain site-specific, while shared entities such as phenotypes or drugs are aligned across institutions.
+The framework learns a common N-dimensional latent space in which patients, phenotypes, drugs, PRS, and other entities can be compared and clustered. Patient-level representations can remain site-specific, while shared entities such as phenotypes and drugs are aligned across institutions.
 
 Because the model is relational and modular, new clinics, entities, columns, or relation types can be added without redesigning the entire system. Raw data remain local; only model parameters or updates are exchanged during federated training.
 
-The resulting latent space can then be explored for tasks such as patient stratification, drug-response prediction, genotype–phenotype discovery, and estimating whether external biobank data add useful information to a specific clinic.
+The resulting latent space can be explored for tasks such as patient stratification, drug-response prediction, genotype–phenotype discovery, and estimating whether external biobank data add useful information to a specific clinic.
 
+## The math
 
 Each data source is represented as a relation matrix, for example patient–drug, patient–phenotype, or phenotype–PRS.
 
@@ -147,7 +149,7 @@ $$
 R^{(r)} \approx Z_a W_r Z_b^\top
 $$
 
-where \(Z_a\) and \(Z_b\) are latent representations of the connected entities, and \(W_r\) captures relation-specific structure.
+where $Z_a$ and $Z_b$ are latent representations of the connected entities, and $W_r$ captures relation-specific structure.
 
 The model jointly optimizes all available relations, sharing common embeddings across sites while keeping site-specific patient representations local.
 
@@ -155,60 +157,57 @@ The model jointly optimizes all available relations, sharing common embeddings a
 
 There are several ways to explore the shared latent space:
 
-- Patient-centric exploration — find nearest patients, phenotypes, PRS profiles, and candidate drugs.
-- Phenotype-centric exploration — inspect which patients, genetic-risk profiles, and drugs cluster around a phenotype.
-- Drug-centric exploration — identify phenotypic or genetic subgroups associated with a drug or drug response.
-- Population-level exploration — cluster patients into latent subgroups and compare those groups by phenotype burden, PRS, treatment, and outcomes.
+* **Patient-centric exploration** — find nearby patients, phenotypes, PRS profiles, and candidate drugs.
+* **Phenotype-centric exploration** — inspect which patients, genetic-risk profiles, and drugs cluster around a phenotype.
+* **Drug-centric exploration** — identify phenotypic or genetic subgroups associated with a drug or drug response.
+* **Population-level exploration** — cluster patients into latent subgroups and compare those groups by phenotype burden, PRS, treatment, and outcomes.
 
-## Explore datasource relationships
+## Exploring data source relationships
 
-Treat each datasource as a set of observations that contributes to the shared latent space, then measure its effect indirectly.
+Rather than representing data sources as entities themselves, each data source can be treated as a set of observations contributing to the shared latent space. Its effect can then be measured indirectly.
 
-For a datasource \(D_k\), you can examine:
+For a data source $D_k$, examine:
 
 $$
 \Delta Z_k = Z_{\text{all}} - Z_{\text{without }k}
 $$
 
-That is: how much does the learned latent space change when source \(k\) is removed?
+This measures how much the learned latent space changes when source $D_k$ is removed.
 
-Similarly, for a target clinic \(C\), define source utility as:
-
-$$
-U(D_k \rightarrow C) =
-\text{Performance}(C + D_k) -
-\text{Performance}(C)
-$$
-
-This tells you whether that source adds useful information to the clinic, without ever assigning the source its own embedding.
-
-You could also compare sources through the entities they influence. For example:
+Similarly, for a target clinic $C$, source utility can be defined as:
 
 $$
-\text{Source A}
-\rightarrow
-\{\text{phenotype embeddings it constrains}\}
+U(D_k \rightarrow C) = \text{Performance}(C + D_k) - \text{Performance}(C)
+$$
+
+This measures whether a source adds useful information to the clinic without assigning the source its own embedding.
+
+Sources can also be compared through the entities they influence. For example:
+
+$$
+\text{Source A} \rightarrow \{\text{phenotype embeddings it constrains}\}
 $$
 
 versus
 
 $$
-\text{Source B}
-\rightarrow
-\{\text{phenotype embeddings it constrains}\}
+\text{Source B} \rightarrow \{\text{phenotype embeddings it constrains}\}
 $$
 
-and measure overlap, complementarity, or directional influence between those sets.
+This enables analysis of overlap, complementarity, coverage, and influence between data sources.
 
 ## Future aspects
 
-Rather than limiting F3CF to classical matrix factorization, allow the relation operator \(W_r\) to be modular. It could be a matrix factorization operator, knowledge-graph embedding such as a bilinear relation, or potentially a graph-neural-network component. Different relations could then have different mathematical models while still contributing to the same shared representation.
+Rather than limiting F3CF to classical matrix factorization, the relation operator $W_r$ could be modular. It could be a matrix factorization operator, a knowledge-graph embedding such as a bilinear relation, or potentially a graph-neural-network component. Different relations could then use different mathematical models while still contributing to the same shared representation.
 
-It is possible to extend the relationships using known relational graphs, ontologies, and other structured knowledge. For example, phenotype ontologies, gene–pathway relationships, drug–target interactions, and disease–gene associations could provide additional constraints on the latent space. This would allow F3CF to combine relationships learned from distributed data with established biological knowledge.
+Relationships could also be extended using known relational graphs, ontologies, and other structured knowledge. For example, phenotype ontologies, gene–pathway relationships, drug–target interactions, and disease–gene associations could provide additional constraints on the latent space. This would allow F3CF to combine relationships learned from distributed data with established biological knowledge.
 
-Such extensions could turn F3CF into a framework for exploring a federated **meta-knowledge graph**, where clinical observations, genomic associations, treatments, phenotypes, and existing biomedical knowledge contribute to a common latent representation. This could enable exploration of relationships that are not directly observed in any single dataset, while preserving the distributed nature of the underlying data.
+Such extensions could turn F3CF into a framework for exploring a federated **meta-knowledge graph**, where clinical observations, genomic associations, treatments, phenotypes, and existing biomedical knowledge contribute to a common latent representation. This could enable exploration of relationships that are not directly observed in any single dataset while preserving the distributed nature of the underlying data.
 
-## Team 8 at the Nordic Conference on Future Health 2026 (14–16 September 2026).
+## Team 8 — Nordic Conference on Future Health 2026
+
+14–16 September 2026
+
 * Victor Enrique Goitea
 * Chris Hart
 * Davor Vukadin
