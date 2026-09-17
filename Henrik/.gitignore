@@ -6,3 +6,9 @@ __pycache__/
 .snakemake/
 results/
 .DS_Store
+
+# downloads, archives, logs
+*.zip
+*.gz
+*.log
+*.csv.gz

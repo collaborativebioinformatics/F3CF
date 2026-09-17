@@ -1,22 +1,22 @@
-# Metametagraphs prototype pipeline
-# Run: uv run snakemake --cores 1
-#
-# To add a dataset called "foo":
-#   1. write scripts/parse_foo.py  (usage: parse_foo.py <raw input> <output csv>,
-#      output columns: gene, phenotype, score, source)
-#   2. add "foo": "<path to its raw file>" to SOURCES below
-#   3. put the raw file there by hand, or add a download_foo rule that creates it
+# Metametagraphs prototype pipeline. Run: uv run snakemake --cores 1
+# Settings live in config.yaml. To add a gene-phenotype dataset "foo": write scripts/parse_foo.py
+# (args: raw input, output csv, threshold; columns gene, phenotype, score, source) and add it under sources.
 
-SOURCES = {
-    "gwas": "data/gwas_catalog.tsv",
-}
+configfile: "config.yaml"
 
-GWAS_URL = "https://ftp.ebi.ac.uk/pub/databases/gwas/releases/latest/gwas-catalog-associations_ontology-annotated-full.zip"
+SOURCES = config["sources"]
+CF = config["cf"]
+ACC = config["accretion"]
+URL = config["downloads"]
 
 
 rule all:
     input:
+        "results/temporal_accretion.csv",
+        "results/figures/temporal_accretion.pdf",
         "results/predictions.csv",
+        "results/accretion.csv",
+        "results/figures/accretion.pdf",
 
 
 rule download_gwas:
@@ -24,43 +24,150 @@ rule download_gwas:
         "data/gwas_catalog.tsv",
     shell:
         """
-        curl -sSL --fail -o data/gwas.zip "{GWAS_URL}"
+        curl -sSL --fail -o data/gwas.zip "{URL[gwas]}"
         unzip -p data/gwas.zip '*.tsv' > {output}
         rm data/gwas.zip
+        """
+
+
+# ~1.2 GB: overall direct association scores (14 parquet parts) + target table for gene symbols
+rule download_opentargets:
+    output:
+        directory("data/opentargets"),
+    shell:
+        """
+        for d in association_overall_direct target; do
+            mkdir -p {output}/$d
+            for f in $(curl -sSL --fail "{URL[opentargets]}/$d/" | grep -oE 'part-[^"]+[.]parquet' | sort -u); do
+                echo "downloading $d/$f"
+                curl -sSL --fail -o {output}/$d/$f "{URL[opentargets]}/$d/$f"
+            done
+        done
+        """
+
+
+# ~440 MB, one row per variant per genome assembly
+rule download_clinvar:
+    output:
+        "data/clinvar_variant_summary.txt.gz",
+    shell:
+        'curl -sSL --fail -o {output} "{URL[clinvar]}"'
+
+
+# STRING human protein links (~80 MB) + protein info for gene symbols
+rule download_string:
+    output:
+        links="data/string/9606.protein.links.v12.0.txt.gz",
+        info="data/string/9606.protein.info.v12.0.txt.gz",
+    shell:
+        """
+        curl -sSL --fail -o {output.links} "{URL[string]}/protein.links.v12.0/9606.protein.links.v12.0.txt.gz"
+        curl -sSL --fail -o {output.info} "{URL[string]}/protein.info.v12.0/9606.protein.info.v12.0.txt.gz"
         """
 
 
 rule parse:
     input:
         script="scripts/parse_{source}.py",
-        raw=lambda w: SOURCES[w.source],
+        raw=lambda w: SOURCES[w.source]["raw"],
     output:
         "data/edges_{source}.csv",
     wildcard_constraints:
         source="|".join(SOURCES),
+    params:
+        threshold=lambda w: SOURCES[w.source]["threshold"] if SOURCES[w.source]["threshold"] is not None else "",
     shell:
-        "python {input.script} {input.raw} {output}"
+        "python {input.script} {input.raw} {output} {params.threshold}"
+
+
+# Gene-gene relation: not a gene-phenotype source, so not in SOURCES / merge_edges
+rule parse_string:
+    input:
+        script="scripts/parse_string.py",
+        links="data/string/9606.protein.links.v12.0.txt.gz",
+        info="data/string/9606.protein.info.v12.0.txt.gz",
+    output:
+        "data/edges_gene_gene.csv",
+    params:
+        min_score=config["string"]["min_score"],
+    shell:
+        "python {input.script} {input.links} {input.info} {output} {params.min_score}"
 
 
 rule merge_edges:
     input:
-        expand("data/edges_{source}.csv", source=SOURCES),
+        script="scripts/merge_edges.py",
+        edges=expand("data/edges_{source}.csv", source=SOURCES),
     output:
         "data/edges.csv",
     shell:
-        "python scripts/merge_edges.py {output} {input}"
+        "python {input.script} {output} {input.edges}"
 
 
 rule collab_filter:
     input:
-        "data/edges.csv",
+        script="scripts/collab_filter.py",
+        cf="scripts/cf.py",
+        edges="data/edges.csv",
     output:
         "results/predictions.csv",
-    params:
-        mask_fraction=0.10,
-        n_components=64,
-        top_k=50,
-        seed=42,
     shell:
-        "python scripts/collab_filter.py {input} {output}"
-        " {params.mask_fraction} {params.n_components} {params.top_k} {params.seed}"
+        "python {input.script} {input.edges} {output}"
+        " {CF[test_fraction]} {CF[n_components]} {CF[top_k]} {CF[seed]} {CF[n_boot]}"
+
+
+# Main accretion demo: replay GWAS Catalog history. Train on pairs first reported before each year,
+# test on that year's new pairs between known genes and phenotypes.
+rule temporal_accretion:
+    input:
+        script="scripts/temporal_accretion.py",
+        cf="scripts/cf.py",
+        gwas="data/edges_gwas.csv",
+    output:
+        "results/temporal_accretion.csv",
+    params:
+        years=f"{config['temporal']['first_year']} {config['temporal']['last_year']}",
+    shell:
+        "python {input.script} {input.gwas} {output} {params.years}"
+        " {CF[n_components]} {CF[top_k]} {CF[seed]}"
+
+
+rule plot_temporal:
+    input:
+        script="scripts/plot_temporal.py",
+        summary="results/temporal_accretion.csv",
+    output:
+        "results/figures/temporal_accretion.pdf",
+    shell:
+        "python {input.script} {input.summary} {output} {CF[top_k]}"
+
+
+# Secondary accretion demo (random chunks). Fixed held-out GWAS test set per seed; train on growing
+# GWAS fractions, + STRING propagation, + each source (cumulative and one at a time)
+rule accretion:
+    input:
+        script="scripts/accretion_demo.py",
+        cf="scripts/cf.py",
+        gene_gene="data/edges_gene_gene.csv",
+        gwas="data/edges_gwas.csv",
+        extras=expand("data/edges_{source}.csv", source=ACC["sources"]),
+    output:
+        summary="results/accretion.csv",
+        runs="results/accretion_runs.csv",
+    params:
+        seeds=",".join(str(s) for s in ACC["seeds"]),
+        fractions=",".join(str(f) for f in ACC["gwas_fractions"]),
+    shell:
+        "python {input.script} {output.summary} {output.runs}"
+        " {CF[test_fraction]} {CF[n_components]} {CF[top_k]} {params.seeds} {params.fractions}"
+        " {ACC[propagation_weight]} {input.gene_gene} {input.gwas} {input.extras}"
+
+
+rule plot_accretion:
+    input:
+        script="scripts/plot_accretion.py",
+        summary="results/accretion.csv",
+    output:
+        "results/figures/accretion.pdf",
+    shell:
+        "python {input.script} {input.summary} {output} {CF[top_k]}"
