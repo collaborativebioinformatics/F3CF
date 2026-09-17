@@ -1,0 +1,34 @@
+code_system,code,analyte,canonical_unit,default_unit,description,verified,source
+read2,44P6.,ldl_c,mmol/L,mmol/L,Serum LDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44PD.,ldl_c,mmol/L,mmol/L,Serum fasting LDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44PE.,ldl_c,mmol/L,mmol/L,Serum random LDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44PI.,ldl_c,mmol/L,mmol/L,Calculated LDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44d4.,ldl_c,mmol/L,mmol/L,Plasma random LDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44d5.,ldl_c,mmol/L,mmol/L,Plasma fasting LDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44dB.,ldl_c,mmol/L,mmol/L,Plasma LDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44P5.,hdl_c,mmol/L,mmol/L,Serum HDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44PB.,hdl_c,mmol/L,mmol/L,Serum fasting HDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44PC.,hdl_c,mmol/L,mmol/L,Serum random HDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44d2.,hdl_c,mmol/L,mmol/L,Plasma random HDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44d3.,hdl_c,mmol/L,mmol/L,Plasma fasting HDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44dA.,hdl_c,mmol/L,mmol/L,Plasma HDL cholesterol level,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44PH.,tc,mmol/L,mmol/L,Total cholesterol measurement,yes,ClinicalCodes.org article 178 codelist res178-lipid
+read2,44PJ.,tc,mmol/L,mmol/L,Serum total cholesterol level,yes,ClinicalCodes.org article 6 codelist cholesterol_level
+read2,44PK.,tc,mmol/L,mmol/L,Serum fasting total cholesterol,yes,ClinicalCodes.org article 6 codelist cholesterol_level
+read2,44OE.,tc,mmol/L,mmol/L,Plasma total cholesterol level,yes,ClinicalCodes.org article 6 codelist cholesterol_level
+read2,44Q..,tg,mmol/L,mmol/L,Serum triglycerides,no,Read v2 chapter 44Q (not found in a checked codelist)
+read2,42W5.,hba1c,mmol/mol,mmol/mol,Haemoglobin A1c level - IFCC standardised,yes,ClinicalCodes.org article 166 codelist res166-hba1c
+read2,42W4.,hba1c,mmol/mol,%,HbA1c level (DCCT aligned); DCCT/NGSP values are percent,yes,ClinicalCodes.org article 166 codelist res166-hba1c
+ukb_field,30780,ldl_c,mmol/L,mmol/L,LDL direct,yes,UKB Showcase field 30780 (category 17518)
+ukb_field,30760,hdl_c,mmol/L,mmol/L,HDL cholesterol,yes,UKB Showcase field 30760 (category 17518)
+ukb_field,30870,tg,mmol/L,mmol/L,Triglycerides,yes,UKB Showcase field 30870 (category 17518)
+ukb_field,30690,tc,mmol/L,mmol/L,Cholesterol,yes,"UKB Showcase field 30690, units mmol/L"
+ukb_field,30790,lpa_molar,nmol/L,nmol/L,Lipoprotein A (Randox immunoturbidimetric; reported range 3.8-189 nmol/L),yes,"UKB Showcase field 30790, units nmol/L"
+ukb_field,30640,apob,g/L,g/L,Apolipoprotein B,yes,"UKB Showcase field 30640, units g/L"
+ukb_field,30750,hba1c,mmol/mol,mmol/mol,Glycated haemoglobin (HbA1c),yes,UKB Showcase field 30750 (category 17518)
+omop,3009966,ldl_c,mmol/L,mg/dL,Cholesterol in LDL [Mass/volume] in Serum or Plasma by Direct assay (LOINC 18262-6),yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets)
+omop,3028437,ldl_c,mmol/L,mg/dL,Cholesterol in LDL by calculation (LOINC 13457-7),no,not in the Eunomia vocabulary subset
+omop,3007070,hdl_c,mmol/L,mg/dL,Cholesterol in HDL [Mass/volume] in Serum or Plasma (LOINC 2085-9),yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets)
+omop,3022192,tg,mmol/L,mg/dL,Triglyceride [Mass/volume] in Serum or Plasma (LOINC 2571-8),yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets)
+omop,3027114,tc,mmol/L,mg/dL,Cholesterol [Mass/volume] in Serum or Plasma (LOINC 2093-3),yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets)
+omop,3004410,hba1c,mmol/mol,%,Hemoglobin A1c/Hemoglobin.total in Blood (LOINC 4548-4),yes,Eunomia Synthea27Nj CONCEPT table (OHDSI/EunomiaDatasets)
