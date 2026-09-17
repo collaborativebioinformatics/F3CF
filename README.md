@@ -132,8 +132,6 @@ flowchart TB
 
 ## How it works
 
-How it works
-
 F3CF represents distributed clinical and biobank data as a set of related matrices, such as patient–drug, patient–phenotype, and phenotype–genotype (e.g. by PRS) relationships. Each site trains locally on the relations it holds, while shared entity representations are updated collaboratively across sites.
 
 The framework learns a common N-dimensional latent space in which patients, phenotypes, drugs, PRS, and other entities can be compared and clustered. Patient-level representations can remain site-specific, while shared entities such as phenotypes or drugs are aligned across institutions.
