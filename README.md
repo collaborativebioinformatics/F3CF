@@ -1,5 +1,5 @@
 # F3CF: A Flexible Federated Framework for Multi-Relational Collaborative Factorization
-F3CF as a framework for federated exploration of multi-relational latent knowledge space.
+F3CF is a framework for federated exploration of a shared multi-relational, multi-institutional latent knowledge space.
 Nordic Conference on Future Health 2026 (14–16 September 2026).
 
 ## DEMO
