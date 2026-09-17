@@ -202,7 +202,11 @@ and measure overlap, complementarity, or directional influence between those set
 
 ## Future aspects
 
-Rather than limiting F3CF to classical matrix factorization, allow the relation operator \(W_r\) to be modular. It could be a matrix factorization operator, knowledge-graph embedding such as a bilinear relation, or potentially a graph-neural-network component. That would make the “Flexible” part of F3CF substantially more meaningful: different relations could have different mathematical models while still contributing to the same shared representation.
+Rather than limiting F3CF to classical matrix factorization, allow the relation operator \(W_r\) to be modular. It could be a matrix factorization operator, knowledge-graph embedding such as a bilinear relation, or potentially a graph-neural-network component. Different relations could then have different mathematical models while still contributing to the same shared representation.
+
+It is possible to extend the relationships using known relational graphs, ontologies, and other structured knowledge. For example, phenotype ontologies, gene–pathway relationships, drug–target interactions, and disease–gene associations could provide additional constraints on the latent space. This would allow F3CF to combine relationships learned from distributed data with established biological knowledge.
+
+Such extensions could turn F3CF into a framework for exploring a federated **meta-knowledge graph**, where clinical observations, genomic associations, treatments, phenotypes, and existing biomedical knowledge contribute to a common latent representation. This could enable exploration of relationships that are not directly observed in any single dataset, while preserving the distributed nature of the underlying data.
 
 ## Team 8 at the Nordic Conference on Future Health 2026 (14–16 September 2026).
 * Victor Enrique Goitea
