@@ -1,15 +1,9 @@
-# Metametagraphs
+# F3CF: A Flexible Federated Framework for Multi-Relational Collaborative Factorization
 Nordic Conference on Future Health 2026 (14–16 September 2026)
 
-## Team 8: Rapid accretion of phenotype-genotype metagraphs from varied datasets
+## DEMO
 
-* Victor Enrique Goitea
-* Chris Hart
-* Davor Vukadin
-* Henrik Formoe
-* Edvin Smajlovic
-* Sebastian Krog [writer]
-* Elakiya Sivakumar
+Insert demo here.
 
 ## Simplified usecase
 
@@ -42,17 +36,19 @@ graph LR;
     E-->F{"Demonstrate Variation in genotype associations with a fine-grained phenotype example - e.g. High Chol -> HDL"};
 ```
 
-
 ## Step 1
-Phenotypes x PRS (Genetic libality) and Phenotypes x patient
+Phenotypes x PRS (Genetic libality), Phenotypes x patient, Drug x patient
 
-We create two matrices for collaborative filtering.
 
-- Individually calculated PRS x phenotype.
-- Patient x phenotype
+## Team 8: Rapid accretion of phenotype-genotype metagraphs from varied datasets
+* Victor Enrique Goitea
+* Chris Hart
+* Davor Vukadin
+* Henrik Formoe
+* Edvin Smajlovic
+* Sebastian Krog [writer]
+* Elakiya Sivakumar
 
-We would expect genetic risk to cluster around genetically linked phenotypes, and that similar phenotypes cluster too.
-Discrepancies between the two matrices would then represent ... ?
 
 ## Step X
 
