@@ -1,0 +1,20 @@
+[
+  {
+    "site_id": "site-1",
+    "n_patients": 120,
+    "n_genomes": 80,
+    "drop": 4
+  },
+  {
+    "site_id": "site-2",
+    "n_patients": 90,
+    "n_genomes": 70,
+    "drop": 6
+  },
+  {
+    "site_id": "site-3",
+    "n_patients": 110,
+    "n_genomes": 0,
+    "drop": 5
+  }
+]

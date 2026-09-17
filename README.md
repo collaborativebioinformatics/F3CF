@@ -48,3 +48,20 @@ graph LR;
 Minimal example of collaborative filtering on gene x phenotypes.
 
 For this, we propose to use genebass. https://app.genebass.org
+
+## Federated collaborative filtering (NVFLARE)
+
+Each site has a binary `N × P` patient–phenotype matrix (1 = diagnosis present)
+and may also have a continuous `G × P` PRS / genome–phenotype matrix. Local
+truncated SVD produces `P × 32` phenotype embeddings for each stream. NVFLARE
+averages them into two global matrices:
+
+- genome-less embeddings from `N × P`
+- genome-based embeddings from `G × P` (only sites that have genetic data)
+
+```bash
+python scripts/run_federated_cf_job.py
+```
+
+Outputs `data/federated/global_phenotype_embeddings.npz` with
+`nongenetic_phenotype_embeddings` and `genetic_phenotype_embeddings`.
