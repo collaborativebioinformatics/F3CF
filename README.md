@@ -1,6 +1,5 @@
 # F3CF: A Flexible Federated Framework for Multi-Relational Collaborative Factorization
 F3CF is a framework for federated exploration of a shared multi-relational, multi-institutional latent knowledge space.
-Nordic Conference on Future Health 2026 (14–16 September 2026).
 
 ## DEMO
 
@@ -20,7 +19,6 @@ Choose one of:
 
 
 ## Flowchart
-This version forces the institutions into a top row, left to right, with F3CF underneath.
 
 ```mermaid
 flowchart TB
@@ -206,7 +204,7 @@ and measure overlap, complementarity, or directional influence between those set
 
 Rather than limiting F3CF to classical matrix factorization, allow the relation operator \(W_r\) to be modular. It could be a matrix factorization operator, knowledge-graph embedding such as a bilinear relation, or potentially a graph-neural-network component. That would make the “Flexible” part of F3CF substantially more meaningful: different relations could have different mathematical models while still contributing to the same shared representation.
 
-## Team 8: Rapid accretion of phenotype-genotype metagraphs from varied datasets
+## Team 8 at the Nordic Conference on Future Health 2026 (14–16 September 2026).
 * Victor Enrique Goitea
 * Chris Hart
 * Davor Vukadin
