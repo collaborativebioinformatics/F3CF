@@ -1,0 +1,26 @@
+"phecode","phecode_string","category_num","category","sex","icd10_only","phecode_num"
+"EM_202","Diabetes mellitus","04","Endocrine/Metab","Both",0,202
+"EM_202.1","Type 1 diabetes","04","Endocrine/Metab","Both",0,202.1
+"EM_202.2","Type 2 diabetes","04","Endocrine/Metab","Both",0,202.2
+"EM_202.3","Secondary diabetes","04","Endocrine/Metab","Both",0,202.3
+"EM_202.31","Diabetes mellitus due to underlying condition*","04","Endocrine/Metab","Both",1,202.31
+"EM_202.32","Drug or chemical induced diabetes mellitus*","04","Endocrine/Metab","Both",1,202.32
+"EM_202.4","Other specified diabetes*","04","Endocrine/Metab","Both",1,202.4
+"EM_239","Hyperlipidemia","04","Endocrine/Metab","Both",0,239
+"EM_239.1","Hypercholesterolemia","04","Endocrine/Metab","Both",0,239.1
+"EM_239.11","Pure hypercholesterolemia","04","Endocrine/Metab","Both",0,239.11
+"EM_239.13","Elevated Lipoprotein(a)*","04","Endocrine/Metab","Both",1,239.13
+"EM_239.2","Hyperglyceridemia","04","Endocrine/Metab","Both",0,239.2
+"EM_239.21","Pure hyperglyceridemia","04","Endocrine/Metab","Both",0,239.21
+"EM_239.3","Mixed hyperlipidemia","04","Endocrine/Metab","Both",0,239.3
+"EM_239.4","Hyperchylomicronemia","04","Endocrine/Metab","Both",0,239.4
+"CV_401","Hypertension","08","Cardiovascular","Both",0,401
+"CV_401.1","Essential hypertension","08","Cardiovascular","Both",0,401.1
+"CV_401.2","Hypertensive heart disease","08","Cardiovascular","Both",0,401.2
+"CV_401.6","Secondary hypertension","08","Cardiovascular","Both",0,401.6
+"CV_401.61","Renovascular hypertension","08","Cardiovascular","Both",0,401.61
+"CV_401.7","Hypertensive crisis*","08","Cardiovascular","Both",1,401.7
+"RE_475","Asthma","09","Respiratory","Both",0,475
+"RE_475.5","Exercise induced bronchospasm","09","Respiratory","Both",0,475.5
+"RE_475.6","Cough variant asthma","09","Respiratory","Both",0,475.6
+"RE_475.7","Allergic bronchopulmonary aspergillosis","09","Respiratory","Both",0,475.7
