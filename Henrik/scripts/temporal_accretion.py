@@ -11,6 +11,7 @@ import os
 import sys
 import pandas as pd
 from cf import evaluate
+from replay import split_year
 
 EDGES, CATALOG = sys.argv[1], sys.argv[2]
 OUT_YEARS, OUT_STUDIES, OUT_EXCLUDED = sys.argv[3], sys.argv[4], sys.argv[5]
@@ -18,17 +19,6 @@ FIRST_YEAR, LAST_YEAR = int(sys.argv[6]), int(sys.argv[7])
 N_COMPONENTS, TOP_K, K_FRACTION, SVD_SEED = int(sys.argv[8]), int(sys.argv[9]), float(sys.argv[10]), int(sys.argv[11])
 N_TOP_STUDIES = int(sys.argv[12])
 EXCLUSION_YEARS = [int(y) for y in sys.argv[13].split(",")]
-
-
-def split_year(edges, year, excluded_pmids=frozenset()):
-    """(train, new pairs in year, test = new pairs between a gene and phenotype already in train).
-    Pairs whose first-year reports all come from excluded publications are not new in that year."""
-    train = edges[edges["year"] < year]
-    new = edges[edges["year"] == year]
-    if excluded_pmids:
-        new = new[new["first_pmids"].str.split(";").map(lambda pmids: bool(set(pmids) - excluded_pmids))]
-    known_nodes = new["gene"].isin(set(train["gene"])) & new["phenotype"].isin(set(train["phenotype"]))
-    return train, new, new[known_nodes]
 
 
 def recall_at_both_k(train, test):

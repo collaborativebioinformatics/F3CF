@@ -35,6 +35,13 @@ temporal:                 # main accretion demo: replay GWAS Catalog history yea
   top_studies: 5              # publications (PubMed IDs) listed per year
   exclusion_years: [2018, 2022, 2025]   # rerun these years without their top publications
 
+cmf:                      # collective matrix factorization on the temporal splits (K = temporal.k_fraction)
+  alpha: 1.0              # weight of the STRING gene-gene reconstruction loss
+  lambda: 1.0             # L2 regularization on all factors
+  n_iter: 10              # alternating least squares iterations, starting from the SVD solution
+  degree_low: 5           # gene-degree groups: fewer than 5 phenotypes before the test year ...
+  degree_high: 20         # ... and more than 20
+
 accretion:                # random-chunk accretion (secondary)
   seeds: [1, 2, 3, 4, 5]   # one fixed held-out GWAS test set per seed
   gwas_fractions: [0.01, 0.02, 0.05, 0.10, 0.20, 0.30, 0.50, 0.75, 1.00]

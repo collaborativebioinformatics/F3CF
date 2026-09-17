@@ -8,6 +8,7 @@ SOURCES = config["sources"]
 CF = config["cf"]
 ACC = config["accretion"]
 TEMP = config["temporal"]
+CMF = config["cmf"]
 URL = config["downloads"]
 
 
@@ -15,6 +16,8 @@ rule all:
     input:
         "results/temporal_years.csv",
         "results/figures/temporal_accretion.pdf",
+        "results/temporal_cmf.csv",
+        "results/figures/temporal_cmf.pdf",
         "results/predictions.csv",
         "results/accretion.csv",
         "results/figures/accretion.pdf",
@@ -123,6 +126,7 @@ rule temporal_accretion:
     input:
         script="scripts/temporal_accretion.py",
         cf="scripts/cf.py",
+        replay="scripts/replay.py",
         gwas="data/edges_gwas.csv",
         catalog="data/gwas_catalog.tsv",
     output:
@@ -141,11 +145,37 @@ rule plot_temporal:
     input:
         script="scripts/plot_temporal.py",
         years="results/temporal_years.csv",
-        excluded="results/temporal_excluding_top_studies.csv",
     output:
         "results/figures/temporal_accretion.pdf",
     shell:
-        "python {input.script} {input.years} {input.excluded} {output} {CF[top_k]}"
+        "python {input.script} {input.years} {output} {CF[top_k]}"
+
+
+# SVD vs CMF vs CMF + STRING on the temporal splits, with recall by gene degree
+rule temporal_cmf:
+    input:
+        script="scripts/temporal_cmf.py",
+        cf="scripts/cf.py",
+        cmf="scripts/cmf.py",
+        replay="scripts/replay.py",
+        gwas="data/edges_gwas.csv",
+        gene_gene="data/edges_gene_gene.csv",
+    output:
+        "results/temporal_cmf.csv",
+    shell:
+        "python {input.script} {input.gwas} {input.gene_gene} {output}"
+        " {TEMP[first_year]} {TEMP[last_year]} {CF[n_components]} {TEMP[k_fraction]} {CF[seed]}"
+        " {CMF[alpha]} {CMF[lambda]} {CMF[n_iter]} {CMF[degree_low]} {CMF[degree_high]}"
+
+
+rule plot_temporal_cmf:
+    input:
+        script="scripts/plot_temporal_cmf.py",
+        table="results/temporal_cmf.csv",
+    output:
+        "results/figures/temporal_cmf.pdf",
+    shell:
+        "python {input.script} {input.table} {output}"
 
 
 # Secondary accretion demo (random chunks). Fixed held-out GWAS test set per seed; train on growing

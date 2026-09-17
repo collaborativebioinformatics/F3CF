@@ -1,7 +1,6 @@
-# Reads:  results/temporal_years.csv, results/temporal_excluding_top_studies.csv
+# Reads:  results/temporal_years.csv
 # Writes: results/figures/temporal_accretion.pdf
-# Does:   plots recall on each year's new GWAS edges at fixed K and at K = 1% of known phenotypes,
-#         graph/test size over time, and the effect of excluding each year's top publications
+# Does:   plots recall on each year's new GWAS edges at fixed K and at K = 1% of known phenotypes
 
 # Style follows plot_styleguide/plot_style_guide.md
 
@@ -12,9 +11,9 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
-from matplotlib.ticker import FuncFormatter, MaxNLocator, NullFormatter
+from matplotlib.ticker import FuncFormatter, MaxNLocator
 
-YEARS, EXCLUDED, OUTPUT, TOP_K = sys.argv[1], sys.argv[2], sys.argv[3], int(sys.argv[4])
+YEARS, OUTPUT, TOP_K = sys.argv[1], sys.argv[2], int(sys.argv[3])
 
 TEXTWIDTH = 6.5
 USE_TEX = False
@@ -54,51 +53,16 @@ def plot_recall(ax, years, label, title, ylabel):
     finish(ax, title, "Test year", ylabel, "upper right")
 
 
-def plot_sizes(ax, years):
-    """Training edges (first reported before the year) and test edges (new that year)."""
-    ax.plot(years["year"], years["train_edges"], "-o", color=C_LIGHT, ms=2.5, label="Training edges")
-    ax.plot(years["year"], years["test_edges"], "-o", color=C_DARK, ms=2.5, label="Test edges")
-    ax.set_yscale("log")
-    ax.yaxis.set_major_formatter(FuncFormatter(lambda y, _: f"{y / 1000:,.0f}k" if y >= 1000 else f"{y:,.0f}"))
-    ax.yaxis.set_minor_formatter(NullFormatter())
-    ax.tick_params(which="minor", length=0)
-    ax.set_ylim(years["test_edges"].min() / 2, years["train_edges"].max() * 20)
-    ax.xaxis.set_major_locator(MaxNLocator(integer=True, nbins=6))
-    finish(ax, "(c)  Graph and test set size", "Test year", "Edges", "upper left")
+years = pd.read_csv(YEARS)
+fig, axes = plt.subplots(1, 2, figsize=(TEXTWIDTH, 3.4))
+plot_recall(axes[0], years, "k_fixed", f"(a)  Fixed K = {TOP_K}", f"Recall@{TOP_K}")
+plot_recall(axes[1], years, "k_fraction", "(b)  K = 1% of known phenotypes", "Recall at K = 1%")
 
-
-def plot_exclusion(ax, years, excluded):
-    """Recall at K = 1% with all publications (circles) vs without the year's top 5 (open squares)."""
-    both = years.merge(excluded, on="year", suffixes=("", "_excl"))
-    x = range(len(both))
-    for col, color, offset, label in [("recall_k_fraction", C_LIGHT, -0.12, "SVD"),
-                                      ("popularity_k_fraction", C_DARK, 0.12, "Popularity")]:
-        xs = [i + offset for i in x]
-        ax.vlines(xs, both[col], both[f"{col}_excl"], color=color, lw=0.8)
-        ax.plot(xs, both[col], "o", color=color, ms=4, label=f"{label}, all publications")
-        ax.plot(xs, both[f"{col}_excl"], "s", mfc="white", color=color, ms=4, label=f"{label}, without top 5")
-    ax.set_xticks(list(x))
-    ax.set_xticklabels(both["year"])
-    ax.set_xlim(-0.6, len(both) - 0.4)
-    ax.yaxis.set_major_formatter(PCT)
-    ax.set_ylim(0, both.filter(like="_k_fraction").max().max() * 1.6)
-    finish(ax, "(d)  Without top 5 publications", "Test year", "Recall at K = 1%", "upper left")
-
-
-years, excluded = pd.read_csv(YEARS), pd.read_csv(EXCLUDED)
-fig, axes = plt.subplots(2, 2, figsize=(TEXTWIDTH, 6.2))
-plot_recall(axes[0, 0], years, "k_fixed", f"(a)  Fixed K = {TOP_K}", f"Recall@{TOP_K} on new edges")
-plot_recall(axes[0, 1], years, "k_fraction", "(b)  K = 1% of known phenotypes", "Recall at K = 1%")
-plot_sizes(axes[1, 0], years)
-plot_exclusion(axes[1, 1], years, excluded)
-
-fig.suptitle("Temporal replay: predicting each year's new GWAS edges",
+fig.suptitle("Recall on each year's new GWAS edges",
              fontsize=FS["title"], fontweight="bold", color="#111111", y=1.0)
-fig.text(0.5, 0.955,
-         f"Train: pairs reported before the year  |  Test: new pairs between known nodes  |  "
-         f"{int(years['year'].min())}–{int(years['year'].max())}",
+fig.text(0.5, 0.915, "Train: pairs reported before the year  |  Test: new pairs that year",
          ha="center", fontsize=FS["subtitle"], color="#555555")
-fig.subplots_adjust(top=0.89, wspace=0.45, hspace=0.55)
+fig.subplots_adjust(top=0.80, wspace=0.45)
 
 os.makedirs(os.path.dirname(OUTPUT), exist_ok=True)
 fig.savefig(OUTPUT, **SAVE_KW)

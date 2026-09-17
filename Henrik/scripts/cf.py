@@ -135,10 +135,19 @@ def rank_test_edges(factors, known, genes, phenotypes, test_g, test_p, covered, 
     return hit_svd, hit_pop, predictions if keep_predictions else None
 
 
+def fit_factors(matrix, genes, n_components, seed, factorize):
+    """(gene factors, phenotype factors, explained variance): TruncatedSVD, or factorize(matrix, genes) if given."""
+    if factorize is not None:
+        gene_factors, pheno_factors = factorize(matrix, genes)
+        return (gene_factors, pheno_factors), np.nan
+    svd = TruncatedSVD(n_components=n_components, random_state=seed)
+    return (svd.fit_transform(matrix), svd.components_), svd.explained_variance_ratio_.sum()
+
+
 def evaluate(train, test, n_components, top_k, seed, keep_predictions=False, log=print,
-             gene_gene=None, propagation_weight=None):
-    """Fit SVD on train; recall = share of test edges in their gene's top-K (unseen gene/phenotype = miss).
-    Propagated cells (gene_gene) shape the SVD but are not known edges. Returns (stats, hits, predictions)."""
+             gene_gene=None, propagation_weight=None, factorize=None):
+    """Fit SVD (or `factorize`) on train; recall = share of test edges in their gene's top-K (unseen = miss).
+    Propagated cells (gene_gene) shape the fit but are not known edges. Returns (stats, hits, predictions)."""
     train, test = deduplicate(train, test)
     genes, phenotypes, known = presence_matrix(train)
     matrix, propagated = known, None
@@ -151,15 +160,14 @@ def evaluate(train, test, n_components, top_k, seed, keep_predictions=False, log
     log(f"  train: {len(train):,} edges, {len(genes):,} genes, {len(phenotypes):,} phenotypes  |  "
         f"test: {len(test):,} edges, {covered.mean():.1%} with gene and phenotype seen in training")
 
-    svd = TruncatedSVD(n_components=n_components, random_state=seed)
-    factors = (svd.fit_transform(matrix), svd.components_)
+    factors, explained = fit_factors(matrix, genes, n_components, seed, factorize)
     test_score, random_score = score_pairs(*factors, test_g, test_p, covered, seed)
     hit_svd, hit_pop, predictions = rank_test_edges(factors, known, genes, phenotypes, test_g, test_p,
                                                     covered, top_k, keep_predictions)
     stats = {"train_edges": len(train), "genes": len(genes), "phenotypes": len(phenotypes),
              "test_edges": len(test), "test_covered": covered.mean(), f"recall@{top_k}": hit_svd.mean(),
              f"recall@{top_k}_popularity": hit_pop.mean(), "mean_score_test": np.nanmean(test_score),
-             "mean_score_random": random_score.mean(), "explained_variance": svd.explained_variance_ratio_.sum()}
+             "mean_score_random": random_score.mean(), "explained_variance": explained}
     filled = filled_by_propagation(propagated, test_g, test_p, covered)
     if propagated is not None:
         stats.update(propagated_cells=propagated.nnz, test_propagated=filled.mean())
