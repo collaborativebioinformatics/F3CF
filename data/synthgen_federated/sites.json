@@ -1,6 +1,6 @@
 {
   "source": "data/synthgen (prs.csv, phenotypes.csv, drugs.csv) on main, commits 422661e and 7f85d90",
-  "builder": "Elakiya/synthgen_prs/build_sites.py",
+  "builder": "Elakiya/synthgen_prs/build_synthgen_sites.py",
   "seed": 0,
   "ridge_lambda": 1.0,
   "sites": [
