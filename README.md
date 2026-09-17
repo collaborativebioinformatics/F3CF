@@ -159,10 +159,10 @@ The model jointly optimizes all available relations, sharing common embeddings a
 
 There are several ways to explore the shared latent space:
 
-Patient-centric exploration — find nearest patients, phenotypes, PRS profiles, and candidate drugs.
-Phenotype-centric exploration — inspect which patients, genetic-risk profiles, and drugs cluster around a phenotype.
-Drug-centric exploration — identify phenotypic or genetic subgroups associated with a drug or drug response.
-Population-level exploration — cluster patients into latent subgroups and compare those groups by phenotype burden, PRS, treatment, and outcomes.
+- Patient-centric exploration — find nearest patients, phenotypes, PRS profiles, and candidate drugs.
+- Phenotype-centric exploration — inspect which patients, genetic-risk profiles, and drugs cluster around a phenotype.
+- Drug-centric exploration — identify phenotypic or genetic subgroups associated with a drug or drug response.
+- Population-level exploration — cluster patients into latent subgroups and compare those groups by phenotype burden, PRS, treatment, and outcomes.
 
 ## Explore datasource relationships
 
@@ -179,11 +179,9 @@ That is: how much does the learned latent space change when source \(k\) is remo
 Similarly, for a target clinic \(C\), define source utility as:
 
 $$
-U(D_k \rightarrow C)
-=
-\operatorname{Perf}(C \mid D_k)
--
-\operatorname{Perf}(C)
+U(D_k \rightarrow C) =
+\text{Performance}(C + D_k) -
+\text{Performance}(C)
 $$
 
 This tells you whether that source adds useful information to the clinic, without ever assigning the source its own embedding.
