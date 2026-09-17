@@ -9,7 +9,7 @@ Slack file `multi_prs_benchmark_100_traits.zip` (we did not have the zip to chec
 Nothing outside `data/synthgen_federated/` and `Elakiya/synthgen_prs/` is added or changed. The raw
 synthgen CSVs are read from `data/synthgen/` and not copied.
 
-## What synthgen looks like (measured with `build_sites.py` inputs)
+## What synthgen looks like (measured with `build_synthgen_sites.py` inputs)
 
 | file | shape | content |
 |---|---|---|
@@ -105,7 +105,7 @@ Davor's client uses unseeded `torch.randn`, so the job was run 3 times (hidden c
 
 ```
 pip install -r requirements.txt pandas scipy pytest     # tested: torch 2.14 (CPU), nvflare 2.9.0
-python Elakiya/synthgen_prs/build_sites.py               # rebuild data/synthgen_federated (6 s)
+python Elakiya/synthgen_prs/build_synthgen_sites.py               # rebuild data/synthgen_federated (6 s)
 python -m pytest Elakiya/synthgen_prs/tests -q           # 8 passed
 python Elakiya/synthgen_prs/run_federated_cf.py --repeats 3 --quiet   # about 3.5 min on CPU
 ```

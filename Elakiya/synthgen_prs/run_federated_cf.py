@@ -22,7 +22,7 @@ Steps (everything is written under ``--work``, never under data/):
    ``random_unit_params``), site prevalence, and "prevalence + own PRS" = logit(prev_j) + beta_jj * z_ij
    using the site's own genome_phenotypes.csv effect (site-3 has none, so it is skipped there).
 5. Pooled-reference RSA (as in PR #3's wrapper): Pearson r between pairwise cosine similarities of
-   the learned tables and of ``true_embeddings.pt`` (a pooled-data reference, see build_sites.py).
+   the learned tables and of ``true_embeddings.pt`` (a pooled-data reference, see build_synthgen_sites.py).
 """
 
 from __future__ import annotations
@@ -43,7 +43,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(HERE))
 
-from build_sites import load_synthgen, logistic_effects, standardize  # noqa: E402
+from build_synthgen_sites import load_synthgen, logistic_effects, standardize  # noqa: E402
 from federated_cf_data import load_site, read_id_list, write_id_list, write_labeled_matrix  # noqa: E402
 from federated_cf_embeddings import GENETIC_KEY, NONGENETIC_KEY, random_unit_params  # noqa: E402
 
