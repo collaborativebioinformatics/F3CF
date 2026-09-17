@@ -151,6 +151,14 @@ where $Z_a$ and $Z_b$ are latent representations of the connected entities, and 
 
 The model jointly optimizes all available relations, sharing common embeddings across sites while keeping site-specific patient representations local.
 
+## Synthetic datsets
+
+For implementation testing we generate patient-level data.
+
+## Example F3CF using synthetic datasets
+
+Here we show results from using out implementation on our synthetic datasets.
+
 ## Exploring the latent space
 
 F3CF learns a shared latent structure for globally aligned entities such as phenotypes, drugs, and genomic features, while patient representations remain local to each institution.
@@ -166,16 +174,12 @@ The latent space can also be projected into two or three dimensions for visualiz
 
 ## Exploring data source relationships
 
-Data sources can be assessed by measuring how the learned structure or downstream performance changes when a source is added, removed, or perturbed.
+Each source can be treated as a set of observations that contributes to the shared model. Its contribution can then be assessed indirectly by measuring how the learned structure or downstream performance changes when the source is added, removed, or perturbed.
 
 For a data source $D_k$, its structural contribution can be measured by comparing models trained with and without that source:
 
 $$
-S(D_k) =
-d\left(
-Z_{\mathrm{all}},
-Z_{\mathrm{without}\;D_k}
-\right)
+S(D_k) = d(Z_{all}, Z_{without\ D_k})
 $$
 
 where $d(\cdot,\cdot)$ is an alignment-aware measure of change in the latent structure, such as changes in pairwise similarities, nearest-neighbour structure, or clustering.
@@ -183,16 +187,18 @@ where $d(\cdot,\cdot)$ is an alignment-aware measure of change in the latent str
 For a target clinic $C$, the utility of an external data source can be defined as:
 
 $$
-U(D_k \rightarrow C)
-=
-\mathrm{Perf}(C \mid D_k)
--
-\mathrm{Perf}(C)
+U(D_k \rightarrow C) = Performance(C \mid D_k) - Performance(C)
 $$
 
-where performance is evaluated on a defined task at the target clinic.
+This measures whether including information from $D_k$ improves performance on a defined task at clinic $C$.
+
+## Results from the synthetic data
+
+
 
 ## Future aspects
+
+Firstly, F3CF should be tested on representative real-world datasets to determine whether the learned latent space provides clinically meaningful utility. This includes evaluating whether it recovers known biological relationships, improves prediction or stratification, and whether external data sources add measurable value to a clinical site. 
 
 Rather than limiting F3CF to classical matrix factorization, the relation operator $W_r$ could be modular. It could be a matrix factorization operator, a knowledge-graph embedding such as a bilinear relation, or potentially a graph-neural-network component. Different relations could then use different mathematical models while still contributing to the same shared representation.
 
