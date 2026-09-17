@@ -1,0 +1,66 @@
+# Metametagraphs prototype pipeline
+# Run: uv run snakemake --cores 1
+#
+# To add a dataset called "foo":
+#   1. write scripts/parse_foo.py  (usage: parse_foo.py <raw input> <output csv>,
+#      output columns: gene, phenotype, score, source)
+#   2. add "foo": "<path to its raw file>" to SOURCES below
+#   3. put the raw file there by hand, or add a download_foo rule that creates it
+
+SOURCES = {
+    "gwas": "data/gwas_catalog.tsv",
+}
+
+GWAS_URL = "https://ftp.ebi.ac.uk/pub/databases/gwas/releases/latest/gwas-catalog-associations_ontology-annotated-full.zip"
+
+
+rule all:
+    input:
+        "results/predictions.csv",
+
+
+rule download_gwas:
+    output:
+        "data/gwas_catalog.tsv",
+    shell:
+        """
+        curl -sSL --fail -o data/gwas.zip "{GWAS_URL}"
+        unzip -p data/gwas.zip '*.tsv' > {output}
+        rm data/gwas.zip
+        """
+
+
+rule parse:
+    input:
+        script="scripts/parse_{source}.py",
+        raw=lambda w: SOURCES[w.source],
+    output:
+        "data/edges_{source}.csv",
+    wildcard_constraints:
+        source="|".join(SOURCES),
+    shell:
+        "python {input.script} {input.raw} {output}"
+
+
+rule merge_edges:
+    input:
+        expand("data/edges_{source}.csv", source=SOURCES),
+    output:
+        "data/edges.csv",
+    shell:
+        "python scripts/merge_edges.py {output} {input}"
+
+
+rule collab_filter:
+    input:
+        "data/edges.csv",
+    output:
+        "results/predictions.csv",
+    params:
+        mask_fraction=0.10,
+        n_components=64,
+        top_k=50,
+        seed=42,
+    shell:
+        "python scripts/collab_filter.py {input} {output}"
+        " {params.mask_fraction} {params.n_components} {params.top_k} {params.seed}"
