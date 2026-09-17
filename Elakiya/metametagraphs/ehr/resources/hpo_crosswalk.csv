@@ -1,0 +1,33 @@
+subphenotype_id,hpo_id,hpo_label,match,implies,note
+dyslipidaemia,HP:0003119,Abnormal circulating lipid concentration,exact,yes,dyslipidaemia = abnormal circulating lipid concentration
+dyslipidaemia.high_ldl,HP:0003141,Elevated circulating LDL-C concentration,exact,yes,
+dyslipidaemia.high_ldl.severe,HP:0003141,Elevated circulating LDL-C concentration,broader,yes,LDL-C >= 190 mg/dL is a subset of elevated LDL-C
+dyslipidaemia.high_ldl.severe,HP:0003124,Hypercholesterolemia,broader,yes,LDL-C >= 190 mg/dL implies hypercholesterolemia
+dyslipidaemia.high_ldl.severe.dlcn_possible,HP:0003124,Hypercholesterolemia,broader,yes,"familial hypercholesterolemia is a disease (OMIM/Orphanet), not an HPO phenotype"
+dyslipidaemia.high_ldl.severe.dlcn_probable,HP:0003124,Hypercholesterolemia,broader,yes,"familial hypercholesterolemia is a disease (OMIM/Orphanet), not an HPO phenotype"
+dyslipidaemia.high_ldl.severe.dlcn_probable,HP:0010874,Tendon xanthomatosis,related,no,tendon xanthomas are a DLCN criterion but are not observed by the LDL-C rule
+dyslipidaemia.low_hdl,HP:0003233,Decreased circulating HDL-C concentration,exact,yes,
+dyslipidaemia.high_tg,HP:0002155,Hypertriglyceridemia,exact,yes,
+dyslipidaemia.high_tg.very_high,HP:0002155,Hypertriglyceridemia,broader,yes,HPO has no severe hypertriglyceridemia term
+dyslipidaemia.mixed,HP:0003124,Hypercholesterolemia,broader,yes,mixed hyperlipidaemia raises cholesterol and triglycerides; HPO has no mixed hyperlipidemia term
+dyslipidaemia.mixed,HP:0002155,Hypertriglyceridemia,broader,yes,see above
+dyslipidaemia.high_tc,HP:0003124,Hypercholesterolemia,exact,yes,hypercholesterolemia = elevated total cholesterol
+dyslipidaemia.high_lpa,HP:6000521,Elevated circulating lipoprotein(a) concentration,exact,yes,
+dyslipidaemia.high_lpa.very_high,HP:6000521,Elevated circulating lipoprotein(a) concentration,broader,yes,
+dyslipidaemia.high_apob,HP:0031798,Elevated circulating apolipoprotein B concentration,exact,yes,
+dyslipidaemia.treated,,,unmapped,no,"lipid-lowering therapy is a treatment, not a phenotype"
+t2d,HP:0005978,Type II diabetes mellitus,exact,yes,
+t2d.renal,HP:0000112,Nephropathy,broader,yes,HPO has no diabetic nephropathy term
+t2d.ophthalmic,HP:0000488,Retinopathy,related,no,"node also covers cataract and maculopathy, so retinopathy is not implied"
+t2d.poor_control,HP:0040217,Elevated hemoglobin A1c,broader,yes,HbA1c >= 75 mmol/mol or coded poor control implies elevated HbA1c
+hypertension,HP:0000822,Hypertension,exact,yes,
+hypertension.essential,HP:0000822,Hypertension,broader,yes,HPO has no essential hypertension term
+hypertension.secondary,HP:0000822,Hypertension,broader,yes,HPO has no secondary hypertension term
+hypertension.organ_damage,HP:0000822,Hypertension,broader,yes,hypertensive heart or kidney disease implies hypertension
+hypertension.organ_damage,HP:0001712,Left ventricular hypertrophy,related,no,left ventricular hypertrophy is one possible organ manifestation
+hypertension.treated,,,unmapped,no,"blood pressure medication is a treatment, not a phenotype"
+asthma,HP:0002099,Asthma,exact,yes,
+asthma.allergic,HP:0002099,Asthma,broader,yes,HPO has no allergic asthma term
+asthma.non_allergic,HP:0002099,Asthma,broader,yes,HPO has no non-allergic asthma term
+asthma.severe,HP:0002099,Asthma,broader,yes,
+asthma.severe,HP:0012653,Status asthmaticus,narrower,no,"node also covers acute exacerbations and brittle asthma, not only status asthmaticus"
