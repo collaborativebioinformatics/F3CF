@@ -1,0 +1,812 @@
+format-version: 1.2
+data-version: hp/releases/2026-09-01
+remark: Excerpt (id, name, is_a only) of hp.obo for the terms in hpo_catalog.txt and all their ancestors. See SOURCES.md.
+ontology: hp
+
+[Term]
+id: HP:0000001
+name: All
+
+[Term]
+id: HP:0000077
+name: Abnormality of the kidney
+is_a: HP:0010935 ! Abnormality of the upper urinary tract
+
+[Term]
+id: HP:0000079
+name: Abnormality of the urinary system
+is_a: HP:0000119 ! Abnormality of the genitourinary system
+
+[Term]
+id: HP:0000083
+name: Renal insufficiency
+is_a: HP:0012211 ! Abnormal renal physiology
+
+[Term]
+id: HP:0000093
+name: Proteinuria
+is_a: HP:0020129 ! Abnormal urine protein level
+
+[Term]
+id: HP:0000112
+name: Nephropathy
+is_a: HP:0012211 ! Abnormal renal physiology
+
+[Term]
+id: HP:0000118
+name: Phenotypic abnormality
+is_a: HP:0000001 ! All
+
+[Term]
+id: HP:0000119
+name: Abnormality of the genitourinary system
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0000152
+name: Abnormality of head or neck
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0000234
+name: Abnormality of the head
+is_a: HP:0000152 ! Abnormality of head or neck
+
+[Term]
+id: HP:0000271
+name: Abnormality of the face
+is_a: HP:0000234 ! Abnormality of the head
+
+[Term]
+id: HP:0000315
+name: Abnormality of the orbital region
+is_a: HP:0000271 ! Abnormality of the face
+
+[Term]
+id: HP:0000366
+name: Abnormality of the nose
+is_a: HP:0000271 ! Abnormality of the face
+
+[Term]
+id: HP:0000478
+name: Abnormality of the eye
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0000479
+name: Abnormal retinal morphology
+is_a: HP:0001098 ! Abnormal fundus morphology
+
+[Term]
+id: HP:0000481
+name: Abnormal cornea morphology
+is_a: HP:0004328 ! Abnormal anterior eye segment morphology
+
+[Term]
+id: HP:0000488
+name: Retinopathy
+is_a: HP:0000479 ! Abnormal retinal morphology
+
+[Term]
+id: HP:0000492
+name: Abnormal eyelid morphology
+is_a: HP:0030669 ! Abnormal ocular adnexa morphology
+
+[Term]
+id: HP:0000707
+name: Abnormality of the nervous system
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0000818
+name: Abnormality of the endocrine system
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0000819
+name: Diabetes mellitus
+is_a: HP:0000818 ! Abnormality of the endocrine system
+is_a: HP:0001952 ! Glucose intolerance
+
+[Term]
+id: HP:0000822
+name: Hypertension
+is_a: HP:0032263 ! Increased blood pressure
+
+[Term]
+id: HP:0000855
+name: Insulin resistance
+is_a: HP:0011014 ! Abnormal glucose homeostasis
+
+[Term]
+id: HP:0000924
+name: Abnormality of the skeletal system
+is_a: HP:0033127 ! Abnormality of the musculoskeletal system
+
+[Term]
+id: HP:0000951
+name: Abnormality of the skin
+is_a: HP:0001574 ! Abnormality of the integument
+
+[Term]
+id: HP:0000964
+name: Eczematoid dermatitis
+is_a: HP:0011123 ! Inflammatory abnormality of the skin
+
+[Term]
+id: HP:0000991
+name: Xanthomatosis
+is_a: HP:0011355 ! Localized skin lesion
+
+[Term]
+id: HP:0001084
+name: Corneal arcus
+is_a: HP:0008011 ! Peripheral opacification of the cornea
+
+[Term]
+id: HP:0001095
+name: Hypertensive retinopathy
+is_a: HP:0008046 ! Abnormal retinal vascular morphology
+
+[Term]
+id: HP:0001098
+name: Abnormal fundus morphology
+is_a: HP:0004329 ! Abnormal posterior eye segment morphology
+
+[Term]
+id: HP:0001114
+name: Xanthelasma
+is_a: HP:0000991 ! Xanthomatosis
+is_a: HP:0010732 ! Nodular changes affecting the eyelids
+
+[Term]
+id: HP:0001297
+name: Stroke
+is_a: HP:0100659 ! Abnormal cerebral vascular morphology
+
+[Term]
+id: HP:0001392
+name: Abnormality of the liver
+is_a: HP:0002012 ! Abnormality of the abdominal organs
+
+[Term]
+id: HP:0001397
+name: Hepatic steatosis
+is_a: HP:0006561 ! Lipid accumulation in hepatocytes
+
+[Term]
+id: HP:0001507
+name: Growth abnormality
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0001513
+name: Obesity
+is_a: HP:0004324 ! Increased body weight
+
+[Term]
+id: HP:0001574
+name: Abnormality of the integument
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0001626
+name: Abnormality of the cardiovascular system
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0001627
+name: Abnormal heart morphology
+is_a: HP:0030680 ! Abnormal cardiovascular system morphology
+
+[Term]
+id: HP:0001658
+name: Myocardial infarction
+is_a: HP:0033678 ! Acute coronary syndrome
+
+[Term]
+id: HP:0001677
+name: Coronary artery atherosclerosis
+is_a: HP:0002621 ! Atherosclerosis
+is_a: HP:0006704 ! Abnormal coronary artery morphology
+is_a: HP:0100545 ! Arterial stenosis
+
+[Term]
+id: HP:0001681
+name: Angina pectoris
+is_a: HP:0011025 ! Abnormal cardiovascular system physiology
+
+[Term]
+id: HP:0001711
+name: Abnormal left ventricle morphology
+is_a: HP:0001713 ! Abnormal cardiac ventricle morphology
+
+[Term]
+id: HP:0001712
+name: Left ventricular hypertrophy
+is_a: HP:0001711 ! Abnormal left ventricle morphology
+is_a: HP:0001714 ! Ventricular hypertrophy
+
+[Term]
+id: HP:0001713
+name: Abnormal cardiac ventricle morphology
+is_a: HP:0001627 ! Abnormal heart morphology
+
+[Term]
+id: HP:0001714
+name: Ventricular hypertrophy
+is_a: HP:0001713 ! Abnormal cardiac ventricle morphology
+
+[Term]
+id: HP:0001871
+name: Abnormality of blood and blood-forming tissues
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0001877
+name: Abnormal erythrocyte morphology
+is_a: HP:0001871 ! Abnormality of blood and blood-forming tissues
+
+[Term]
+id: HP:0001939
+name: Abnormality of metabolism/homeostasis
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0001952
+name: Glucose intolerance
+is_a: HP:0011014 ! Abnormal glucose homeostasis
+
+[Term]
+id: HP:0002011
+name: Morphological central nervous system abnormality
+is_a: HP:0012639 ! Abnormal nervous system morphology
+
+[Term]
+id: HP:0002012
+name: Abnormality of the abdominal organs
+is_a: HP:0025031 ! Abnormality of the digestive system
+
+[Term]
+id: HP:0002060
+name: Abnormal cerebral morphology
+is_a: HP:0100547 ! Abnormal forebrain morphology
+
+[Term]
+id: HP:0002086
+name: Abnormality of the respiratory system
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0002094
+name: Dyspnea
+is_a: HP:0002793 ! Abnormal pattern of respiration
+
+[Term]
+id: HP:0002099
+name: Asthma
+is_a: HP:0002795 ! Abnormal respiratory system physiology
+is_a: HP:0100326 ! Immunologic hypersensitivity
+
+[Term]
+id: HP:0002140
+name: Ischemic stroke
+is_a: HP:0001297 ! Stroke
+is_a: HP:0002637 ! Cerebral ischemia
+is_a: HP:0025722 ! Cerebral infarct
+
+[Term]
+id: HP:0002155
+name: Hypertriglyceridemia
+is_a: HP:0003077 ! Hyperlipidemia
+
+[Term]
+id: HP:0002597
+name: Abnormality of the vasculature
+is_a: HP:0001626 ! Abnormality of the cardiovascular system
+
+[Term]
+id: HP:0002621
+name: Atherosclerosis
+is_a: HP:0002634 ! Arteriosclerosis
+
+[Term]
+id: HP:0002634
+name: Arteriosclerosis
+is_a: HP:0011004 ! Abnormal systemic arterial morphology
+
+[Term]
+id: HP:0002637
+name: Cerebral ischemia
+is_a: HP:0033401 ! Tissue ischemia
+
+[Term]
+id: HP:0002715
+name: Abnormality of the immune system
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0002793
+name: Abnormal pattern of respiration
+is_a: HP:0002795 ! Abnormal respiratory system physiology
+
+[Term]
+id: HP:0002795
+name: Abnormal respiratory system physiology
+is_a: HP:0002086 ! Abnormality of the respiratory system
+
+[Term]
+id: HP:0003074
+name: Hyperglycemia
+is_a: HP:0011015 ! Abnormal blood glucose concentration
+
+[Term]
+id: HP:0003077
+name: Hyperlipidemia
+is_a: HP:0003119 ! Abnormal circulating lipid concentration
+
+[Term]
+id: HP:0003107
+name: Abnormal circulating cholesterol concentration
+is_a: HP:0003119 ! Abnormal circulating lipid concentration
+
+[Term]
+id: HP:0003110
+name: Abnormality of urine homeostasis
+is_a: HP:0001939 ! Abnormality of metabolism/homeostasis
+is_a: HP:0011277 ! Abnormality of the urinary system physiology
+
+[Term]
+id: HP:0003119
+name: Abnormal circulating lipid concentration
+is_a: HP:0430071 ! Abnormal circulating organic compound concentration
+
+[Term]
+id: HP:0003124
+name: Hypercholesterolemia
+is_a: HP:0003107 ! Abnormal circulating cholesterol concentration
+
+[Term]
+id: HP:0003141
+name: Elevated circulating LDL-C concentration
+is_a: HP:0010980 ! Hyperlipoproteinemia
+is_a: HP:0031886 ! Abnormal LDL cholesterol concentration
+
+[Term]
+id: HP:0003193
+name: Allergic rhinitis
+is_a: HP:0012384 ! Rhinitis
+is_a: HP:0012393 ! Allergy
+
+[Term]
+id: HP:0003233
+name: Decreased circulating HDL-C concentration
+is_a: HP:0010981 ! Hypolipoproteinemia
+is_a: HP:0031888 ! Abnormal circulating HDL-C concentration
+
+[Term]
+id: HP:0004323
+name: Abnormality of body weight
+is_a: HP:0001507 ! Growth abnormality
+
+[Term]
+id: HP:0004324
+name: Increased body weight
+is_a: HP:0004323 ! Abnormality of body weight
+
+[Term]
+id: HP:0004328
+name: Abnormal anterior eye segment morphology
+is_a: HP:0012372 ! Abnormal eye morphology
+
+[Term]
+id: HP:0004329
+name: Abnormal posterior eye segment morphology
+is_a: HP:0012372 ! Abnormal eye morphology
+
+[Term]
+id: HP:0005978
+name: Type II diabetes mellitus
+is_a: HP:0000819 ! Diabetes mellitus
+
+[Term]
+id: HP:0006561
+name: Lipid accumulation in hepatocytes
+is_a: HP:0031137 ! Storage in hepatocytes
+
+[Term]
+id: HP:0006704
+name: Abnormal coronary artery morphology
+is_a: HP:0011004 ! Abnormal systemic arterial morphology
+
+[Term]
+id: HP:0007759
+name: Opacification of the corneal stroma
+is_a: HP:0007957 ! Corneal opacity
+is_a: HP:0011492 ! Abnormal corneal stroma morphology
+
+[Term]
+id: HP:0007957
+name: Corneal opacity
+is_a: HP:0000481 ! Abnormal cornea morphology
+
+[Term]
+id: HP:0008011
+name: Peripheral opacification of the cornea
+is_a: HP:0007759 ! Opacification of the corneal stroma
+
+[Term]
+id: HP:0008046
+name: Abnormal retinal vascular morphology
+is_a: HP:0000479 ! Abnormal retinal morphology
+is_a: HP:0008047 ! Abnormality of the vasculature of the eye
+
+[Term]
+id: HP:0008047
+name: Abnormality of the vasculature of the eye
+is_a: HP:0002597 ! Abnormality of the vasculature
+is_a: HP:0012372 ! Abnormal eye morphology
+
+[Term]
+id: HP:0010732
+name: Nodular changes affecting the eyelids
+is_a: HP:0000492 ! Abnormal eyelid morphology
+is_a: HP:0200036 ! Skin nodule
+
+[Term]
+id: HP:0010874
+name: Tendon xanthomatosis
+is_a: HP:0000991 ! Xanthomatosis
+is_a: HP:0100261 ! Abnormal tendon morphology
+
+[Term]
+id: HP:0010876
+name: Abnormal circulating protein concentration
+is_a: HP:0430071 ! Abnormal circulating organic compound concentration
+
+[Term]
+id: HP:0010935
+name: Abnormality of the upper urinary tract
+is_a: HP:0000079 ! Abnormality of the urinary system
+
+[Term]
+id: HP:0010978
+name: Abnormality of immune system physiology
+is_a: HP:0002715 ! Abnormality of the immune system
+
+[Term]
+id: HP:0010979
+name: Abnormal circulating lipoprotein cholesterol concentration
+is_a: HP:0003107 ! Abnormal circulating cholesterol concentration
+
+[Term]
+id: HP:0010980
+name: Hyperlipoproteinemia
+is_a: HP:0010979 ! Abnormal circulating lipoprotein cholesterol concentration
+
+[Term]
+id: HP:0010981
+name: Hypolipoproteinemia
+is_a: HP:0010979 ! Abnormal circulating lipoprotein cholesterol concentration
+
+[Term]
+id: HP:0011004
+name: Abnormal systemic arterial morphology
+is_a: HP:0033353 ! Abnormal blood vessel morphology
+
+[Term]
+id: HP:0011013
+name: Abnormal circulating carbohydrate concentration
+is_a: HP:0430071 ! Abnormal circulating organic compound concentration
+
+[Term]
+id: HP:0011014
+name: Abnormal glucose homeostasis
+is_a: HP:0012337 ! Abnormal homeostasis
+
+[Term]
+id: HP:0011015
+name: Abnormal blood glucose concentration
+is_a: HP:0011014 ! Abnormal glucose homeostasis
+is_a: HP:0020347 ! Abnormal circulating monosaccharide concentration
+
+[Term]
+id: HP:0011025
+name: Abnormal cardiovascular system physiology
+is_a: HP:0001626 ! Abnormality of the cardiovascular system
+
+[Term]
+id: HP:0011121
+name: Abnormal skin morphology
+is_a: HP:0000951 ! Abnormality of the skin
+
+[Term]
+id: HP:0011122
+name: Abnormal skin physiology
+is_a: HP:0000951 ! Abnormality of the skin
+
+[Term]
+id: HP:0011123
+name: Inflammatory abnormality of the skin
+is_a: HP:0011122 ! Abnormal skin physiology
+is_a: HP:0012649 ! Increased inflammatory response
+
+[Term]
+id: HP:0011277
+name: Abnormality of the urinary system physiology
+is_a: HP:0000079 ! Abnormality of the urinary system
+
+[Term]
+id: HP:0011355
+name: Localized skin lesion
+is_a: HP:0011121 ! Abnormal skin morphology
+
+[Term]
+id: HP:0011492
+name: Abnormal corneal stroma morphology
+is_a: HP:0000481 ! Abnormal cornea morphology
+
+[Term]
+id: HP:0011842
+name: Abnormal skeletal morphology
+is_a: HP:0000924 ! Abnormality of the skeletal system
+
+[Term]
+id: HP:0011902
+name: Abnormal hemoglobin
+is_a: HP:0001877 ! Abnormal erythrocyte morphology
+
+[Term]
+id: HP:0012211
+name: Abnormal renal physiology
+is_a: HP:0000077 ! Abnormality of the kidney
+is_a: HP:0011277 ! Abnormality of the urinary system physiology
+
+[Term]
+id: HP:0012337
+name: Abnormal homeostasis
+is_a: HP:0001939 ! Abnormality of metabolism/homeostasis
+
+[Term]
+id: HP:0012372
+name: Abnormal eye morphology
+is_a: HP:0000478 ! Abnormality of the eye
+
+[Term]
+id: HP:0012384
+name: Rhinitis
+is_a: HP:0000366 ! Abnormality of the nose
+
+[Term]
+id: HP:0012393
+name: Allergy
+is_a: HP:0100326 ! Immunologic hypersensitivity
+
+[Term]
+id: HP:0012443
+name: Abnormal brain morphology
+is_a: HP:0002011 ! Morphological central nervous system abnormality
+
+[Term]
+id: HP:0012622
+name: Chronic kidney disease
+is_a: HP:0000083 ! Renal insufficiency
+
+[Term]
+id: HP:0012639
+name: Abnormal nervous system morphology
+is_a: HP:0000707 ! Abnormality of the nervous system
+
+[Term]
+id: HP:0012647
+name: Abnormal inflammatory response
+is_a: HP:0010978 ! Abnormality of immune system physiology
+
+[Term]
+id: HP:0012649
+name: Increased inflammatory response
+is_a: HP:0012647 ! Abnormal inflammatory response
+
+[Term]
+id: HP:0012653
+name: Status asthmaticus
+is_a: HP:0002099 ! Asthma
+
+[Term]
+id: HP:0020129
+name: Abnormal urine protein level
+is_a: HP:0033354 ! Abnormal urine metabolite level
+
+[Term]
+id: HP:0020347
+name: Abnormal circulating monosaccharide concentration
+is_a: HP:0011013 ! Abnormal circulating carbohydrate concentration
+
+[Term]
+id: HP:0025015
+name: Abnormal vascular morphology
+is_a: HP:0002597 ! Abnormality of the vasculature
+is_a: HP:0030680 ! Abnormal cardiovascular system morphology
+
+[Term]
+id: HP:0025031
+name: Abnormality of the digestive system
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0025201
+name: Abnormal circulating apolipoprotein concentration
+is_a: HP:0010876 ! Abnormal circulating protein concentration
+
+[Term]
+id: HP:0025323
+name: Abnormal arterial physiology
+is_a: HP:0030163 ! Abnormal vascular physiology
+
+[Term]
+id: HP:0025722
+name: Cerebral infarct
+is_a: HP:0002060 ! Abnormal cerebral morphology
+
+[Term]
+id: HP:0030163
+name: Abnormal vascular physiology
+is_a: HP:0002597 ! Abnormality of the vasculature
+is_a: HP:0011025 ! Abnormal cardiovascular system physiology
+
+[Term]
+id: HP:0030669
+name: Abnormal ocular adnexa morphology
+is_a: HP:0032039 ! Abnormality of the ocular adnexa
+
+[Term]
+id: HP:0030680
+name: Abnormal cardiovascular system morphology
+is_a: HP:0001626 ! Abnormality of the cardiovascular system
+
+[Term]
+id: HP:0030828
+name: Wheezing
+is_a: HP:0030829 ! Abnormal breath sound
+
+[Term]
+id: HP:0030829
+name: Abnormal breath sound
+is_a: HP:0002795 ! Abnormal respiratory system physiology
+
+[Term]
+id: HP:0030972
+name: Abnormal systemic blood pressure
+is_a: HP:0011025 ! Abnormal cardiovascular system physiology
+
+[Term]
+id: HP:0031137
+name: Storage in hepatocytes
+is_a: HP:0034644 ! Abnormal liver metabolite concentration
+
+[Term]
+id: HP:0031798
+name: Elevated circulating apolipoprotein B concentration
+is_a: HP:0033460 ! Elevated circulating apolipoprotein concentration
+
+[Term]
+id: HP:0031886
+name: Abnormal LDL cholesterol concentration
+is_a: HP:0010979 ! Abnormal circulating lipoprotein cholesterol concentration
+
+[Term]
+id: HP:0031888
+name: Abnormal circulating HDL-C concentration
+is_a: HP:0010979 ! Abnormal circulating lipoprotein cholesterol concentration
+
+[Term]
+id: HP:0032039
+name: Abnormality of the ocular adnexa
+is_a: HP:0000315 ! Abnormality of the orbital region
+
+[Term]
+id: HP:0032180
+name: Abnormal circulating metabolite concentration
+is_a: HP:0001939 ! Abnormality of metabolism/homeostasis
+
+[Term]
+id: HP:0032243
+name: Abnormal tissue metabolite concentration
+is_a: HP:0001939 ! Abnormality of metabolism/homeostasis
+
+[Term]
+id: HP:0032263
+name: Increased blood pressure
+is_a: HP:0030972 ! Abnormal systemic blood pressure
+
+[Term]
+id: HP:0033127
+name: Abnormality of the musculoskeletal system
+is_a: HP:0000118 ! Phenotypic abnormality
+
+[Term]
+id: HP:0033353
+name: Abnormal blood vessel morphology
+is_a: HP:0025015 ! Abnormal vascular morphology
+
+[Term]
+id: HP:0033354
+name: Abnormal urine metabolite level
+is_a: HP:0003110 ! Abnormality of urine homeostasis
+
+[Term]
+id: HP:0033401
+name: Tissue ischemia
+is_a: HP:0025323 ! Abnormal arterial physiology
+
+[Term]
+id: HP:0033460
+name: Elevated circulating apolipoprotein concentration
+is_a: HP:0025201 ! Abnormal circulating apolipoprotein concentration
+
+[Term]
+id: HP:0033678
+name: Acute coronary syndrome
+is_a: HP:0011025 ! Abnormal cardiovascular system physiology
+
+[Term]
+id: HP:0034644
+name: Abnormal liver metabolite concentration
+is_a: HP:0032243 ! Abnormal tissue metabolite concentration
+is_a: HP:0410042 ! Abnormal liver morphology
+
+[Term]
+id: HP:0040217
+name: Elevated hemoglobin A1c
+is_a: HP:0011902 ! Abnormal hemoglobin
+
+[Term]
+id: HP:0100261
+name: Abnormal tendon morphology
+is_a: HP:0011842 ! Abnormal skeletal morphology
+
+[Term]
+id: HP:0100326
+name: Immunologic hypersensitivity
+is_a: HP:0010978 ! Abnormality of immune system physiology
+
+[Term]
+id: HP:0100545
+name: Arterial stenosis
+is_a: HP:0011004 ! Abnormal systemic arterial morphology
+
+[Term]
+id: HP:0100547
+name: Abnormal forebrain morphology
+is_a: HP:0012443 ! Abnormal brain morphology
+
+[Term]
+id: HP:0100659
+name: Abnormal cerebral vascular morphology
+is_a: HP:0012443 ! Abnormal brain morphology
+is_a: HP:0025015 ! Abnormal vascular morphology
+
+[Term]
+id: HP:0200036
+name: Skin nodule
+is_a: HP:0011355 ! Localized skin lesion
+
+[Term]
+id: HP:0410042
+name: Abnormal liver morphology
+is_a: HP:0001392 ! Abnormality of the liver
+
+[Term]
+id: HP:0430071
+name: Abnormal circulating organic compound concentration
+is_a: HP:0032180 ! Abnormal circulating metabolite concentration
+
+[Term]
+id: HP:0430148
+name: Abnormal circulating lipoprotein(a) concentration
+is_a: HP:0010980 ! Hyperlipoproteinemia
+
+[Term]
+id: HP:6000521
+name: Elevated circulating lipoprotein(a) concentration
+is_a: HP:0430148 ! Abnormal circulating lipoprotein(a) concentration
