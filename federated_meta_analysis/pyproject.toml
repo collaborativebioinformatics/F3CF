@@ -1,14 +1,14 @@
 [project]
-name = "henrik-prototype"
+name = "federated-meta-analysis"
 version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.12"
 dependencies = [
+    "bed-reader>=1.1.0",
     "matplotlib>=3.11.2",
     "pandas>=3.0.2",
     "pyarrow>=25.0.1",
-    "requests>=2.33.1",
-    "scikit-learn>=1.9.0",
+    "scikit-learn>=1.9.1",
     "scipy>=1.17.1",
     "snakemake>=9.27.0",
 ]

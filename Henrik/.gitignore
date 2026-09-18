@@ -1,8 +1,0 @@
-.venv/
-data/
-__pycache__/
-*.parquet
-*.tsv
-.snakemake/
-results/
-.DS_Store
