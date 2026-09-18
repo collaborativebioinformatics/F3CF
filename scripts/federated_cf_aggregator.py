@@ -66,7 +66,7 @@ def aggregate_client_params(
 
 
 class PhenotypeEmbeddingAggregator(ModelAggregator):
-    """FedAvg the shared phenotype tables; skip genetic updates from sites without G×P."""
+    """FedAvg the shared phenotype tables; skip genetic updates from sites without PGS."""
 
     def __init__(self) -> None:
         super().__init__()

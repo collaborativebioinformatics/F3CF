@@ -1,0 +1,154 @@
+{
+  "id": "PGS000064",
+  "name": "GLGC2017_HDL",
+  "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000064/ScoringFiles/PGS000064.txt.gz",
+  "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000064/ScoringFiles/Harmonized/PGS000064_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000064/ScoringFiles/Harmonized/PGS000064_hmPOS_GRCh38.txt.gz"
+    }
+  },
+  "publication": {
+    "id": "PGP000046",
+    "title": "The transferability of lipid loci across African, Asian and European cohorts.",
+    "doi": "10.1038/s41467-019-12026-7",
+    "PMID": 31551420,
+    "journal": "Nat Commun",
+    "firstauthor": "Kuchenbaecker K",
+    "date_publication": "2019-09-24"
+  },
+  "matches_publication": true,
+  "samples_variants": [
+    {
+      "sample_number": 17009,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": 33.83,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "African unspecified",
+      "ancestry_free": null,
+      "ancestry_country": "USA",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": 29083408,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": "Summary Stats link: http://csg.sph.umich.edu/willer/public/lipids2017/"
+    },
+    {
+      "sample_number": 8287,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": 45.11,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "East Asian",
+      "ancestry_free": null,
+      "ancestry_country": "China, USA",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": 29083408,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": "Summary Stats link: http://csg.sph.umich.edu/willer/public/lipids2017/"
+    },
+    {
+      "sample_number": 270520,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": 46.64,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "Canada, Croatia, Denmark, Estiona, Finland, Germany, Greece, Iceland, Ireland, Italy, Netherlands, Norway, Scotland, Sweden, UK, USA",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": 29083408,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": "Summary Stats link: http://csg.sph.umich.edu/willer/public/lipids2017/"
+    },
+    {
+      "sample_number": 5084,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": 42.68,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "Hispanic or Latin American",
+      "ancestry_free": null,
+      "ancestry_country": "USA",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": 29083408,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": "Summary Stats link: http://csg.sph.umich.edu/willer/public/lipids2017/"
+    },
+    {
+      "sample_number": 30468,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": 80.45,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "South Asian",
+      "ancestry_free": null,
+      "ancestry_country": "Bangladesh, UK, Pakistan",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": 29083408,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": "Summary Stats link: http://csg.sph.umich.edu/willer/public/lipids2017/"
+    }
+  ],
+  "samples_training": [],
+  "trait_reported": "HDL cholesterol",
+  "trait_additional": null,
+  "trait_efo": [
+    {
+      "id": "EFO_0004612",
+      "label": "high density lipoprotein cholesterol measurement",
+      "description": "The measurement of HDL cholesterol in blood used as a risk indicator for heart disease.",
+      "url": "http://www.ebi.ac.uk/efo/EFO_0004612"
+    }
+  ],
+  "method_name": "Established Lipid Loci; independent genome-wide significant variants",
+  "method_params": "MAF < 0.01, Imputation r2 < 0.8, clumping based on  r2 > 0.1, overlap of SNPs between study cohorts",
+  "variants_number": 120,
+  "variants_interactions": 0,
+  "variants_genomebuild": "hg19",
+  "weight_type": "NR",
+  "ancestry_distribution": {
+    "eval": {
+      "dist": {
+        "AFR": 20,
+        "EAS": 20,
+        "EUR": 60
+      },
+      "count": 5
+    },
+    "gwas": {
+      "dist": {
+        "AFR": 5.1,
+        "AMR": 1.5,
+        "EAS": 2.5,
+        "EUR": 81.6,
+        "SAS": 9.2
+      },
+      "count": 331368
+    }
+  },
+  "date_release": "2020-02-12",
+  "license": "PGS obtained from the Catalog should be cited appropriately, and used in accordance with any licensing restrictions set by the authors. See EBI Terms of Use (https://www.ebi.ac.uk/about/terms-of-use/) for additional details."
+}

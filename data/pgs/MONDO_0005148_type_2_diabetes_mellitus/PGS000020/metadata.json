@@ -1,0 +1,228 @@
+{
+  "id": "PGS000020",
+  "name": "dGRS1000",
+  "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000020/ScoringFiles/PGS000020.txt.gz",
+  "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000020/ScoringFiles/Harmonized/PGS000020_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000020/ScoringFiles/Harmonized/PGS000020_hmPOS_GRCh38.txt.gz"
+    }
+  },
+  "publication": {
+    "id": "PGP000010",
+    "title": "Personalized risk prediction for type 2 diabetes: the potential of genetic risk scores.",
+    "doi": "10.1038/gim.2016.103",
+    "PMID": 27513194,
+    "journal": "Genet Med",
+    "firstauthor": "L\u00e4ll K",
+    "date_publication": "2016-08-11"
+  },
+  "matches_publication": true,
+  "samples_variants": [
+    {
+      "sample_number": 69033,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "U.S., France, Germany, Netherlands, Finland, Iceland, Sweden, U.K., NR",
+      "ancestry_additional": "Removed 938 cases and 915 control Estonian Biobank (EB) samples from the replication analysis ",
+      "source_GWAS_catalog": "GCST005047",
+      "source_PMID": 22885922,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "EMIL",
+          "name_full": "EMIL",
+          "name_others": null
+        },
+        {
+          "name_short": "DUNDEE",
+          "name_full": "DUNDEE",
+          "name_others": null
+        },
+        {
+          "name_short": "EPIC",
+          "name_full": "European Prospective Investigation into Cancer",
+          "name_others": null
+        },
+        {
+          "name_short": "NHS",
+          "name_full": "Nurses Health Study",
+          "name_others": null
+        },
+        {
+          "name_short": "deCODE",
+          "name_full": "deCODE Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "ARIC",
+          "name_full": "Atherosclerosis Risk in Communities Study",
+          "name_others": null
+        },
+        {
+          "name_short": "PROMIS",
+          "name_full": "The Pakistan Risk Of Myocardial Infarction Study",
+          "name_others": null
+        },
+        {
+          "name_short": "AMC-PAS",
+          "name_full": "Osteoporosis Clinic of Asan Medical Center",
+          "name_others": null
+        },
+        {
+          "name_short": "DILGOM",
+          "name_full": "Lifestyle and Genetic determinants of Obesity and Metabolic syndrome study",
+          "name_others": null
+        },
+        {
+          "name_short": "HSIEA",
+          "name_full": "The Hellenic study of Interactions between SNPs & Eating in Atherosclerosis",
+          "name_others": null
+        },
+        {
+          "name_short": "PIVUS",
+          "name_full": "Prospective Investigation of the Vasculature in Uppsala Seniors",
+          "name_others": null
+        },
+        {
+          "name_short": "PMB",
+          "name_full": "Penn Medicine Biobank",
+          "name_others": null
+        },
+        {
+          "name_short": "SCARFSHEEP",
+          "name_full": "SCARFSHEEP",
+          "name_others": null
+        },
+        {
+          "name_short": "STR",
+          "name_full": "Swedish Twin Registry",
+          "name_others": null
+        },
+        {
+          "name_short": "ULSAM",
+          "name_full": "Uppsala Longitudinal Study of Adult Men",
+          "name_others": null
+        },
+        {
+          "name_short": "FHS",
+          "name_full": "Framingham Heart Study",
+          "name_others": null
+        },
+        {
+          "name_short": "RS",
+          "name_full": "Rotterdam Study",
+          "name_others": "Rotterdam Study I, Rotterdam Study II"
+        },
+        {
+          "name_short": "WTCCC",
+          "name_full": "Wellcome Trust Case Control Consortium",
+          "name_others": null
+        },
+        {
+          "name_short": "KORA",
+          "name_full": "Cooperative Health Research in the Region of Augsburg",
+          "name_others": "KORA F3, KORA F4, KORA S3, KORA S4"
+        },
+        {
+          "name_short": "BHS",
+          "name_full": "Busselton Health Study",
+          "name_others": null
+        },
+        {
+          "name_short": "DGDG",
+          "name_full": "Diabetes Gene Discovery Group",
+          "name_others": null
+        },
+        {
+          "name_short": "DGI",
+          "name_full": "Diabetes Genetics Initiative of Broad Institute of Harvard and MIT, Lund University, and Novartis Institutes of BioMedical Research",
+          "name_others": null
+        },
+        {
+          "name_short": "EUROSPAN",
+          "name_full": "European Special Population Network consortium",
+          "name_others": null
+        },
+        {
+          "name_short": "FUSION",
+          "name_full": "Finland-United States Investigation of Non-Insulin-Dependent Diabetes Mellitus Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "HPFS",
+          "name_full": "Health Professional Follow-up Study",
+          "name_others": null
+        },
+        {
+          "name_short": "HNR",
+          "name_full": "Heinz Nixdorf Recall Study",
+          "name_others": null
+        },
+        {
+          "name_short": "IMPROVE",
+          "name_full": "IMPROVE",
+          "name_others": null
+        },
+        {
+          "name_short": "W2C",
+          "name_full": "Warren 2 Consortium",
+          "name_others": null
+        },
+        {
+          "name_short": "GMetS",
+          "name_full": "GMetS (France)",
+          "name_others": null
+        },
+        {
+          "name_short": "EAS",
+          "name_full": "EAS",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    }
+  ],
+  "samples_training": [],
+  "trait_reported": "Type 2 diabetes (T2D)",
+  "trait_additional": null,
+  "trait_efo": [
+    {
+      "id": "MONDO_0005148",
+      "label": "type 2 diabetes mellitus",
+      "description": "A type of diabetes mellitus that is characterized by insulin resistance or desensitization and increased blood glucose levels. This is a chronic disease that can develop gradually over the life of a patient and can be linked to both environmental factors and heredity. [NCIT: P378]",
+      "url": "http://purl.obolibrary.org/obo/MONDO_0005148"
+    }
+  ],
+  "method_name": "Pruning and Thresholding (P+T)",
+  "method_params": "P < 0.05, r2 < 0.05, betas are weighted by the probability that they are in the top 1000 signals ",
+  "variants_number": 7502,
+  "variants_interactions": 0,
+  "variants_genomebuild": "NCBI36",
+  "weight_type": "NR",
+  "ancestry_distribution": {
+    "eval": {
+      "dist": {
+        "EUR": 33.3,
+        "GME": 66.7
+      },
+      "count": 3
+    },
+    "gwas": {
+      "dist": {
+        "EUR": 100
+      },
+      "count": 69033
+    }
+  },
+  "date_release": "2019-10-14",
+  "license": "PGS obtained from the Catalog should be cited appropriately, and used in accordance with any licensing restrictions set by the authors. See EBI Terms of Use (https://www.ebi.ac.uk/about/terms-of-use/) for additional details."
+}

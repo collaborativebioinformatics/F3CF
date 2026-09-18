@@ -1,0 +1,76 @@
+{
+  "id": "PGS000845",
+  "name": "HDL",
+  "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000845/ScoringFiles/PGS000845.txt.gz",
+  "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000845/ScoringFiles/Harmonized/PGS000845_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000845/ScoringFiles/Harmonized/PGS000845_hmPOS_GRCh38.txt.gz"
+    }
+  },
+  "publication": {
+    "id": "PGP000211",
+    "title": "Genome-wide association analyses highlight etiological differences underlying newly defined subtypes of diabetes",
+    "doi": "10.1038/s41588-021-00948-2",
+    "PMID": 34737425,
+    "journal": "Nat Genet",
+    "firstauthor": "Aly DM",
+    "date_publication": "2021-11-04"
+  },
+  "matches_publication": true,
+  "samples_variants": [
+    {
+      "sample_number": 94595,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": "Total cholesterol",
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "NR",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST002221",
+      "source_PMID": 24097068,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": "metaGRS constituent score name: TC"
+    }
+  ],
+  "samples_training": [],
+  "trait_reported": "HDL cholesterol",
+  "trait_additional": null,
+  "trait_efo": [
+    {
+      "id": "EFO_0004612",
+      "label": "high density lipoprotein cholesterol measurement",
+      "description": "The measurement of HDL cholesterol in blood used as a risk indicator for heart disease.",
+      "url": "http://www.ebi.ac.uk/efo/EFO_0004612"
+    }
+  ],
+  "method_name": "Genome-wide significant variants",
+  "method_params": "r2=0.1, 250kb window",
+  "variants_number": 303,
+  "variants_interactions": 0,
+  "variants_genomebuild": "GRCh37",
+  "weight_type": "NR",
+  "ancestry_distribution": {
+    "eval": {
+      "dist": {
+        "EUR": 100
+      },
+      "count": 5
+    },
+    "gwas": {
+      "dist": {
+        "EUR": 100
+      },
+      "count": 94595
+    }
+  },
+  "date_release": "2021-11-04",
+  "license": "PGS obtained from the Catalog should be cited appropriately, and used in accordance with any licensing restrictions set by the authors. See EBI Terms of Use (https://www.ebi.ac.uk/about/terms-of-use/) for additional details."
+}

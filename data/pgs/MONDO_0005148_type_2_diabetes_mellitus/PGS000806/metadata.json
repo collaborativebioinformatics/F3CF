@@ -1,0 +1,88 @@
+{
+  "id": "PGS000806",
+  "name": "GRS582_T2Dafr",
+  "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000806/ScoringFiles/PGS000806.txt.gz",
+  "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000806/ScoringFiles/Harmonized/PGS000806_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000806/ScoringFiles/Harmonized/PGS000806_hmPOS_GRCh38.txt.gz"
+    }
+  },
+  "publication": {
+    "id": "PGP000193",
+    "title": "Genetic discovery and risk characterization in type 2 diabetes across diverse populations.",
+    "doi": "10.1016/j.xhgg.2021.100029",
+    "PMID": 34604815,
+    "journal": "HGG Adv",
+    "firstauthor": "Polfus LM",
+    "date_publication": "2021-03-09"
+  },
+  "matches_publication": true,
+  "samples_variants": [
+    {
+      "sample_number": 56092,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "African American or Afro-Caribbean",
+      "ancestry_free": null,
+      "ancestry_country": "U.S.",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST010556",
+      "source_PMID": 32541925,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "PMB",
+          "name_full": "Penn Medicine Biobank",
+          "name_others": null
+        },
+        {
+          "name_short": "MVP",
+          "name_full": "Million Veteran Program",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    }
+  ],
+  "samples_training": [],
+  "trait_reported": "Type 2 diabetes (T2D)",
+  "trait_additional": null,
+  "trait_efo": [
+    {
+      "id": "MONDO_0005148",
+      "label": "type 2 diabetes mellitus",
+      "description": "A type of diabetes mellitus that is characterized by insulin resistance or desensitization and increased blood glucose levels. This is a chronic disease that can develop gradually over the life of a patient and can be linked to both environmental factors and heredity. [NCIT: P378]",
+      "url": "http://purl.obolibrary.org/obo/MONDO_0005148"
+    }
+  ],
+  "method_name": "Genome-wide significant variants",
+  "method_params": "NR",
+  "variants_number": 582,
+  "variants_interactions": 0,
+  "variants_genomebuild": "NR",
+  "weight_type": "beta",
+  "ancestry_distribution": {
+    "eval": {
+      "dist": {
+        "AFR": 50,
+        "GME": 50
+      },
+      "count": 2
+    },
+    "gwas": {
+      "dist": {
+        "AFR": 100
+      },
+      "count": 56092
+    }
+  },
+  "date_release": "2021-06-11",
+  "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)"
+}

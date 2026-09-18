@@ -23,6 +23,7 @@ from federated_cf_embeddings import (
     random_unit_params,
     to_numpy,
     train_reconstruction,
+    train_sparse_reconstruction,
 )
 
 try:
@@ -80,11 +81,27 @@ def local_update(
     nongenetic_mask = phenotype_mask(n_phenotypes, site.patient_col_index)
     n_patients = float(site.patient_phenotypes.shape[0])
 
-    if site.genome_phenotypes is None or site.genome_col_index is None:
+    if not site.has_genetic() or site.genome_col_index is None:
         genetic_np = l2_normalize_rows(genetic.detach().cpu().numpy())
         genetic_mask = np.zeros((n_phenotypes,), dtype=np.float32)
         n_genomes = 0.0
         genetic_loss = 0.0
+        n_genome_rows = 0
+    elif site.genome_values is not None and site.genome_row_index is not None and site.genome_entry_col is not None:
+        genetic, genetic_loss = train_sparse_reconstruction(
+            len(site.genome_ids),
+            site.genome_row_index,
+            site.genome_entry_col,
+            site.genome_values,
+            site.genome_col_index,
+            genetic,
+            local_epochs=local_epochs,
+            lr=lr,
+        )
+        genetic_np = l2_normalize_rows(genetic.detach().cpu().numpy())
+        genetic_mask = phenotype_mask(n_phenotypes, site.genome_col_index)
+        n_genomes = float(len(site.genome_ids))
+        n_genome_rows = len(site.genome_ids)
     else:
         genetic, genetic_loss = train_reconstruction(
             site.genome_phenotypes,
@@ -97,10 +114,11 @@ def local_update(
         genetic_np = l2_normalize_rows(genetic.detach().cpu().numpy())
         genetic_mask = phenotype_mask(n_phenotypes, site.genome_col_index)
         n_genomes = float(site.genome_phenotypes.shape[0])
+        n_genome_rows = int(site.genome_phenotypes.shape[0])
 
     print(
         f"[{site.site_id}] N={len(site.patient_ids)} P_patient={site.patient_phenotypes.shape[1]} "
-        f"G={'none' if site.genome_phenotypes is None else site.genome_phenotypes.shape[0]} "
+        f"PGS={'none' if n_genome_rows == 0 else n_genome_rows} "
         f"nongenetic_loss={nongenetic_loss:.4f} genetic_loss={genetic_loss:.4f}",
         flush=True,
     )

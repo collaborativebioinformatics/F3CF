@@ -1,0 +1,1052 @@
+{
+  "id": "PGS000804",
+  "name": "GRS582_T2Dmulti",
+  "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000804/ScoringFiles/PGS000804.txt.gz",
+  "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000804/ScoringFiles/Harmonized/PGS000804_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000804/ScoringFiles/Harmonized/PGS000804_hmPOS_GRCh38.txt.gz"
+    }
+  },
+  "publication": {
+    "id": "PGP000193",
+    "title": "Genetic discovery and risk characterization in type 2 diabetes across diverse populations.",
+    "doi": "10.1016/j.xhgg.2021.100029",
+    "PMID": 34604815,
+    "journal": "HGG Adv",
+    "firstauthor": "Polfus LM",
+    "date_publication": "2021-03-09"
+  },
+  "matches_publication": true,
+  "samples_variants": [
+    {
+      "sample_number": 1114458,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "U.S.",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST010557",
+      "source_PMID": 32541925,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "MVP",
+          "name_full": "Million Veteran Program",
+          "name_others": null
+        },
+        {
+          "name_short": "PMB",
+          "name_full": "Penn Medicine Biobank",
+          "name_others": null
+        },
+        {
+          "name_short": "MedSTAR",
+          "name_full": "MedSTAR cardiac catheterization study",
+          "name_others": null
+        },
+        {
+          "name_short": "PennCATH",
+          "name_full": "PennCATH",
+          "name_others": null
+        },
+        {
+          "name_short": "MDC",
+          "name_full": "Malm\u00f6 Diet and Cancer Study",
+          "name_others": null
+        },
+        {
+          "name_short": "deCODE",
+          "name_full": "deCODE Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "DGDG",
+          "name_full": "Diabetes Gene Discovery Group",
+          "name_others": null
+        },
+        {
+          "name_short": "DGI",
+          "name_full": "Diabetes Genetics Initiative of Broad Institute of Harvard and MIT, Lund University, and Novartis Institutes of BioMedical Research",
+          "name_others": null
+        },
+        {
+          "name_short": "EGCUT",
+          "name_full": "Estonian Genome Center of the University of Tartu",
+          "name_others": null
+        },
+        {
+          "name_short": "FHS",
+          "name_full": "Framingham Heart Study",
+          "name_others": null
+        },
+        {
+          "name_short": "FUSION",
+          "name_full": "Finland-United States Investigation of Non-Insulin-Dependent Diabetes Mellitus Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "GCKD",
+          "name_full": "German Chronic Kidney Disease Study",
+          "name_others": null
+        },
+        {
+          "name_short": "GENOA",
+          "name_full": "Genetic Epidemiology Network of Arteriopathy",
+          "name_others": null
+        },
+        {
+          "name_short": "GERA",
+          "name_full": "Genetic Epidemiology Research in Adult Health and Aging",
+          "name_others": null
+        },
+        {
+          "name_short": "GoDARTS",
+          "name_full": "Genetics of diabetes Audit and Research",
+          "name_others": null
+        },
+        {
+          "name_short": "GOMAP",
+          "name_full": "Genetic Overlap between Metabolic and Psychiatric traits",
+          "name_others": null
+        },
+        {
+          "name_short": "HPFS",
+          "name_full": "Health Professional Follow-up Study",
+          "name_others": null
+        },
+        {
+          "name_short": "InterAct",
+          "name_full": "InterAct",
+          "name_others": null
+        },
+        {
+          "name_short": "KORA",
+          "name_full": "Cooperative Health Research in the Region of Augsburg",
+          "name_others": "KORA F3, KORA F4, KORA S3, KORA S4"
+        },
+        {
+          "name_short": "MESA",
+          "name_full": "Multi-Ethnic Study of Atherosclerosis",
+          "name_others": null
+        },
+        {
+          "name_short": "METSIM",
+          "name_full": "Metabolic Syndrome In Men",
+          "name_others": null
+        },
+        {
+          "name_short": "MGI",
+          "name_full": "Michigan Genomics Initiative",
+          "name_others": null
+        },
+        {
+          "name_short": "NHS",
+          "name_full": "Nurses Health Study",
+          "name_others": null
+        },
+        {
+          "name_short": "Nugene",
+          "name_full": "NUgene (Northwestern University)",
+          "name_others": null
+        },
+        {
+          "name_short": "PIVUS",
+          "name_full": "Prospective Investigation of the Vasculature in Uppsala Seniors",
+          "name_others": null
+        },
+        {
+          "name_short": "PROSPER",
+          "name_full": "Prospective Study of Pravastatin in the Elderly at Risk",
+          "name_others": null
+        },
+        {
+          "name_short": "RS",
+          "name_full": "Rotterdam Study",
+          "name_others": "Rotterdam Study I, Rotterdam Study II"
+        },
+        {
+          "name_short": "UKB",
+          "name_full": "UK Biobank",
+          "name_others": null
+        },
+        {
+          "name_short": "ULSAM",
+          "name_full": "Uppsala Longitudinal Study of Adult Men",
+          "name_others": null
+        },
+        {
+          "name_short": "UPCH",
+          "name_full": "Danish T2D case-control study",
+          "name_others": null
+        },
+        {
+          "name_short": "WTCCC",
+          "name_full": "Wellcome Trust Case Control Consortium",
+          "name_others": null
+        },
+        {
+          "name_short": "BBJ",
+          "name_full": "BioBank Japan Project",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 56092,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "African American or Afro-Caribbean",
+      "ancestry_free": null,
+      "ancestry_country": "U.S.",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST010557",
+      "source_PMID": 32541925,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "MVP",
+          "name_full": "Million Veteran Program",
+          "name_others": null
+        },
+        {
+          "name_short": "PMB",
+          "name_full": "Penn Medicine Biobank",
+          "name_others": null
+        },
+        {
+          "name_short": "MedSTAR",
+          "name_full": "MedSTAR cardiac catheterization study",
+          "name_others": null
+        },
+        {
+          "name_short": "PennCATH",
+          "name_full": "PennCATH",
+          "name_others": null
+        },
+        {
+          "name_short": "MDC",
+          "name_full": "Malm\u00f6 Diet and Cancer Study",
+          "name_others": null
+        },
+        {
+          "name_short": "deCODE",
+          "name_full": "deCODE Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "DGDG",
+          "name_full": "Diabetes Gene Discovery Group",
+          "name_others": null
+        },
+        {
+          "name_short": "DGI",
+          "name_full": "Diabetes Genetics Initiative of Broad Institute of Harvard and MIT, Lund University, and Novartis Institutes of BioMedical Research",
+          "name_others": null
+        },
+        {
+          "name_short": "EGCUT",
+          "name_full": "Estonian Genome Center of the University of Tartu",
+          "name_others": null
+        },
+        {
+          "name_short": "FHS",
+          "name_full": "Framingham Heart Study",
+          "name_others": null
+        },
+        {
+          "name_short": "FUSION",
+          "name_full": "Finland-United States Investigation of Non-Insulin-Dependent Diabetes Mellitus Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "GCKD",
+          "name_full": "German Chronic Kidney Disease Study",
+          "name_others": null
+        },
+        {
+          "name_short": "GENOA",
+          "name_full": "Genetic Epidemiology Network of Arteriopathy",
+          "name_others": null
+        },
+        {
+          "name_short": "GERA",
+          "name_full": "Genetic Epidemiology Research in Adult Health and Aging",
+          "name_others": null
+        },
+        {
+          "name_short": "GoDARTS",
+          "name_full": "Genetics of diabetes Audit and Research",
+          "name_others": null
+        },
+        {
+          "name_short": "GOMAP",
+          "name_full": "Genetic Overlap between Metabolic and Psychiatric traits",
+          "name_others": null
+        },
+        {
+          "name_short": "HPFS",
+          "name_full": "Health Professional Follow-up Study",
+          "name_others": null
+        },
+        {
+          "name_short": "InterAct",
+          "name_full": "InterAct",
+          "name_others": null
+        },
+        {
+          "name_short": "KORA",
+          "name_full": "Cooperative Health Research in the Region of Augsburg",
+          "name_others": "KORA F3, KORA F4, KORA S3, KORA S4"
+        },
+        {
+          "name_short": "MESA",
+          "name_full": "Multi-Ethnic Study of Atherosclerosis",
+          "name_others": null
+        },
+        {
+          "name_short": "METSIM",
+          "name_full": "Metabolic Syndrome In Men",
+          "name_others": null
+        },
+        {
+          "name_short": "MGI",
+          "name_full": "Michigan Genomics Initiative",
+          "name_others": null
+        },
+        {
+          "name_short": "NHS",
+          "name_full": "Nurses Health Study",
+          "name_others": null
+        },
+        {
+          "name_short": "Nugene",
+          "name_full": "NUgene (Northwestern University)",
+          "name_others": null
+        },
+        {
+          "name_short": "PIVUS",
+          "name_full": "Prospective Investigation of the Vasculature in Uppsala Seniors",
+          "name_others": null
+        },
+        {
+          "name_short": "PROSPER",
+          "name_full": "Prospective Study of Pravastatin in the Elderly at Risk",
+          "name_others": null
+        },
+        {
+          "name_short": "RS",
+          "name_full": "Rotterdam Study",
+          "name_others": "Rotterdam Study I, Rotterdam Study II"
+        },
+        {
+          "name_short": "UKB",
+          "name_full": "UK Biobank",
+          "name_others": null
+        },
+        {
+          "name_short": "ULSAM",
+          "name_full": "Uppsala Longitudinal Study of Adult Men",
+          "name_others": null
+        },
+        {
+          "name_short": "UPCH",
+          "name_full": "Danish T2D case-control study",
+          "name_others": null
+        },
+        {
+          "name_short": "WTCCC",
+          "name_full": "Wellcome Trust Case Control Consortium",
+          "name_others": null
+        },
+        {
+          "name_short": "BBJ",
+          "name_full": "BioBank Japan Project",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 20445,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "Hispanic or Latin American",
+      "ancestry_free": null,
+      "ancestry_country": "U.S.",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST010557",
+      "source_PMID": 32541925,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "MVP",
+          "name_full": "Million Veteran Program",
+          "name_others": null
+        },
+        {
+          "name_short": "PMB",
+          "name_full": "Penn Medicine Biobank",
+          "name_others": null
+        },
+        {
+          "name_short": "MedSTAR",
+          "name_full": "MedSTAR cardiac catheterization study",
+          "name_others": null
+        },
+        {
+          "name_short": "PennCATH",
+          "name_full": "PennCATH",
+          "name_others": null
+        },
+        {
+          "name_short": "MDC",
+          "name_full": "Malm\u00f6 Diet and Cancer Study",
+          "name_others": null
+        },
+        {
+          "name_short": "deCODE",
+          "name_full": "deCODE Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "DGDG",
+          "name_full": "Diabetes Gene Discovery Group",
+          "name_others": null
+        },
+        {
+          "name_short": "DGI",
+          "name_full": "Diabetes Genetics Initiative of Broad Institute of Harvard and MIT, Lund University, and Novartis Institutes of BioMedical Research",
+          "name_others": null
+        },
+        {
+          "name_short": "EGCUT",
+          "name_full": "Estonian Genome Center of the University of Tartu",
+          "name_others": null
+        },
+        {
+          "name_short": "FHS",
+          "name_full": "Framingham Heart Study",
+          "name_others": null
+        },
+        {
+          "name_short": "FUSION",
+          "name_full": "Finland-United States Investigation of Non-Insulin-Dependent Diabetes Mellitus Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "GCKD",
+          "name_full": "German Chronic Kidney Disease Study",
+          "name_others": null
+        },
+        {
+          "name_short": "GENOA",
+          "name_full": "Genetic Epidemiology Network of Arteriopathy",
+          "name_others": null
+        },
+        {
+          "name_short": "GERA",
+          "name_full": "Genetic Epidemiology Research in Adult Health and Aging",
+          "name_others": null
+        },
+        {
+          "name_short": "GoDARTS",
+          "name_full": "Genetics of diabetes Audit and Research",
+          "name_others": null
+        },
+        {
+          "name_short": "GOMAP",
+          "name_full": "Genetic Overlap between Metabolic and Psychiatric traits",
+          "name_others": null
+        },
+        {
+          "name_short": "HPFS",
+          "name_full": "Health Professional Follow-up Study",
+          "name_others": null
+        },
+        {
+          "name_short": "InterAct",
+          "name_full": "InterAct",
+          "name_others": null
+        },
+        {
+          "name_short": "KORA",
+          "name_full": "Cooperative Health Research in the Region of Augsburg",
+          "name_others": "KORA F3, KORA F4, KORA S3, KORA S4"
+        },
+        {
+          "name_short": "MESA",
+          "name_full": "Multi-Ethnic Study of Atherosclerosis",
+          "name_others": null
+        },
+        {
+          "name_short": "METSIM",
+          "name_full": "Metabolic Syndrome In Men",
+          "name_others": null
+        },
+        {
+          "name_short": "MGI",
+          "name_full": "Michigan Genomics Initiative",
+          "name_others": null
+        },
+        {
+          "name_short": "NHS",
+          "name_full": "Nurses Health Study",
+          "name_others": null
+        },
+        {
+          "name_short": "Nugene",
+          "name_full": "NUgene (Northwestern University)",
+          "name_others": null
+        },
+        {
+          "name_short": "PIVUS",
+          "name_full": "Prospective Investigation of the Vasculature in Uppsala Seniors",
+          "name_others": null
+        },
+        {
+          "name_short": "PROSPER",
+          "name_full": "Prospective Study of Pravastatin in the Elderly at Risk",
+          "name_others": null
+        },
+        {
+          "name_short": "RS",
+          "name_full": "Rotterdam Study",
+          "name_others": "Rotterdam Study I, Rotterdam Study II"
+        },
+        {
+          "name_short": "UKB",
+          "name_full": "UK Biobank",
+          "name_others": null
+        },
+        {
+          "name_short": "ULSAM",
+          "name_full": "Uppsala Longitudinal Study of Adult Men",
+          "name_others": null
+        },
+        {
+          "name_short": "UPCH",
+          "name_full": "Danish T2D case-control study",
+          "name_others": null
+        },
+        {
+          "name_short": "WTCCC",
+          "name_full": "Wellcome Trust Case Control Consortium",
+          "name_others": null
+        },
+        {
+          "name_short": "BBJ",
+          "name_full": "BioBank Japan Project",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 216287,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "East Asian, South Asian",
+      "ancestry_free": null,
+      "ancestry_country": "U.S.",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST010557",
+      "source_PMID": 32541925,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "MVP",
+          "name_full": "Million Veteran Program",
+          "name_others": null
+        },
+        {
+          "name_short": "PMB",
+          "name_full": "Penn Medicine Biobank",
+          "name_others": null
+        },
+        {
+          "name_short": "MedSTAR",
+          "name_full": "MedSTAR cardiac catheterization study",
+          "name_others": null
+        },
+        {
+          "name_short": "PennCATH",
+          "name_full": "PennCATH",
+          "name_others": null
+        },
+        {
+          "name_short": "MDC",
+          "name_full": "Malm\u00f6 Diet and Cancer Study",
+          "name_others": null
+        },
+        {
+          "name_short": "deCODE",
+          "name_full": "deCODE Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "DGDG",
+          "name_full": "Diabetes Gene Discovery Group",
+          "name_others": null
+        },
+        {
+          "name_short": "DGI",
+          "name_full": "Diabetes Genetics Initiative of Broad Institute of Harvard and MIT, Lund University, and Novartis Institutes of BioMedical Research",
+          "name_others": null
+        },
+        {
+          "name_short": "EGCUT",
+          "name_full": "Estonian Genome Center of the University of Tartu",
+          "name_others": null
+        },
+        {
+          "name_short": "FHS",
+          "name_full": "Framingham Heart Study",
+          "name_others": null
+        },
+        {
+          "name_short": "FUSION",
+          "name_full": "Finland-United States Investigation of Non-Insulin-Dependent Diabetes Mellitus Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "GCKD",
+          "name_full": "German Chronic Kidney Disease Study",
+          "name_others": null
+        },
+        {
+          "name_short": "GENOA",
+          "name_full": "Genetic Epidemiology Network of Arteriopathy",
+          "name_others": null
+        },
+        {
+          "name_short": "GERA",
+          "name_full": "Genetic Epidemiology Research in Adult Health and Aging",
+          "name_others": null
+        },
+        {
+          "name_short": "GoDARTS",
+          "name_full": "Genetics of diabetes Audit and Research",
+          "name_others": null
+        },
+        {
+          "name_short": "GOMAP",
+          "name_full": "Genetic Overlap between Metabolic and Psychiatric traits",
+          "name_others": null
+        },
+        {
+          "name_short": "HPFS",
+          "name_full": "Health Professional Follow-up Study",
+          "name_others": null
+        },
+        {
+          "name_short": "InterAct",
+          "name_full": "InterAct",
+          "name_others": null
+        },
+        {
+          "name_short": "KORA",
+          "name_full": "Cooperative Health Research in the Region of Augsburg",
+          "name_others": "KORA F3, KORA F4, KORA S3, KORA S4"
+        },
+        {
+          "name_short": "MESA",
+          "name_full": "Multi-Ethnic Study of Atherosclerosis",
+          "name_others": null
+        },
+        {
+          "name_short": "METSIM",
+          "name_full": "Metabolic Syndrome In Men",
+          "name_others": null
+        },
+        {
+          "name_short": "MGI",
+          "name_full": "Michigan Genomics Initiative",
+          "name_others": null
+        },
+        {
+          "name_short": "NHS",
+          "name_full": "Nurses Health Study",
+          "name_others": null
+        },
+        {
+          "name_short": "Nugene",
+          "name_full": "NUgene (Northwestern University)",
+          "name_others": null
+        },
+        {
+          "name_short": "PIVUS",
+          "name_full": "Prospective Investigation of the Vasculature in Uppsala Seniors",
+          "name_others": null
+        },
+        {
+          "name_short": "PROSPER",
+          "name_full": "Prospective Study of Pravastatin in the Elderly at Risk",
+          "name_others": null
+        },
+        {
+          "name_short": "RS",
+          "name_full": "Rotterdam Study",
+          "name_others": "Rotterdam Study I, Rotterdam Study II"
+        },
+        {
+          "name_short": "UKB",
+          "name_full": "UK Biobank",
+          "name_others": null
+        },
+        {
+          "name_short": "ULSAM",
+          "name_full": "Uppsala Longitudinal Study of Adult Men",
+          "name_others": null
+        },
+        {
+          "name_short": "UPCH",
+          "name_full": "Danish T2D case-control study",
+          "name_others": null
+        },
+        {
+          "name_short": "WTCCC",
+          "name_full": "Wellcome Trust Case Control Consortium",
+          "name_others": null
+        },
+        {
+          "name_short": "BBJ",
+          "name_full": "BioBank Japan Project",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 56092,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "African American or Afro-Caribbean",
+      "ancestry_free": null,
+      "ancestry_country": "U.S.",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST010556",
+      "source_PMID": 32541925,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "MVP",
+          "name_full": "Million Veteran Program",
+          "name_others": null
+        },
+        {
+          "name_short": "PMB",
+          "name_full": "Penn Medicine Biobank",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 1114458,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": null,
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST010555",
+      "source_PMID": 32541925,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "MVP",
+          "name_full": "Million Veteran Program",
+          "name_others": null
+        },
+        {
+          "name_short": "PMB",
+          "name_full": "Penn Medicine Biobank",
+          "name_others": null
+        },
+        {
+          "name_short": "MedSTAR",
+          "name_full": "MedSTAR cardiac catheterization study",
+          "name_others": null
+        },
+        {
+          "name_short": "PennCATH",
+          "name_full": "PennCATH",
+          "name_others": null
+        },
+        {
+          "name_short": "MDC",
+          "name_full": "Malm\u00f6 Diet and Cancer Study",
+          "name_others": null
+        },
+        {
+          "name_short": "deCODE",
+          "name_full": "deCODE Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "DGDG",
+          "name_full": "Diabetes Gene Discovery Group",
+          "name_others": null
+        },
+        {
+          "name_short": "DGI",
+          "name_full": "Diabetes Genetics Initiative of Broad Institute of Harvard and MIT, Lund University, and Novartis Institutes of BioMedical Research",
+          "name_others": null
+        },
+        {
+          "name_short": "EGCUT",
+          "name_full": "Estonian Genome Center of the University of Tartu",
+          "name_others": null
+        },
+        {
+          "name_short": "FHS",
+          "name_full": "Framingham Heart Study",
+          "name_others": null
+        },
+        {
+          "name_short": "FUSION",
+          "name_full": "Finland-United States Investigation of Non-Insulin-Dependent Diabetes Mellitus Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "GCKD",
+          "name_full": "German Chronic Kidney Disease Study",
+          "name_others": null
+        },
+        {
+          "name_short": "GENOA",
+          "name_full": "Genetic Epidemiology Network of Arteriopathy",
+          "name_others": null
+        },
+        {
+          "name_short": "GERA",
+          "name_full": "Genetic Epidemiology Research in Adult Health and Aging",
+          "name_others": null
+        },
+        {
+          "name_short": "GoDARTS",
+          "name_full": "Genetics of diabetes Audit and Research",
+          "name_others": null
+        },
+        {
+          "name_short": "GOMAP",
+          "name_full": "Genetic Overlap between Metabolic and Psychiatric traits",
+          "name_others": null
+        },
+        {
+          "name_short": "HPFS",
+          "name_full": "Health Professional Follow-up Study",
+          "name_others": null
+        },
+        {
+          "name_short": "InterAct",
+          "name_full": "InterAct",
+          "name_others": null
+        },
+        {
+          "name_short": "KORA",
+          "name_full": "Cooperative Health Research in the Region of Augsburg",
+          "name_others": "KORA F3, KORA F4, KORA S3, KORA S4"
+        },
+        {
+          "name_short": "MESA",
+          "name_full": "Multi-Ethnic Study of Atherosclerosis",
+          "name_others": null
+        },
+        {
+          "name_short": "METSIM",
+          "name_full": "Metabolic Syndrome In Men",
+          "name_others": null
+        },
+        {
+          "name_short": "MGI",
+          "name_full": "Michigan Genomics Initiative",
+          "name_others": null
+        },
+        {
+          "name_short": "NHS",
+          "name_full": "Nurses Health Study",
+          "name_others": null
+        },
+        {
+          "name_short": "Nugene",
+          "name_full": "NUgene (Northwestern University)",
+          "name_others": null
+        },
+        {
+          "name_short": "PIVUS",
+          "name_full": "Prospective Investigation of the Vasculature in Uppsala Seniors",
+          "name_others": null
+        },
+        {
+          "name_short": "PROSPER",
+          "name_full": "Prospective Study of Pravastatin in the Elderly at Risk",
+          "name_others": null
+        },
+        {
+          "name_short": "RS",
+          "name_full": "Rotterdam Study",
+          "name_others": "Rotterdam Study I, Rotterdam Study II"
+        },
+        {
+          "name_short": "UKB",
+          "name_full": "UK Biobank",
+          "name_others": null
+        },
+        {
+          "name_short": "ULSAM",
+          "name_full": "Uppsala Longitudinal Study of Adult Men",
+          "name_others": null
+        },
+        {
+          "name_short": "UPCH",
+          "name_full": "Danish T2D case-control study",
+          "name_others": null
+        },
+        {
+          "name_short": "WTCCC",
+          "name_full": "Wellcome Trust Case Control Consortium",
+          "name_others": null
+        },
+        {
+          "name_short": "BioMe",
+          "name_full": "BioMe\u00ae BioBank Program (Institute for Personalized Medicine at the Icahn School of Medicine at Mount Sinai)",
+          "name_others": "BioMe Biobank (BMBB), MT. SINAI BioMe Biobank Platform (IMP), Charles R Bronfman Institute for Personalized Medicine - IPM / BioBank Genome Wide Association Study of Cardiovascular, Renal and Metabolic Phenotypes (IPM), Charles R Bronfman Institute for Personalized Medicine - IPM / BioBank Genome Wide Association Study of Cardiovascular, Renal and Metabolic Phenotypes I (IPM I), Charles R Bronfman Institute for Personalized Medicine - IPM / BioBank Genome Wide Association Study of Cardiovascular, Renal and Metabolic Phenotypes II (IPM II), IPM_EA_Affy, IPM_EA_Illu, Mount Sinai BioMe BioBank (Mount Sinai)"
+        }
+      ],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 20445,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "Hispanic or Latin American",
+      "ancestry_free": null,
+      "ancestry_country": null,
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST010554",
+      "source_PMID": 32541925,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "MVP",
+          "name_full": "Million Veteran Program",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 216287,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "East Asian, South Asian",
+      "ancestry_free": null,
+      "ancestry_country": null,
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST010553",
+      "source_PMID": 32541925,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "BBJ",
+          "name_full": "BioBank Japan Project",
+          "name_others": null
+        },
+        {
+          "name_short": "MVP",
+          "name_full": "Million Veteran Program",
+          "name_others": null
+        },
+        {
+          "name_short": "PGR",
+          "name_full": "Pakistan Genomic Resource",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    }
+  ],
+  "samples_training": [],
+  "trait_reported": "Type 2 diabetes (T2D)",
+  "trait_additional": null,
+  "trait_efo": [
+    {
+      "id": "MONDO_0005148",
+      "label": "type 2 diabetes mellitus",
+      "description": "A type of diabetes mellitus that is characterized by insulin resistance or desensitization and increased blood glucose levels. This is a chronic disease that can develop gradually over the life of a patient and can be linked to both environmental factors and heredity. [NCIT: P378]",
+      "url": "http://purl.obolibrary.org/obo/MONDO_0005148"
+    }
+  ],
+  "method_name": "Genome-wide significant variants",
+  "method_params": "NR",
+  "variants_number": 582,
+  "variants_interactions": 0,
+  "variants_genomebuild": "NR",
+  "weight_type": "beta",
+  "ancestry_distribution": {
+    "eval": {
+      "dist": {
+        "AFR": 12.5,
+        "AMR": 12.5,
+        "ASN": 12.5,
+        "EUR": 12.5,
+        "GME": 37.5,
+        "OTH": 12.5
+      },
+      "count": 8
+    },
+    "gwas": {
+      "dist": {
+        "AFR": 4,
+        "AMR": 1.5,
+        "EUR": 79.2,
+        "MAO": 15.4
+      },
+      "count": 2814564,
+      "multi": [
+        "MAO_EAS",
+        "MAO_SAS"
+      ]
+    }
+  },
+  "date_release": "2021-06-11",
+  "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)"
+}

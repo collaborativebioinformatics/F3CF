@@ -1,0 +1,12 @@
+[
+  {
+    "trait_id": "EFO_0004612",
+    "label": "high density lipoprotein cholesterol measurement",
+    "n_associated_scores": 93
+  },
+  {
+    "trait_id": "MONDO_0005148",
+    "label": "type 2 diabetes mellitus",
+    "n_associated_scores": 252
+  }
+]

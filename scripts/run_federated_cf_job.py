@@ -2,7 +2,8 @@
 """Run federated collaborative filtering with NVFLARE.
 
 Each site trains a reconstruction loss against shared ``P × 32`` phenotype
-embeddings (binary N×P for genome-less, optional continuous G×P for genome-based).
+embeddings: binary patient×phenotype for the genome-less table, and the same
+patients' PGS values for the genetic table when a site has genetics.
 Patient / genome row vectors stay local. The server FedAverages the same
 phenotype tables and L2-normalizes every vector.
 """
@@ -36,6 +37,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--lr", type=float, default=0.05)
     parser.add_argument("--export_job", default="")
     parser.add_argument("--skip_generate", action="store_true")
+    parser.add_argument(
+        "--save_embeddings",
+        action="store_true",
+        help="Overwrite explorer embeddings with trained FL tables",
+    )
     return parser.parse_args()
 
 
@@ -111,7 +117,13 @@ def main() -> None:
     args = parse_args()
     data_root = Path(args.data_root).resolve()
     if not args.skip_generate or not (data_root / PHENOTYPE_IDS_NAME).exists():
-        generate(data_root, n_phenotypes=40, n_factors=args.n_factors)
+        generate(
+            data_root,
+            n_phenotypes=0,
+            n_factors=args.n_factors,
+            pgs_matrix=ROOT / "data" / "pgs" / "pgs_phenotype_effects.csv",
+            labels_path=ROOT / "data" / "pgs" / "phenotype_labels.csv",
+        )
 
     from nvflare import FedJob
     from nvflare.fuel.utils.constants import FrameworkType
@@ -166,8 +178,11 @@ def main() -> None:
     job.simulator_run(str(workspace))
 
     output = Path(args.output)
-    saved = _export_npz(workspace, output, phenotype_ids, args.n_factors)
-    print(f"Global phenotype embeddings: {saved}")
+    if args.save_embeddings:
+        saved = _export_npz(workspace, output, phenotype_ids, args.n_factors)
+        print(f"Global phenotype embeddings: {saved}")
+    else:
+        print(f"Keeping presentation embeddings at {output}")
     print(f"  nongenetic: P×{args.n_factors} = {len(phenotype_ids)}×{args.n_factors}")
     print(f"  genetic:    P×{args.n_factors} = {len(phenotype_ids)}×{args.n_factors}")
 

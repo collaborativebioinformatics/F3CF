@@ -1,3 +1,7 @@
 torch>=2.0
 numpy>=1.24
 nvflare>=2.7
+streamlit>=1.32
+plotly>=5.18
+umap-learn>=0.5
+networkx>=3.0

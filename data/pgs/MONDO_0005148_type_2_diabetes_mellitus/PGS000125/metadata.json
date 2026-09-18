@@ -1,0 +1,189 @@
+{
+  "id": "PGS000125",
+  "name": "Qi_T2D_2017",
+  "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000125/ScoringFiles/PGS000125.txt.gz",
+  "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000125/ScoringFiles/Harmonized/PGS000125_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000125/ScoringFiles/Harmonized/PGS000125_hmPOS_GRCh38.txt.gz"
+    }
+  },
+  "publication": {
+    "id": "PGP000062",
+    "title": "Genetics of Type 2 Diabetes in U.S. Hispanic/Latino Individuals: Results From the Hispanic Community Health Study/Study of Latinos (HCHS/SOL).",
+    "doi": "10.2337/db16-1150",
+    "PMID": 28254843,
+    "journal": "Diabetes",
+    "firstauthor": "Qi Q",
+    "date_publication": "2017-03-02"
+  },
+  "matches_publication": true,
+  "samples_variants": [
+    {
+      "sample_number": 8214,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "Hispanic or Latin American",
+      "ancestry_free": null,
+      "ancestry_country": "U.S., Mexico",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST002317",
+      "source_PMID": 24390345,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 23827,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "African American or Afro-Caribbean",
+      "ancestry_free": null,
+      "ancestry_country": "U.S.",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST002560",
+      "source_PMID": 2510218,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 2583,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "Hispanic or Latin American",
+      "ancestry_free": null,
+      "ancestry_country": "U.S., Mexico",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST002352",
+      "source_PMID": 2450948,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 20019,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "South Asian",
+      "ancestry_free": null,
+      "ancestry_country": "Singapore, U.K., Pakistan",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST002352",
+      "source_PMID": 2450948,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 69033,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "Finland, Sweden, U.S., Iceland, Netherlands, Germany, U.K., France",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST002352",
+      "source_PMID": 2450948,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 18817,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "East Asian",
+      "ancestry_free": null,
+      "ancestry_country": "Republic of Korea, Singapore, China, Philippines, Japan",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST002352",
+      "source_PMID": 2450948,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 26805,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "East Asian",
+      "ancestry_free": null,
+      "ancestry_country": "Japan",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST002128",
+      "source_PMID": 23945395,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": null
+    }
+  ],
+  "samples_training": [],
+  "trait_reported": "Type 2 diabetes (T2D)",
+  "trait_additional": null,
+  "trait_efo": [
+    {
+      "id": "MONDO_0005148",
+      "label": "type 2 diabetes mellitus",
+      "description": "A type of diabetes mellitus that is characterized by insulin resistance or desensitization and increased blood glucose levels. This is a chronic disease that can develop gradually over the life of a patient and can be linked to both environmental factors and heredity. [NCIT: P378]",
+      "url": "http://purl.obolibrary.org/obo/MONDO_0005148"
+    }
+  ],
+  "method_name": "Genome-wide significant variants",
+  "method_params": "Unweighted allele count ",
+  "variants_number": 80,
+  "variants_interactions": 0,
+  "variants_genomebuild": "NR",
+  "weight_type": "Dosage",
+  "ancestry_distribution": {
+    "eval": {
+      "dist": {
+        "AMR": 33.3,
+        "GME": 66.7
+      },
+      "count": 3
+    },
+    "gwas": {
+      "dist": {
+        "AFR": 14.1,
+        "AMR": 6.4,
+        "EAS": 26.9,
+        "EUR": 40.8,
+        "SAS": 11.8
+      },
+      "count": 169298
+    }
+  },
+  "date_release": "2020-03-27",
+  "license": "PGS obtained from the Catalog should be cited appropriately, and used in accordance with any licensing restrictions set by the authors. See EBI Terms of Use (https://www.ebi.ac.uk/about/terms-of-use/) for additional details."
+}

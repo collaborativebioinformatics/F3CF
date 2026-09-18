@@ -1,0 +1,79 @@
+{
+  "id": "PGS000060",
+  "name": "GRS_HDL",
+  "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000060/ScoringFiles/PGS000060.txt.gz",
+  "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000060/ScoringFiles/Harmonized/PGS000060_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000060/ScoringFiles/Harmonized/PGS000060_hmPOS_GRCh38.txt.gz"
+    }
+  },
+  "publication": {
+    "id": "PGP000045",
+    "title": "An Examination of the Relationship between Lipid Levels and Associated Genetic Markers across Racial/Ethnic Populations in the Multi-Ethnic Study of Atherosclerosis.",
+    "doi": "10.1371/journal.pone.0126361",
+    "PMID": 25951326,
+    "journal": "PLoS One",
+    "firstauthor": "Johnson L",
+    "date_publication": "2015-05-07"
+  },
+  "matches_publication": true,
+  "samples_variants": [
+    {
+      "sample_number": 99900,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "Finland, Sweden, U.S., Australia, Iceland, Italy, Netherlands, Germany, U.K., Croatia, Switzerland, Austria, France, Denmark",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST000755",
+      "source_PMID": 20686565,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": null
+    }
+  ],
+  "samples_training": [],
+  "trait_reported": "HDL cholesterol",
+  "trait_additional": null,
+  "trait_efo": [
+    {
+      "id": "EFO_0004612",
+      "label": "high density lipoprotein cholesterol measurement",
+      "description": "The measurement of HDL cholesterol in blood used as a risk indicator for heart disease.",
+      "url": "http://www.ebi.ac.uk/efo/EFO_0004612"
+    }
+  ],
+  "method_name": "Genome-wide significant variants",
+  "method_params": "p < 5e-8",
+  "variants_number": 46,
+  "variants_interactions": 0,
+  "variants_genomebuild": "NR",
+  "weight_type": "beta",
+  "ancestry_distribution": {
+    "eval": {
+      "dist": {
+        "AFR": 25,
+        "AMR": 25,
+        "EAS": 25,
+        "EUR": 25
+      },
+      "count": 4
+    },
+    "gwas": {
+      "dist": {
+        "EUR": 100
+      },
+      "count": 99900
+    }
+  },
+  "date_release": "2020-02-12",
+  "license": "PGS obtained from the Catalog should be cited appropriately, and used in accordance with any licensing restrictions set by the authors. See EBI Terms of Use (https://www.ebi.ac.uk/about/terms-of-use/) for additional details."
+}
