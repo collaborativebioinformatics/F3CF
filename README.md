@@ -54,6 +54,8 @@ The framework is designed around three principles:
 - **Flexible:** new sites, entities, relation types, and modelling components can be added over time.
 
 ## Flowcharts
+![F3CF_flowchart.png](images/F3CF_flowchart.png)
+
 ```mermaid
 flowchart TB
 
@@ -221,16 +223,22 @@ This measures whether including information from $D_k$ improves performance on a
 
 ## Results from the synthetic data
 
-Results go here.
+![uncoupled_clinical_genetic_latent_networks.png](images\uncoupled_clinical_genetic_latent_networks.png)
+![metagraph_bipartite.png](images\metagraph_bipartite.png)
+
+For details, see [PAPER.md](PAPER.md)
 
 ## Limitations
 
 - **Latent associations are not necessarily clinically meaningful associations.** Proximity or strong relation scores require external validation and domain interpretation.
+- **Simplified relation model.** The current prototype uses direct dot-product factorization, effectively treating the relation operator $W_r$ as the identity. Relation-specific transformations remain to be implemented.
 - **Patient-level representations are site-specific.** Direct alignment of patients across institutions is not guaranteed.
 - **Dataset imbalance can affect the shared representation.** Large or dense sites may dominate optimization unless weighting or normalization is used.
 - **Sparse relations can be weakly identified.** Entities with few observations may receive unstable representations.
 - **The current prototype does not yet implement every relation shown in the conceptual framework.**
 - **Federation does not eliminate privacy risk.** Shared updates or learned parameters may still require secure aggregation, access control, or additional privacy-preserving mechanisms in real deployments.
+A concise limitation could be:
+
 
 ## Future aspects
 
