@@ -1,0 +1,62 @@
+{
+  "source": "data/synthgen (prs.csv, phenotypes.csv, drugs.csv) on main, commits 422661e and 7f85d90",
+  "builder": "Elakiya/synthgen_prs/build_synthgen_sites.py",
+  "seed": 0,
+  "ridge_lambda": 1.0,
+  "sites": [
+    {
+      "site_id": "site-1",
+      "n_patients": 1000,
+      "has_genome": true,
+      "drop": 8,
+      "n_genomes": 100,
+      "genome_rows": "per-SD log-OR of each phenotype on each PRS (site-local logistic fit)",
+      "dropped_phenotypes": [
+        "pheno1",
+        "pheno13",
+        "pheno27",
+        "pheno30",
+        "pheno37",
+        "pheno47",
+        "pheno58",
+        "pheno70"
+      ]
+    },
+    {
+      "site_id": "site-2",
+      "n_patients": 800,
+      "has_genome": true,
+      "drop": 10,
+      "n_genomes": 100,
+      "genome_rows": "per-SD log-OR of each phenotype on each PRS (site-local logistic fit)",
+      "dropped_phenotypes": [
+        "pheno2",
+        "pheno7",
+        "pheno10",
+        "pheno26",
+        "pheno40",
+        "pheno41",
+        "pheno42",
+        "pheno47",
+        "pheno56",
+        "pheno89"
+      ]
+    },
+    {
+      "site_id": "site-3",
+      "n_patients": 700,
+      "has_genome": false,
+      "drop": 6,
+      "n_genomes": 0,
+      "genome_rows": null,
+      "dropped_phenotypes": [
+        "pheno4",
+        "pheno17",
+        "pheno28",
+        "pheno32",
+        "pheno42",
+        "pheno67"
+      ]
+    }
+  ]
+}
