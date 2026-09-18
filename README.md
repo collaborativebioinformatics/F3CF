@@ -13,8 +13,8 @@ The current proof-of-concept can be run locally using the NVIDIA FLARE simulator
 ### Installation
 
 ```bash
-git clone https://github.com/collaborativebioinformatics/Metametagraphs.git
-cd Metametagraphs
+git clone https://github.com/collaborativebioinformatics/F3CF.git
+cd F3CF
 
 python -m venv .venv
 source .venv/bin/activate
