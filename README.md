@@ -6,6 +6,8 @@ The central idea is to let clinics, biobanks, and other data sources contribute 
 
 ## Demo
 
+![header](images/header.png)
+
 The current proof-of-concept can be run locally using the NVIDIA FLARE simulator.
 
 ### Installation
