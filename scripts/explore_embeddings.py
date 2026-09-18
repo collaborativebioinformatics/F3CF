@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import csv
 import os
 from pathlib import Path
 
@@ -16,187 +15,19 @@ import networkx as nx
 import plotly.graph_objects as go
 import streamlit as st
 from umap import UMAP
+from phenotype_groups import CATEGORY_COLORS, classify_trait, display_name, load_labels as load_label_csv
+
 DEFAULT_EMBEDDINGS = ROOT / "data" / "federated" / "global_phenotype_embeddings.npz"
 DEFAULT_LABELS = ROOT / "data" / "pgs" / "phenotype_labels.csv"
-
-CATEGORY_COLORS = {
-    "Cardiovascular": "#E63946",
-    "Cancer": "#9B2226",
-    "Metabolic / endocrine": "#F4A261",
-    "Neurological": "#7B2CBF",
-    "Psychiatric / behavioral": "#C77DFF",
-    "Respiratory": "#4CC9F0",
-    "Immune / infectious": "#2A9D8F",
-    "Hematologic": "#D62828",
-    "Renal": "#3A86FF",
-    "Gastrointestinal / liver": "#588157",
-    "Musculoskeletal": "#BC6C25",
-    "Reproductive": "#FF70A6",
-    "Sensory": "#FFB703",
-    "Dermatologic": "#E9C46A",
-    "Measurements / labs": "#8D99AE",
-    "Other": "#6C757D",
-}
-
-# First matching category wins; keep specific disease terms before generic "measurement".
-_CATEGORY_KEYWORDS: list[tuple[str, tuple[str, ...]]] = [
-    (
-        "Cancer",
-        (
-            "cancer", "neoplasm", "carcinoma", "tumor", "tumour", "lymphoma", "leukemia",
-            "leukaemia", "melanoma", "sarcoma", "myeloma", "malignan", "glioma",
-            "glioblastoma", "waldenstrom", "intraepithelial neoplasia", "macroglobulinemia",
-        ),
-    ),
-    (
-        "Cardiovascular",
-        (
-            "heart", "cardiac", "coronary", "myocardial", "atrial", "ventric", "aortic",
-            "arter", "vascular", "stroke", "thrombo", "embolism", "hypertension",
-            "hypertensive", "blood pressure", "angina", "atherosclero", "aneurysm",
-            "ischemi", "infarction", "ejection fraction", "pulse", "cardiomyopath",
-            "brugada", "ekg", "ecg", "electrocardi", "qt interval", "pr interval",
-            "rr interval", "pp interval", "tachycardia", "varicose", "vein",
-            "cholesterol", "ldl", "hdl", "triglyceride",
-        ),
-    ),
-    (
-        "Metabolic / endocrine",
-        (
-            "diabet", "glucose", "insulin", "homa-ir", "hypoglyc", "obes", "body mass",
-            "bmi", "body fat", "body weight", "thyroid", "goiter", "goitre", "graves",
-            "thyrotoxic", "metabol", "lipid", "lipoprotein", "adipos", "waist", "hba1c",
-            "fatty acid", "docosahexaenoic",
-        ),
-    ),
-    (
-        "Neurological",
-        (
-            "alzheimer", "parkinson", "epilep", "dementia", "migraine", "seizure",
-            "neuro", "brain", "hippocamp", "sclerosis", "cerebral", "cognit",
-            "motor neuron", "ataxia", "headache", "vertigo", "sciatica", "narcolepsy",
-            "parasomnia", "sleep apnea", "rem sleep", "peripheral nervous",
-            "nervous system", "cerebrospinal",
-        ),
-    ),
-    (
-        "Psychiatric / behavioral",
-        (
-            "depress", "anxi", "schizophren", "bipolar", "psychiatr", "mental disorder",
-            "autism", "adhd", "smok", "alcohol", "cannabis", "drug use", "substance",
-            "insomni", "personality", "risk-taking", "educational attainment",
-        ),
-    ),
-    (
-        "Respiratory",
-        (
-            "lung", "pulmon", "asthma", "copd", "respirat", "fev", "bronch", "pneumon",
-            "airway", "vital capacity", "expiratory", "rhinosinusitis", "rhinitis",
-            "nasal polyp", "apnea",
-        ),
-    ),
-    (
-        "Immune / infectious",
-        (
-            "lupus", "sjogren", "rheumat", "autoimmune", "immun", "infect", "hepatitis",
-            "covid", "hiv", "inflammat", "allerg", "celiac", "sarcoid", "herpes",
-            "varicella", "zoster", "seropositivity", "ige", "cellulitis", "mucositis",
-            "carbuncle", "furuncle", "wart",
-        ),
-    ),
-    (
-        "Hematologic",
-        (
-            "anemi", "hemoglobin", "haemoglob", "hematocrit", "erythrocyte", "platelet",
-            "leukocyte", "blood cell", "hematol", "coagul", "neutrophil", "reticulocyte",
-            "polycythemia", "red cell",
-        ),
-    ),
-    (
-        "Renal",
-        (
-            "kidney", "renal", "nephro", "creatinine", "albuminuria", "glomerul",
-            "hematuria", "urolithiasis", "urea nitrogen", "urine potassium",
-            "urinary retention",
-        ),
-    ),
-    (
-        "Gastrointestinal / liver",
-        (
-            "liver", "hepatic", "cirrhos", "alanine aminotransferase", "bowel", "crohn",
-            "colitis", "intestin", "gastric", "stomach", "colon", "rectum", "anal",
-            "appendic", "pancrea", "gallbladder", "gallstone", "cholecyst", "cholelith",
-            "bile", "biliary", "diverticul", "hernia", "ulcer", "duoden", "digestive",
-            "malabsorption", "hemorrhoid", "abdominal pain",
-        ),
-    ),
-    (
-        "Musculoskeletal",
-        (
-            "osteo", "arthritis", "arthropathy", "bone", "fracture", "osteopor",
-            "skeletal", "muscle", "joint", "spine", "spondylo", "ankylosing",
-            "vertebral", "epiphys", "hallux", "dupuytren", "chondrocalcin",
-            "connective tissue", "synovium", "tendon", "bursa", "knee injury",
-        ),
-    ),
-    (
-        "Reproductive",
-        (
-            "prostat", "breast", "ovarian", "ovar", "uter", "pregnan", "menstrual",
-            "menarche", "menopause", "fertil", "endometr", "testic", "cervix",
-            "gyneco", "genital", "reproductive",
-        ),
-    ),
-    (
-        "Sensory",
-        (
-            "hearing", "deaf", "presbycusis", "tinnitus", "vision", "glaucoma",
-            "cataract", "eye", "retina", "ear", "ocular", "myopia", "macular",
-            "corneal", "keratoconus", "iritis", "iridocyclitis", "uveitis", "labyrinth",
-        ),
-    ),
-    (
-        "Dermatologic",
-        (
-            "skin", "dermat", "eczema", "psoriasis", "suntan", "sunburn", "alopecia",
-            "acne", "vitiligo", "keratosis", "prurigo", "epidermal", "dermoid",
-            "pilosebaceous", "cyst", "follicular", "hair color",
-        ),
-    ),
-    (
-        "Measurements / labs",
-        (
-            "measurement", "count", "volume", "ratio", "level", "concentration",
-            "height", "weight", "anthropometr", "amount", "aging", "life span",
-            "age at death", "function studies",
-        ),
-    ),
-]
-
-
-def classify_trait(label: str) -> str:
-    text = label.lower()
-    for category, keywords in _CATEGORY_KEYWORDS:
-        if any(keyword in text for keyword in keywords):
-            return category
-    return "Other"
-
-
-def display_name(label: str) -> str:
-    return " · ".join(part.strip() for part in label.split("|") if part.strip()) or label
 
 
 @st.cache_data(show_spinner=False)
 def load_labels(path: str) -> dict[str, str]:
-    mapping: dict[str, str] = {}
-    with Path(path).open(encoding="utf-8", newline="") as handle:
-        for row in csv.DictReader(handle):
-            mapping[row["phenotype_id"]] = row["trait_label"]
-    return mapping
+    return load_label_csv(path)
 
 
 @st.cache_data(show_spinner=False)
-def load_embeddings(path: str) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+def load_embeddings(path: str, mtime: float) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     blob = np.load(path)
     phenotype_ids = np.asarray(blob["phenotype_ids"]).astype(str)
     nongenetic = np.asarray(blob["nongenetic_phenotype_embeddings"], dtype=np.float32)
@@ -428,7 +259,10 @@ def main() -> None:
 
     st.markdown('<div class="hero-kicker">Federated collaborative filtering</div>', unsafe_allow_html=True)
     st.title("Phenotype embedding explorer")
-    st.caption("Compare genome-less and genetics-informed phenotype spaces. Colors group related traits.")
+    st.caption(
+        "Clinical UMAP keeps trait groups apart. The genetic map pulls some groups together "
+        "(for example cardio–metabolic) so the two spaces tell related but different stories."
+    )
 
     with st.sidebar:
         st.header("Controls")
@@ -440,7 +274,9 @@ def main() -> None:
         search = st.text_input("Highlight phenotype", placeholder="e.g. heart, diabetes")
         st.caption("UMAP is independent of the networks. Graphs use a force layout and hide phenotypes with no edges.")
 
-    phenotype_ids, nongenetic, genetic = load_embeddings(embeddings_path)
+    phenotype_ids, nongenetic, genetic = load_embeddings(
+        embeddings_path, Path(embeddings_path).stat().st_mtime
+    )
     labels = load_labels(labels_path)
     names = [display_name(labels.get(pid, pid)) for pid in phenotype_ids]
     categories = [classify_trait(labels.get(pid, pid)) for pid in phenotype_ids]

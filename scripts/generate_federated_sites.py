@@ -12,6 +12,7 @@ import argparse
 import json
 from pathlib import Path
 
+import numpy as np
 import torch
 
 from federated_cf_data import (
@@ -24,14 +25,17 @@ from federated_cf_data import (
     write_id_list,
     write_labeled_matrix,
 )
+from phenotype_groups import CATEGORY_COLORS, load_labels, structured_phenotype_embeddings
 
 DEFAULT_PGS_MATRIX = "data/pgs/pgs_phenotype_effects.csv"
+DEFAULT_LABELS = "data/pgs/phenotype_labels.csv"
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output_dir", default="data/federated")
     parser.add_argument("--pgs_matrix", default=DEFAULT_PGS_MATRIX, help="Trait catalog used for phenotype IDs")
+    parser.add_argument("--labels", default=DEFAULT_LABELS, help="CSV with phenotype_id and trait_label")
     parser.add_argument("--n_phenotypes", type=int, default=0, help="0 = use all PGS traits")
     parser.add_argument("--n_factors", type=int, default=32)
     parser.add_argument("--seed", type=int, default=0)
@@ -59,6 +63,7 @@ def generate(
     seed: int = 0,
     pgs_matrix: str | Path | None = DEFAULT_PGS_MATRIX,
     max_snps: int = 0,
+    labels_path: str | Path = DEFAULT_LABELS,
 ) -> Path:
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -83,9 +88,23 @@ def generate(
         print("No PGS catalog found; using synthetic phenotype IDs")
 
     write_id_list(output_dir / PHENOTYPE_IDS_NAME, phenotype_ids)
-    n_pheno = len(phenotype_ids)
-    true_nongenetic = torch.randn(n_pheno, n_factors, generator=generator)
-    true_genetic = torch.randn(n_pheno, n_factors, generator=generator)
+    labels = load_labels(labels_path) if Path(labels_path).exists() else {}
+    nongenetic_np, genetic_np, clinical_groups, _genetic_groups = structured_phenotype_embeddings(
+        phenotype_ids, labels, n_factors, seed=seed
+    )
+    true_nongenetic = torch.from_numpy(nongenetic_np)
+    true_genetic = torch.from_numpy(genetic_np)
+    np.savez(
+        output_dir / "global_phenotype_embeddings.npz",
+        phenotype_ids=np.array(phenotype_ids),
+        nongenetic_phenotype_embeddings=nongenetic_np,
+        genetic_phenotype_embeddings=genetic_np,
+    )
+    used = {group: clinical_groups.count(group) for group in CATEGORY_COLORS if clinical_groups.count(group)}
+    print(
+        "Wrote clustered presentation embeddings "
+        f"({sum(used.values())} traits in {len(used)} groups)"
+    )
 
     sites = [
         {"site_id": "site-1", "n_patients": 120, "has_genetic": True, "drop": 4},
@@ -133,6 +152,7 @@ def main() -> None:
         n_factors=args.n_factors,
         seed=args.seed,
         pgs_matrix=args.pgs_matrix,
+        labels_path=args.labels,
     )
     print(f"Wrote federated site matrices under {output_dir}")
 
