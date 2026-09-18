@@ -7,7 +7,8 @@
 # traits. An edge means a variant in that locus passed 5e-8 for that trait in the federated meta-analysis at that
 # step; node size follows the size of that variant's meta-analysis effect.
 #
-# An edge is green when the locus really is causal for the trait and red when it is not. Truth comes from
+# An edge is green when the locus is causal for the trait and red when it is not; the panel reports the
+# share of that step's associations which are causal. Truth comes from
 # association-testing the simulation's noiseless genetic value (GenoEff), which has no environmental noise in it,
 # so power is not the limiting factor; the test is applied only to the 249 loci that were ever discovered, so it
 # is corrected for 249 tests rather than a genome. On Height, the one trait shipping a causal-variant list, every
@@ -105,7 +106,8 @@ for ax, step in zip(axes.ravel(), STEPS):
                     ha="left", va="center", fontsize=9.5, color="#333333", annotation_clip=False)
     ax.set_title(f"{step} site{'s' if step > 1 else ''}   (N = {train_n[step]:,})",
                  fontsize=12.3, fontweight="normal", color="#111111", pad=15)
-    ax.annotate(f"{green} causal associations, {red} false", (0.5, 1.002), xycoords="axes fraction",
+    correct = f"{green / (green + red):.0%} correct" if green + red else "none found"
+    ax.annotate(f"{green} causal, {red} false \u2014 {correct}", (0.5, 1.002), xycoords="axes fraction",
                 ha="center", va="bottom", fontsize=10.8, color="#888888")
 
 fig.legend(handles=[Line2D([], [], color=FALSE, lw=1.6, label="false positive association"),
