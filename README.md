@@ -192,15 +192,16 @@ The model jointly optimizes all available relations, sharing common embeddings a
 
 Currently implemented pipelines include:
 
-- synthetic clinical and PRS data generation;
-- site-formatted patient–phenotype and genomic-summary relations;
-- federated collaborative factorization with NVIDIA FLARE; and
+- Synthetic clinical and PRS data generation
+- Site-formatted patient–phenotype and genomic-summary relations
+- Federated collaborative factorization with NVIDIA FLARE
 
 Experimental or planned pipelines include:
 
-- allowing patient-level covariates (age, sex);
-- additional biomedical relations such as drug × patient, phenotype x omics, or phenotype ontology edges; and
-- source-ablation analyses for estimating the utility of external datasets.
+- Gene–phenotype collaborative filtering analysis pipeline
+- Allowing patient-level covariates (age, sex)
+- Additional biomedical relations such as drug × patient, phenotype x omics, or phenotype ontology edges
+- Source-ablation analyses for estimating the utility of external datasets
 
 See [PIPELINES.md](PIPELINES.md) for implementation details and expected extensions.
 
