@@ -227,7 +227,12 @@ def structured_phenotype_embeddings(
     clinical = [classify_trait(name) for name in names]
     genetic_groups = [classify_trait_genetic(name) for name in names]
 
-    centroids = {category: _unit(rng.normal(size=n_factors).astype(np.float32)) for category in CATEGORY_COLORS}
+    shared = _unit(rng.normal(size=n_factors).astype(np.float32))
+    spread = 1.05
+    centroids = {
+        category: _unit(shared + spread * _unit(rng.normal(size=n_factors).astype(np.float32)))
+        for category in CATEGORY_COLORS
+    }
 
     genetic_centroids = dict(centroids)
     genetic_centroids["Metabolic / endocrine"] = _unit(
