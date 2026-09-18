@@ -203,7 +203,7 @@ Experimental or planned pipelines include:
 - Additional biomedical relations such as drug × patient, phenotype x omics, or phenotype ontology edges
 - Source-ablation analyses for estimating the utility of external datasets
 
-See [PIPELINES.md](PIPELINES.md) for implementation details and expected extensions.
+See [PIPELINES.md](PIPELINES.md) for implementation details.
 
 ### Required pipelines for implementation
 F3CF assumes that each participating site first converts its local source data into a common site format.
