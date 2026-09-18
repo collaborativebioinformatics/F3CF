@@ -1,0 +1,203 @@
+{
+  "id": "PGS000660",
+  "name": "PRS-HDL",
+  "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000660/ScoringFiles/PGS000660.txt.gz",
+  "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000660/ScoringFiles/Harmonized/PGS000660_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000660/ScoringFiles/Harmonized/PGS000660_hmPOS_GRCh38.txt.gz"
+    }
+  },
+  "publication": {
+    "id": "PGP000121",
+    "title": "Development of genome-wide polygenic risk scores for lipid traits and clinical applications for dyslipidemia, subclinical atherosclerosis, and diabetes cardiovascular complications among East Asians.",
+    "doi": "10.1186/s13073-021-00831-z",
+    "PMID": 33608049,
+    "journal": "Genome Med",
+    "firstauthor": "Tam CHT",
+    "date_publication": "2021-02-19"
+  },
+  "matches_publication": true,
+  "samples_variants": [
+    {
+      "sample_number": 70657,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": 57.4,
+      "sample_age": {
+        "estimate_type": "mean",
+        "estimate": 63.7,
+        "variability_type": "sd",
+        "variability": 12.1,
+        "unit": "years"
+      },
+      "phenotyping_free": "Medical records",
+      "followup_time": null,
+      "ancestry_broad": "East Asian",
+      "ancestry_free": null,
+      "ancestry_country": "Japan",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST006005",
+      "source_PMID": 29403010,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "BBJ",
+          "name_full": "BioBank Japan Project",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    }
+  ],
+  "samples_training": [
+    {
+      "sample_number": 909,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": 51.9,
+      "sample_age": {
+        "estimate_type": "mean",
+        "estimate": 6.96,
+        "variability_type": "sd",
+        "variability": 0.44,
+        "unit": "years"
+      },
+      "phenotyping_free": "Measured using fasting blood samples",
+      "followup_time": null,
+      "ancestry_broad": "East Asian",
+      "ancestry_free": "Chinese",
+      "ancestry_country": "Hong Kong",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": 28279981,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "HAPO",
+          "name_full": "Hyperglycemia and Adverse Pregnancy Outcomes study",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": "HAPO HK Offspring"
+    },
+    {
+      "sample_number": 1973,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": 45.0,
+      "sample_age": {
+        "estimate_type": "mean",
+        "estimate": 15.6,
+        "variability_type": "sd",
+        "variability": 2.04,
+        "unit": "years"
+      },
+      "phenotyping_free": "Measured using fasting blood samples",
+      "followup_time": null,
+      "ancestry_broad": "East Asian",
+      "ancestry_free": "Chinese",
+      "ancestry_country": "Hong Kong",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": 17088339,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": "Adolescent cohort"
+    },
+    {
+      "sample_number": 441,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": 49.7,
+      "sample_age": {
+        "estimate_type": "mean",
+        "estimate": 44.9,
+        "variability_type": "sd",
+        "variability": 9.8,
+        "unit": "years"
+      },
+      "phenotyping_free": "Measured using fasting blood samples",
+      "followup_time": null,
+      "ancestry_broad": "East Asian",
+      "ancestry_free": "Chinese",
+      "ancestry_country": "Hong Kong",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": 16718283,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": "Adults"
+    },
+    {
+      "sample_number": 948,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": 0.0,
+      "sample_age": {
+        "estimate_type": "mean",
+        "estimate": 37.7,
+        "variability_type": "sd",
+        "variability": 4.64,
+        "unit": "years"
+      },
+      "phenotyping_free": "Measured using fasting blood samples",
+      "followup_time": null,
+      "ancestry_broad": "East Asian",
+      "ancestry_free": "Chinese",
+      "ancestry_country": "Hong Kong",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": 28279981,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "HAPO",
+          "name_full": "Hyperglycemia and Adverse Pregnancy Outcomes study",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": "HAPO Mothers"
+    }
+  ],
+  "trait_reported": "HDL cholesterol",
+  "trait_additional": null,
+  "trait_efo": [
+    {
+      "id": "EFO_0004612",
+      "label": "high density lipoprotein cholesterol measurement",
+      "description": "The measurement of HDL cholesterol in blood used as a risk indicator for heart disease.",
+      "url": "http://www.ebi.ac.uk/efo/EFO_0004612"
+    }
+  ],
+  "method_name": "LD-pruning and p-value thresholding",
+  "method_params": "r2 = 0.2 and p = 1.0E-04",
+  "variants_number": 549,
+  "variants_interactions": 0,
+  "variants_genomebuild": "GRCh37",
+  "weight_type": "beta",
+  "ancestry_distribution": {
+    "dev": {
+      "dist": {
+        "EAS": 100
+      },
+      "count": 4271
+    },
+    "eval": {
+      "dist": {
+        "EAS": 100
+      },
+      "count": 4
+    },
+    "gwas": {
+      "dist": {
+        "EAS": 100
+      },
+      "count": 70657
+    }
+  },
+  "date_release": "2021-02-23",
+  "license": "PGS obtained from the Catalog should be cited appropriately, and used in accordance with any licensing restrictions set by the authors. See EBI Terms of Use (https://www.ebi.ac.uk/about/terms-of-use/) for additional details."
+}

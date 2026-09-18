@@ -1,0 +1,630 @@
+phenotype_id,trait_label,pgs_id,variants_used,aggregated_effect
+EFO_0000493,family history,PGS001132,1529,0.29084388
+EFO_0000768,idiopathic pulmonary fibrosis,PGS012550,13,4.8781132
+EFO_0001063+MONDO_0005365,deafness|hearing loss disorder,PGS001252,3731,0.67894767
+EFO_0002751+MONDO_0006869,benign|nodular goiter,PGS005261,110,10.086
+EFO_0003765,sign or symptom,PGS019547,2,0.012141674
+EFO_0003907,deep vein thrombosis,PGS001264,839,-0.16083906
+EFO_0003907+MONDO_0000831,deep vein thrombosis|thrombotic disease,PGS000931,534,-0.2295866
+EFO_0003907+MONDO_0005279,deep vein thrombosis|pulmonary embolism,PGS001279,94,0.43262179
+EFO_0003913,angina pectoris,PGS001262,1851,0.37680598
+EFO_0003952,fever of unknown origin,PGS019747,44,0.064859044
+EFO_0003959+HP_0000175,cleft lip|Cleft palate,PGS002266,29,3.6875202
+EFO_0004195,LDL cholesterol,PGS019801,3616,-0.17137129
+EFO_0004229,Dupuytren Contracture,PGS001254,11,0.56952014
+EFO_0004269,cardiac arrhythmia,PGS019200,11,0.0092094625
+EFO_0004279,suntan,PGS001244,958,3.4407131
+EFO_0004281,testicular neoplasm,PGS001806,231,0.62996491
+EFO_0004302,anthropometric measurement,PGS001379,850,0.0038273706
+EFO_0004305,erythrocyte count,PGS000187,678,19.173089
+EFO_0004307,glucose tolerance test,PGS000839,219,0.235
+EFO_0004309,platelet count,PGS000186,739,23.765923
+EFO_0004309+EFO_0004458+EFO_0008447+OBA_VT0000217,platelet count|C-reactive protein measurement|neutrophil-to-lymphocyte ratio|leukocyte quantity,PGS005251,1113,11.276641
+EFO_0004312,vital capacity,PGS002595,1235,1.3923801
+EFO_0004319,smoking cessation,PGS001374,663,0.62386962
+EFO_0004329,alcohol drinking,PGS019953,10,-0.31687
+EFO_0004338+EFO_0009799,body weight|self-reported trait,PGS001006,2638,0.095198586
+EFO_0004340,body mass index,PGS002751,14,0.356
+EFO_0004340+EFO_0009819,body mass index|comparative body size at age 10,PGS000716,295,-0.72360084
+EFO_0004340+PATO_0000383,body mass index|female,PGS000830,372,1.1946
+EFO_0004340+PATO_0000384,body mass index|male,PGS000829,290,0.6547
+EFO_0004341,body fat distribution,PGS005316,403,0.6968292
+EFO_0004343,waist-hip ratio,PGS000842,39,0.881
+EFO_0004344,birth weight,PGS001226,6276,0.072683993
+EFO_0004346,neuroimaging measurement,PGS001513,114,-0.3056663
+EFO_0004346+EFO_0004830,neuroimaging measurement|caudate nucleus volume,PGS001542,1055,-22.888564
+EFO_0004346+EFO_0005035,neuroimaging measurement|hippocampal volume,PGS001630,442,38.247071
+EFO_0004346+EFO_0005420,neuroimaging measurement|grey matter volume measurement,PGS001546,115,12.231885
+EFO_0004346+EFO_0005420+EFO_0008320,neuroimaging measurement|grey matter volume measurement|white matter volume measurement,PGS001540,1871,20047.445
+EFO_0004346+EFO_0005665,neuroimaging measurement|white matter hyperintensity measurement,PGS001534,355,391.76348
+EFO_0004346+EFO_0006516,neuroimaging measurement|superior frontal gyrus grey matter volume measurement,PGS001598,5,62.047674
+EFO_0004346+EFO_0006935,neuroimaging measurement|thalamus volume,PGS001637,1328,-195.59009
+EFO_0004346+EFO_0008320,neuroimaging measurement|white matter volume measurement,PGS001641,1004,3291.6203
+EFO_0004346+OBA_2050009,neuroimaging measurement|brain volume,PGS001766,1,-1.743534e-05
+EFO_0004346+OBA_2050016,neuroimaging measurement|putamen volume,PGS001635,747,-1.9194129
+EFO_0004346+OBA_2050020,neuroimaging measurement|nucleus accumbens volume,PGS001538,643,1.856171
+EFO_0004346+OBA_2050021+OBA_2050047,neuroimaging measurement|brain stem volume|fourth ventricle volume,PGS001539,1183,237.4884
+EFO_0004346+OBA_2050027,neuroimaging measurement|pallidum volume,PGS001632,302,-49.497793
+EFO_0004346+OBA_VT0000254,neuroimaging measurement|cerebrospinal fluid amount,PGS001639,772,2710.8493
+EFO_0004348,hematocrit,PGS000167,502,12.826604
+EFO_0004458,C-reactive protein measurement,PGS002880,2,-0.43
+EFO_0004462,PR interval,PGS000735,44,-3.2
+EFO_0004468,glucose measurement,PGS002596,482,-150.80333
+EFO_0004471,insulin sensitivity measurement,PGS000837,219,-0.2732
+EFO_0004501,HOMA-IR,PGS005392,1414,28.660972
+EFO_0004509,hemoglobin measurement,PGS000168,515,13.504581
+EFO_0004514,bone quantitative ultrasound measurement,PGS000955,7069,5.6428867
+EFO_0004517,arterial stiffness measurement,PGS001519,693,0.36209236
+EFO_0004527,mean corpuscular hemoglobin,PGS000174,628,23.716575
+EFO_0004528,mean corpuscular hemoglobin concentration,PGS000175,224,7.4589544
+EFO_0004530,triglyceride measurement,PGS000063,32,0.1412
+EFO_0004531,urate measurement,PGS000126,114,0.054
+EFO_0004532,serum gamma-glutamyl transferase measurement,PGS003344,82,3.1012
+EFO_0004533,alkaline phosphatase measurement,PGS000815,290,0.3126
+EFO_0004541,HbA1c measurement,PGS019959,14,-0.1138
+EFO_0004570,bilirubin measurement,PGS000697,1159,0.3067789
+EFO_0004574,total cholesterol measurement,PGS003830,32,-0.5255318
+EFO_0004587,lymphocyte count,PGS000172,621,17.402648
+EFO_0004611,low density lipoprotein cholesterol measurement,PGS005249,6,1.283
+EFO_0004611+EFO_0004612,low density lipoprotein cholesterol measurement|high density lipoprotein cholesterol measurement,PGS000192,9,9
+EFO_0004611+GO_0036273,low density lipoprotein cholesterol measurement|response to statin,PGS002730,35,104.9
+EFO_0004612,high density lipoprotein cholesterol measurement,PGS000060,46,0.3517
+EFO_0004617,cystatin C measurement,PGS003280,346,-0.938858
+EFO_0004617+OBA_0003747,cystatin C measurement|glomerular filtration rate,PGS003315,2,-0.03
+EFO_0004620,vitamin B12 measurement,PGS003165,9,2.069
+EFO_0004630,factor VIII measurement,PGS003330,10,-0.0854
+EFO_0004670,beta-amyloid 1-42 measurement,PGS003762,57,0.32148
+EFO_0004682,QT interval,PGS000768,68,-3.99
+EFO_0004695,intraocular pressure measurement,PGS003413,25,30
+EFO_0004697,estradiol measurement,PGS002920,4,-35.565
+EFO_0004703,age at menarche,PGS002578,891,-5.1976986
+EFO_0004704,age at menopause,PGS002821,159,2.89
+EFO_0004713,FEV/FVC ratio,PGS000210,279,279.009
+EFO_0004723,coronary artery calcification,PGS005096,11,-0.611
+EFO_0004731,eye measurement,PGS001358,148,0.047624266
+EFO_0004736,aspartate aminotransferase measurement,PGS003343,54,2.1449
+EFO_0004761,uric acid measurement,PGS002290,10,0.9208
+EFO_0004831,RR interval,PGS001907,1964,50.286715
+EFO_0004833,neutrophil count,PGS000182,492,13.730536
+EFO_0004842,eosinophil count,PGS000165,607,17.950902
+EFO_0004908,testosterone measurement,PGS000321,7319,0.056035268
+EFO_0004908+PATO_0000383,testosterone measurement|female,PGS000322,7168,0.056554389
+EFO_0004908+PATO_0000384,testosterone measurement|male,PGS001988,3985,0.025893475
+EFO_0004918+HP_0032263,age at diagnosis|Increased blood pressure,PGS000935,370,0.053466366
+EFO_0004918+MONDO_0005015,age at diagnosis|diabetes mellitus,PGS001371,24,-1.3572901
+EFO_0004995,lean body mass,PGS005315,630,0.5125
+EFO_0005035,hippocampal volume,PGS003665,164,-0.187695
+EFO_0005056+PATO_0000383,age at death|female,PGS000318,4122,0.29261909
+EFO_0005056+PATO_0000384,age at death|male,PGS000319,4092,0.69863653
+EFO_0005090,basophil count,PGS000163,185,5.3295835
+EFO_0005091,monocyte count,PGS000177,638,20.842166
+EFO_0005094,P wave duration,PGS001902,640,-0.24978931
+EFO_0005116+EFO_0009282,urinary metabolite measurement|sodium measurement,PGS000695,5833,-0.001272972
+EFO_0005127,cancer biomarker measurement,PGS019768,39,0.11203127
+EFO_0005199,renal transplant outcome measurement,PGS019955,1308,630.8953
+EFO_0005278+EFO_0020865,cardiovascular disease biomarker measurement|aortic measurement,PGS002267,89,1.4141007
+EFO_0005420,grey matter volume measurement,PGS001143,699,17.096743
+EFO_0005422,skin aging,PGS001141,7676,-0.79273887
+EFO_0005606,family history of breast cancer,PGS001337,195,-0.10700852
+EFO_0005670,smoking initiation,PGS003747,341,-0.651
+EFO_0005767,rheumatoid factor measurement,PGS001138,454,0.2484717
+EFO_0006335,systolic blood pressure,PGS012514,107,2.7361
+EFO_0006336,diastolic blood pressure,PGS012515,98,0.7185
+EFO_0006525,cigarettes per day measurement,PGS001515,9,0.69451001
+EFO_0006527,smoking status measurement,PGS002616,201,-0.24272725
+EFO_0006527+MONDO_0005138,smoking status measurement|lung carcinoma,PGS004164,16,2.9062399
+EFO_0006781,coffee consumption measurement,PGS001123,48,0.16040502
+EFO_0006829,GFR change measurement,PGS000664,7,7
+EFO_0006925,lipoprotein A measurement,PGS005320,36,323.5
+EFO_0006953,family history of lung cancer,PGS001392,312,-0.10523652
+EFO_0007006,depressive symptom measurement,PGS001899,2434,0.067738643
+EFO_0007006+MONDO_0002009,depressive symptom measurement|major depressive disorder,PGS000767,14,0.0896
+EFO_0007010,drug use measurement,PGS001118,1845,0.16171237
+EFO_0007012,NSAID use measurement,PGS001116,174,-0.034613433
+EFO_0007012+EFO_0009799,NSAID use measurement|self-reported trait,PGS001114,419,-0.010177982
+EFO_0007013,aspirin use measurement,PGS001112,499,0.090237426
+EFO_0007585,Cannabis use,PGS001391,818,0.02924244
+EFO_0007645+OBA_1000840,longitudinal alcohol consumption measurement|alcohol consumption quality,PGS001085,214,0.051231221
+EFO_0007652,health trait,PGS002004,3970,0.23642782
+EFO_0007659+MONDO_0004975,APOE carrier status|Alzheimer disease,PGS003440,11,0.3242
+EFO_0007660,neuroticism measurement,PGS002610,196,-1.4121137
+EFO_0007710+MONDO_0005180,cognitive decline measurement|Parkinson disease,PGS000777,3,3.364584
+EFO_0007761,docosahexaenoic acid measurement,PGS012569,179,-2.8128173
+EFO_0007766,response to beta blocker,PGS000718,44,167.96
+EFO_0007778,urinary albumin to creatinine ratio,PGS004897,28,-0.1674
+EFO_0007783,mosaic loss of chromosome Y measurement,PGS003575,114,11.45
+EFO_0007788,BMI-adjusted waist-hip ratio,PGS000843,63,1.503
+EFO_0007794,nicotine metabolite ratio,PGS004909,3,0.19
+EFO_0007803,emotional symptom measurement,PGS001396,2429,0.070051438
+EFO_0007814,refractive error measurement,PGS001099,6638,-2.7985362
+EFO_0007825,balding measurement,PGS002582,1998,-4.4636624
+EFO_0007865,loneliness measurement,PGS001091,658,0.029130495
+EFO_0007869,wellbeing measurement,PGS001090,7555,-0.94381917
+EFO_0007876,insomnia measurement,PGS003859,129,3.4582
+EFO_0007928,ventricular rate measurement,PGS001981,6324,-0.023989593
+EFO_0007934,creatinine clearance measurement,PGS000679,5469,0.014375571
+EFO_0007946,tiredness measurement,PGS001080,5593,-0.089540353
+EFO_0007984,platelet component distribution width,PGS000185,555,19.451307
+EFO_0007985,platelet crit,PGS000184,700,21.816065
+EFO_0007986,reticulocyte count,PGS000171,372,12.397154
+EFO_0007989,monocyte percentage of leukocytes,PGS000178,549,19.664576
+EFO_0007990,neutrophil percentage of leukocytes,PGS000183,437,11.68737
+EFO_0007991,eosinophil percentage of leukocytes,PGS000166,571,17.092999
+EFO_0007992,basophil percentage of leukocytes,PGS000164,150,4.6780379
+EFO_0007993,lymphocyte percentage of leukocytes,PGS000173,472,12.825678
+EFO_0008002,physical activity measurement,PGS001397,1276,-0.10379281
+EFO_0008036,BMI-adjusted fasting blood glucose measurement,PGS000306,19,0.397824
+EFO_0008037,BMI-adjusted fasting blood insulin measurement,PGS000308,12,0.195005
+EFO_0008111,diet measurement,PGS001065,4,0.1424606
+EFO_0008206,left ventricular systolic function measurement,PGS000666,28,0.828
+EFO_0008328,chronotype measurement,PGS002586,255,-0.71669529
+EFO_0008341,snoring measurement,PGS001054,7404,0.29797573
+EFO_0008373,left ventricular ejection fraction measurement,PGS002278,16,2.41
+EFO_0008385,visual acuity measurement,PGS001985,223,-0.0031971306
+EFO_0008421,non-alcoholic fatty liver disease severity measurement,PGS000656,11,4.2246535
+EFO_0008473,insulin response measurement,PGS000834,220,-0.487734
+EFO_0008496,chronic hepatitis,PGS018430,305,0.053668276
+EFO_0008561,diaphragmatic hernia,PGS001050,1857,0.059856897
+EFO_0008579,risk-taking behaviour,PGS001049,4297,0.10276051
+EFO_0008586,Non-ST Elevation Myocardial Infarction,PGS001048,687,-0.12915228
+EFO_0008619,Simple Cyst of Kidney,PGS019453,2,0.013366953
+EFO_0009102,number of children ever born measurement,PGS002577,21,0.10163551
+EFO_0009115,tobacco smoke exposure measurement,PGS001047,2245,0.57344195
+EFO_0009116,vitamin supplement exposure measurement,PGS001045,3,0.019691632
+EFO_0009188,Red cell distribution width,PGS000188,546,18.913118
+EFO_0009260,non-melanoma skin carcinoma,PGS001040,1609,1.0210192
+EFO_0009268,family history of Alzheimer’s disease,PGS001347,139,0.43787556
+EFO_0009270,heel bone mineral density,PGS001403,8284,-0.017116818
+EFO_0009271,Epstein Barr virus nuclear antigen-1 seropositivity,PGS001036,35,-1275.736
+EFO_0009290,left ventricular mass index,PGS003427,465,-38.12908
+EFO_0009340,Varicella zoster virus seropositivity,PGS001399,5,176.37878
+EFO_0009394,hippocampal CA1 volume,PGS003613,8,-0.158077
+EFO_0009395,hippocampal CA3 volume,PGS003624,594,0.3672018
+EFO_0009396,hippocampal CA4 volume,PGS003641,48,-0.166193
+EFO_0009401,hippocampal amigdala transition area volume,PGS003604,1363,1.5640464
+EFO_0009432,fibroblastic disorder,PGS001031,252,0.43951943
+EFO_0009459,ACPA-positive rheumatoid arthritis,PGS000194,96,8.7965887
+EFO_0009460,ACPA-negative rheumatoid arthritis,PGS000195,93,7.9329585
+EFO_0009486,diabetic eye disease,PGS001028,121,0.58060046
+EFO_0009493,paroxysmal tachycardia,PGS019190,70,0.096322207
+EFO_0009507,knee injury,PGS001027,118,0.1845149
+EFO_0009514,upper extremity fracture,PGS001026,45,-0.21484763
+EFO_0009518,complication,PGS000870,18,4.6696009
+EFO_0009589,worry measurement,PGS001920,2894,0.025594368
+EFO_0009589+EFO_0009863,worry measurement|anxiety measurement,PGS001021,9747,0.30091773
+EFO_0009592,social interaction measurement,PGS001020,220,0.094705319
+EFO_0009597,feeling nervous measurement,PGS001017,3347,0.22343265
+EFO_0009599,feeling emotionally hurt measurement,PGS001016,7921,-0.041253605
+EFO_0009628,abnormal result of function studies,PGS019375,27,0.065886486
+EFO_0009631,fall,PGS001012,2101,0.020732718
+EFO_0009712,father's age at death,PGS001393,398,0.80027729
+EFO_0009718,peak expiratory flow,PGS001009,9521,-28.162482
+EFO_0009724,health satisfaction measurement,PGS001401,1813,0.065285028
+EFO_0009725,friendship satisfaction measurement,PGS001398,659,0.065258865
+EFO_0009749,age at first sexual intercourse measurement,PGS001007,9997,1.1032724
+EFO_0009800,number of cancers,PGS001005,526,0.0022030962
+EFO_0009801,number of non-cancer illnesses,PGS001004,5209,-0.039699684
+EFO_0009803,number of treatments or medications taken,PGS001003,8081,0.49982213
+EFO_0009806+MONDO_0006629,total hip arthroplasty|osteoarthritis,PGS002750,37,2.541133
+EFO_0009817,ease of getting up in the morning,PGS001001,7742,-0.15126386
+EFO_0009959,diverticular disease,PGS000997,5753,-0.029841838
+EFO_0009959+MONDO_0004235,diverticular disease|diverticulitis,PGS000996,368,-0.6980942
+EFO_0010066,corneal hysteresis,PGS001380,2240,0.66299457
+EFO_0010067,corneal resistance factor,PGS001382,2390,0.73023459
+EFO_0010078,dentures,PGS000995,6042,0.59231489
+EFO_0010091,tea consumption measurement,PGS000994,3119,0.71994721
+EFO_0010119,omega-3 polyunsaturated fatty acid measurement,PGS012571,214,-5.299022
+EFO_0010139,fish consumption measurement,PGS000993,3925,-0.010999538
+EFO_0010158,sugar consumption measurement,PGS000991,2815,-0.070224953
+EFO_0010176,keratinocyte carcinoma,PGS004592,78,0.5866609
+EFO_0010555,left ventricular stroke volume measurement,PGS001413,26,0.17238572
+EFO_0010677,cytological,PGS019763,78,0.092610746
+EFO_0010698+MONDO_0008375,retinal break|retinal detachment,PGS000990,237,0.26370189
+EFO_0010701,mean reticulocyte volume,PGS000180,629,22.887567
+EFO_0010724,lifestyle measurement,PGS000984,5774,0.17760605
+EFO_0010729,sun exposure measurement,PGS001535,309,-0.20829638
+EFO_0010733,polyunsaturated fatty acid measurement,PGS003040,13,-0.529377
+EFO_0010811,carbohydrate intake measurement,PGS004221,8,-0.378
+EFO_0010814,proinsulin measurement,PGS000840,223,0.0705
+EFO_0010820,spontaneous coronary artery dissection,PGS004899,7,4.12
+EFO_0010821,liver fat measurement,PGS000865,4,0.6671
+EFO_0010906,merkel cell virus seropositivity,PGS000977,3,0.29113082
+EFO_0010907,polyomavirus 2 seropositivity,PGS000976,16,0.4867803
+EFO_0010967,urinary microalbumin measurement,PGS000690,111,-0.00010658067
+EFO_0011014,health-related quality of life measurement,PGS001385,9,-0.0049978845
+EFO_0011015,educational attainment,PGS002587,514,-0.7687348
+EFO_0020975+MONDO_0005416,total knee arthroplasty|osteoarthritis,PGS002749,10,0.36746395
+EFO_0022262,docosahexaenoic acid to total fatty acids percentage,PGS012570,110,-5.0933342
+EFO_0600081,time spent outdoors measurement,PGS001053,2323,0.1548578
+EFO_0600082,insulin use measurement,PGS001117,65,0.62845904
+EFO_0600083,family history of prostate cancer,PGS001292,601,-0.24703286
+EFO_0600085,PP interval,PGS001903,4368,67.538479
+EFO_1000243,Epidermal Inclusion Cyst,PGS001874,563,0.45069563
+EFO_1000674+HP_0020083,carbuncle|Furuncle,PGS019577,1661,2.0630837
+EFO_1000894,dermoid cyst,PGS018712,287,0.46884476
+EFO_1001317,Epiphyses,PGS000964,47,0.1349989
+EFO_1001329,Follicular Cyst,PGS000963,264,1.1172067
+EFO_1001494,psoriasis vulgaris,PGS019617,1357,0.855245
+EFO_1001516,ovarian serous carcinoma,PGS000069,15,0.09
+EFO_1001870,late-onset Alzheimer's disease,PGS004918,8,1.3447
+EFO_1001898,mucositis,PGS019327,9831,-0.074065245
+EFO_1001958,high grade ovarian serous adenocarcinoma,PGS000352,22,3.0474951
+GO_0009314,response to radiation,PGS000950,168,0.51634646
+GO_0097366,response to bronchodilator,PGS000769,16,21.56
+HP_0000016,Urinary retention,PGS019512,234,-0.12534343
+HP_0000023,Inguinal hernia,PGS000948,1897,-0.772212
+HP_0000155,Oral ulcer,PGS000947,1647,0.14796115
+HP_0000360,Tinnitus,PGS001533,343,0.0088358289
+HP_0000545,Myopia,PGS019957,149,2.3439075
+HP_0000790,Hematuria,PGS001863,794,0.37713329
+HP_0000855,Insulin resistance,PGS000877,53,53
+HP_0000964,Eczematoid dermatitis,PGS002591,667,-1.0204168
+HP_0000964+MONDO_0002406,Eczematoid dermatitis|dermatitis,PGS000944,597,-0.029318938
+HP_0001082,Cholecystitis,PGS000943,5,0.27944656
+HP_0001082+MONDO_0012672,Cholecystitis|cholelithiasis,PGS001861,2059,1.3512772
+HP_0001094,Iridocyclitis,PGS000941,,
+HP_0001822,Hallux valgus,PGS001881,4527,0.29498949
+HP_0001891,Iron deficiency anemia,PGS018876,7519,4.1587513
+HP_0001943,Hypoglycemia,PGS001820,187,1.125709
+HP_0002024,Malabsorption,PGS000940,439,0.80620613
+HP_0002027,Abdominal pain,PGS001395,255,0.052452591
+HP_0002036,Hiatus hernia,PGS000939,2553,-0.049874255
+HP_0002140+MONDO_0005098,Ischemic stroke|stroke disorder,PGS004322,30,3.2540167
+HP_0002321,Vertigo,PGS019106,408,0.0096102095
+HP_0002619,Varicose veins,PGS000938,2561,-0.66149498
+HP_0002721,Immunodeficiency,PGS018856,12,0.026663381
+HP_0003040,Arthropathy,PGS001522,17,0.790215
+HP_0003115,Abnormal EKG,PGS000914,6,1.988
+HP_0003124,Hypercholesterolemia,PGS018801,63,-0.21023289
+HP_0004418+MONDO_0004625,Thrombophlebitis|phlebitis,PGS001844,431,0.49528868
+HP_0004757,Paroxysmal atrial fibrillation,PGS005388,122,-0.8189788
+HP_0006699,Premature atrial contractions,PGS019205,59,0.059184171
+HP_0007313,Cerebral degeneration,PGS018981,9219,0.66922128
+HP_0010931,Abnormal circulating sodium concentration,PGS019757,4,0.10794149
+HP_0011015,Abnormal blood glucose concentration,PGS018729,32,0.0062174703
+HP_0011868,Sciatica,PGS019732,1817,0.010381557
+HP_0012115,Hepatitis,PGS018435,60,0.16813607
+HP_0012594,Moderate albuminuria,PGS004896,29,5.0900434
+HP_0025234,Parasomnia,PGS018966,5,-0.034400426
+HP_0100582,Nasal polyposis,PGS000934,128,-0.1454913
+MONDO_0000001,disease,PGS001514,271,11.185427
+MONDO_0000226,mineral metabolism disease,PGS001023,2,0.72427315
+MONDO_0000334+MONDO_0001658,multinodular goiter|nontoxic goiter,PGS001814,322,1.3666558
+MONDO_0000376,respiratory system cancer,PGS018515,1810,-0.87417988
+MONDO_0000385,benign digestive system neoplasm,PGS001812,801,0.5619147
+MONDO_0000592,specific developmental disorder,PGS018951,21,0.12235475
+MONDO_0000618,Her2-receptor negative breast cancer,PGS000213,330,2.4052805
+MONDO_0000632,uterine benign neoplasm,PGS018620,222,-0.049478576
+MONDO_0000775,drug allergy,PGS001885,95,0.29343065
+MONDO_0000812,vertebral column disorder,PGS000932,111,0.072479611
+MONDO_0000831,thrombotic disease,PGS000930,118,0.45001654
+MONDO_0000942,corneal disorder,PGS001029,22,0.0041821661
+MONDO_0001056,gastric cancer,PGS018480,2,0.021204687
+MONDO_0001134,essential hypertension,PGS000958,9399,0.69990073
+MONDO_0001187,urinary bladder cancer,PGS003736,13,1.84
+MONDO_0001209,common wart,PGS001011,5,-0.090312869
+MONDO_0001252,toxic multinodular goitre,PGS018650,2717,0.53400198
+MONDO_0001332,palindromic rheumatism,PGS019687,40,0.22184682
+MONDO_0001407+MONDO_0001672+MONDO_0008903,tracheal cancer|bronchus cancer|lung cancer,PGS000391,14,2.4237488
+MONDO_0001434,inflammatory spondylopathy,PGS019666,27,0.82020693
+MONDO_0001531,blood coagulation disease,PGS001033,1,-0.8848865
+MONDO_0001592,prolapse of female genital organ,PGS001867,9708,0.28714476
+MONDO_0001627,dementia,PGS000929,6,0.68007977
+MONDO_0001627+MONDO_0004975,dementia|Alzheimer disease,PGS000945,26,0.64688936
+MONDO_0001657,brain cancer,PGS000624,5,2.6386509
+MONDO_0001658,nontoxic goiter,PGS000928,170,0.85638782
+MONDO_0001672,bronchus cancer,PGS018520,1869,-0.9169742
+MONDO_0002008,labyrinthitis,PGS019096,245,-0.063332938
+MONDO_0002009,major depressive disorder,PGS003442,8,0.0664
+MONDO_0002013+MONDO_0006500,lymphangioma|hemangioma,PGS018640,488,0.54977247
+MONDO_0002032,colon carcinoma,PGS000381,12,2.171
+MONDO_0002050,depressive disorder,PGS001829,7534,-0.0070038581
+MONDO_0002108,thyroid cancer,PGS018580,966,-0.57321929
+MONDO_0002175,degeneration of macula and posterior pole,PGS019016,4,0.077993509
+MONDO_0002278,benign colon neoplasm,PGS018610,1006,0.0097125684
+MONDO_0002279,iron metabolism disease,PGS001823,654,4.1394273
+MONDO_0002280,anemia,PGS018886,136,0.0030549854
+MONDO_0002280+MONDO_0020696,anemia|vitamin B12 deficiency,PGS001305,121,-0.37855216
+MONDO_0002352,larynx cancer,PGS018465,4,-0.018320897
+MONDO_0002356,pancreas disorder,PGS001014,68,0.40671056
+MONDO_0002367,kidney cancer,PGS000605,12,3.7206458
+MONDO_0002406,dermatitis,PGS000927,240,-0.014529941
+MONDO_0002447,endometrial carcinoma,PGS000075,9,1.4152834
+MONDO_0002516,digestive system cancer,PGS018510,26,0.032982088
+MONDO_0002525,inherited lipid metabolism disorder,PGS018796,3795,-0.50083371
+MONDO_0002656,skin carcinoma,PGS000399,6,0.007137528
+MONDO_0002657,breast disorder,PGS019542,2767,0.41249325
+MONDO_0002691,liver cancer,PGS018500,20,0.25273063
+MONDO_0002714,central nervous system cancer,PGS000619,19,6.3539226
+MONDO_0002715,uterine cancer,PGS000541,18,2.4148612
+MONDO_0002771,pulmonary fibrosis,PGS001030,51,0.54194877
+MONDO_0002898,skin cancer,PGS000437,63,0.03784511
+MONDO_0002917,disorder of pilosebaceous unit,PGS001873,461,0.83210726
+MONDO_0002974,cervical cancer,PGS018540,32,-0.054144874
+MONDO_0003004,macular degeneration,PGS001013,53,0.27504289
+MONDO_0003105,prostate disorder,PGS001015,448,-0.14320369
+MONDO_0003240,thyroid gland disorder,PGS002619,548,-166.18302
+MONDO_0003620,peripheral nervous system disorder,PGS001832,8393,0.65862067
+MONDO_0003689,familial hemolytic anemia,PGS018881,388,0.70613852
+MONDO_0003803,aortic valve disorder,PGS001025,36,0.15824199
+MONDO_0003900,connective tissue disorder,PGS000959,14,0.12979109
+MONDO_0004126,thyroiditis,PGS018689,2574,0.44759647
+MONDO_0004247,peptic ulcer disease,PGS012562,8,-0.20823898
+MONDO_0004335,digestive system disorder,PGS001858,764,0.01452168
+MONDO_0004379,female breast carcinoma,PGS018535,2319,0.71008985
+MONDO_0004425+MONDO_0010138,hyperthyroidism|thyrotoxicosis,PGS001043,64,0.28674545
+MONDO_0004580,retinal degeneration,PGS019021,107,0.37448607
+MONDO_0004596,cor pulmonale,PGS001840,330,0.93441988
+MONDO_0004627,duodenitis,PGS001852,191,0.0066390911
+MONDO_0004631,tongue cancer,PGS018460,11,0.027830072
+MONDO_0004641,skin carcinoma in situ,PGS000470,5,1.044
+MONDO_0004648,vascular dementia,PGS001179,7,0.400493
+MONDO_0004670,lupus erythematosus,PGS001870,87,1.0711266
+MONDO_0004678,dermatophytosis,PGS018450,54,-0.0060075418
+MONDO_0004849,pulmonary emphysema,PGS001326,42,0.079113512
+MONDO_0004868,biliary tract disorder,PGS019390,114,0.036877547
+MONDO_0004872,hemorrhoid,PGS001024,784,0.010428733
+MONDO_0004874,ganglion or cyst of synovium/tendon/bursa,PGS001879,210,0.048612095
+MONDO_0004948,B-cell chronic lymphocytic leukemia,PGS000650,6,3.758
+MONDO_0004952,Hodgkins lymphoma,PGS000638,16,4.1256157
+MONDO_0004967,acute lymphoblastic leukemia,PGS003448,15,5.5382954
+MONDO_0004975,Alzheimer disease,PGS001349,6,1.0042424
+MONDO_0004979,asthma,PGS000037,15,-0.66585045
+MONDO_0004980,atopic eczema,PGS004587,23,0.93606263
+MONDO_0004980+MONDO_0005271,atopic eczema|allergic disease,PGS003459,170,6.5040715
+MONDO_0004981,atrial fibrillation,PGS012580,25,2.99738
+MONDO_0004981+MONDO_0005310,atrial fibrillation|atrial flutter,PGS001339,2142,0.25896912
+MONDO_0004986,urinary bladder carcinoma,PGS000152,10,10.090043
+MONDO_0004989,breast carcinoma,PGS000521,9,0.548512
+MONDO_0004992,cancer,PGS018585,1,0.013583787
+MONDO_0004995,cardiovascular disorder,PGS004238,35,30.744394
+MONDO_0005002,chronic obstructive pulmonary disease,PGS012564,22,3.3351587
+MONDO_0005009,congestive heart failure,PGS001842,2759,0.37924724
+MONDO_0005010,coronary artery disorder,PGS000010,27,3.8281589
+MONDO_0005011,Crohn disease,PGS001330,219,0.25337506
+MONDO_0005012,cutaneous melanoma,PGS000339,22,-0.918
+MONDO_0005015,diabetes mellitus,PGS002589,267,-165.34986
+MONDO_0005015+MONDO_0005151,diabetes mellitus|endocrine system disorder,PGS002592,187,-163.74057
+MONDO_0005020,intestinal disorder,PGS001516,90,-0.23721966
+MONDO_0005027,epilepsy,PGS018991,65,0.14903845
+MONDO_0005041,glaucoma,PGS001322,655,-0.30534096
+MONDO_0005044,hypertensive disorder,PGS003025,9,-0.2705
+MONDO_0005045,hypertrophic cardiomyopathy,PGS000778,20,2.0822123
+MONDO_0005061,lung adenocarcinoma,PGS000070,19,2.336
+MONDO_0005066,metabolic disease,PGS001319,2,1.1630016
+MONDO_0005068,myocardial infarction,PGS001317,1029,0.51336501
+MONDO_0005070,neoplasm,PGS018590,2,0.0064798959
+MONDO_0005071,nervous system disorder,PGS018926,4,0.077743606
+MONDO_0005072,neuroblastoma,PGS002261,22,2.3022602
+MONDO_0005083,psoriasis,PGS004316,11,3.621655
+MONDO_0005084,mental disorder,PGS018921,127,0.68989699
+MONDO_0005086,renal cell carcinoma,PGS004245,12,0.94791923
+MONDO_0005087,respiratory system disorder,PGS002615,382,-1.8114566
+MONDO_0005093,skin disorder,PGS002588,240,-365.03255
+MONDO_0005095,spondyloarthropathy,PGS000197,29,-0.61875909
+MONDO_0005096,squamous cell carcinoma,PGS000467,6,0.83399543
+MONDO_0005097,squamous cell lung carcinoma,PGS003392,90,9.2204699
+MONDO_0005098,stroke disorder,PGS012579,11,0.59802
+MONDO_0005100,systemic sclerosis,PGS000341,33,-0.21291872
+MONDO_0005101,ulcerative colitis,PGS001306,176,0.094810852
+MONDO_0005105,melanoma,PGS000410,7,0.01202386
+MONDO_0005129,cataract,PGS001303,480,0.17633884
+MONDO_0005130,celiac disease,PGS001300,7,0.40856335
+MONDO_0005131,cervical carcinoma,PGS000073,10,3.539803
+MONDO_0005133,endometriosis,PGS003447,14,1.402284
+MONDO_0005138,lung carcinoma,PGS000156,6,6.3039976
+MONDO_0005140,ovarian carcinoma,PGS000158,10,10.754089
+MONDO_0005147,type 1 diabetes mellitus,PGS000023,7,7.486
+MONDO_0005148,type 2 diabetes mellitus,PGS000849,3,0.30048654
+MONDO_0005150,age-related macular degeneration,PGS002269,47,18.907871
+MONDO_0005154,liver disorder,PGS001293,92,0.48163503
+MONDO_0005155,cirrhosis of liver,PGS000776,9,2.052
+MONDO_0005159,prostate carcinoma,PGS000878,4,1.511
+MONDO_0005178,osteoarthritis,PGS001290,579,-0.14080585
+MONDO_0005180,Parkinson disease,PGS001353,6,2.408
+MONDO_0005184,pancreatic ductal adenocarcinoma,PGS002264,49,17.235613
+MONDO_0005192,exocrine pancreatic carcinoma,PGS000159,9,9.0939114
+MONDO_0005206,renal carcinoma,PGS000161,10,10.458454
+MONDO_0005219,breast fibrocystic disease,PGS019532,1,0.034110904
+MONDO_0005230,cellulitis,PGS001869,131,0.04261706
+MONDO_0005249,pneumonia,PGS019280,144,0.012493746
+MONDO_0005252,heart failure,PGS004598,12,0.9193
+MONDO_0005265,inflammatory bowel disease,PGS004270,20,0.2237367
+MONDO_0005266,diabetic retinopathy,PGS000862,30,-1.438
+MONDO_0005271,allergic disease,PGS000867,10,0.94159232
+MONDO_0005277,migraine disorder,PGS004797,23,0.012484252
+MONDO_0005279,pulmonary embolism,PGS001280,88,0.56941758
+MONDO_0005283,retinal disorder,PGS001275,6,0.12678586
+MONDO_0005294,peripheral vascular disease,PGS001843,242,0.59580174
+MONDO_0005296,sleep apnea syndrome,PGS003217,46,-0.00015522064
+MONDO_0005298,osteoporosis,PGS001273,316,-0.054717838
+MONDO_0005300,chronic kidney disease,PGS000859,34,-1.2555
+MONDO_0005301,multiple sclerosis,PGS004700,2,0.57
+MONDO_0005306,ankylosing spondylitis,PGS001267,9,1.2960732
+MONDO_0005310,atrial flutter,PGS001263,2087,0.1087809
+MONDO_0005315,bone fracture,PGS001921,7965,0.2042624
+MONDO_0005324,seasonal allergic rhinitis,PGS001259,348,-0.27507677
+MONDO_0005325,radius fracture,PGS001258,365,-0.40091078
+MONDO_0005326,sunburn,PGS001257,519,2.9746635
+MONDO_0005328,eye disorder,PGS019066,13,0.099374161
+MONDO_0005338,open-angle glaucoma,PGS000350,12,12
+MONDO_0005342,IgA glomerulonephritis,PGS005282,15,3.5299504
+MONDO_0005344,hepatitis B virus infection,PGS018424,4575,-0.97193816
+MONDO_0005346,gallstones,PGS001256,876,1.2831914
+MONDO_0005349,otosclerosis,PGS001255,213,0.68505476
+MONDO_0005350,abdominal aortic aneurysm,PGS000753,29,4.04005
+MONDO_0005364,Graves disease,PGS005264,112,36.7286
+MONDO_0005365,hearing loss disorder,PGS001253,3098,0.65869762
+MONDO_0005375,nasopharyngeal neoplasm,PGS002291,12,-1.5145353
+MONDO_0005377,nephrotic syndrome,PGS003354,5,0.81950441
+MONDO_0005385,vascular disorder,PGS001847,594,-0.019670767
+MONDO_0005386,peripheral arterial disease,PGS005158,19,1.5617402
+MONDO_0005393,gout,PGS004222,13,2.445
+MONDO_0005397,goiter,PGS018645,390,0.72453093
+MONDO_0005399,venous thromboembolism,PGS002794,10,3.8248085
+MONDO_0005402,lymphoid leukemia,PGS000645,6,0.002797373
+MONDO_0005405,childhood onset asthma,PGS002248,105,104.08
+MONDO_0005406,gestational diabetes,PGS002256,4,5.122
+MONDO_0005412,duodenal ulcer,PGS019335,19,0.057398788
+MONDO_0005416,osteoarthritis,PGS002729,24,1.248
+MONDO_0005420,hypothyroidism,PGS000759,140,3.9959793
+MONDO_0005420+MONDO_0009718,hypothyroidism|myxedema,PGS000965,4524,0.45811012
+MONDO_0005447,testicular cancer,PGS000596,5,0.00502043
+MONDO_0005447+MONDO_0010108,testicular cancer|testicular germ cell tumor,PGS000086,52,12.311205
+MONDO_0005494,triple-negative breast carcinoma,PGS004890,25,0.55
+MONDO_0005515,oral cavity cancer,PGS000357,45,0.044488765
+MONDO_0005515+MONDO_0005517,oral cavity cancer|pharynx cancer,PGS000081,14,3.361787
+MONDO_0005554,rheumatic disorder,PGS019717,1097,0.91896188
+MONDO_0005570,hematologic disorder,PGS001136,30,-0.2341954
+MONDO_0005575,colorectal cancer,PGS000151,14,14
+MONDO_0005578,arthritic joint disease,PGS001135,1026,0.092070012
+MONDO_0005609,herpes zoster,PGS001131,81,-0.12174201
+MONDO_0005649,appendicitis,PGS001369,4,-0.053131352
+MONDO_0005836,male reproductive organ cancer,PGS000593,45,-0.02660325
+MONDO_0005937,REM sleep behavior disorder,PGS003414,47,5.2954
+MONDO_0006003,uterine corpus cancer,PGS003740,16,1.973
+MONDO_0006004+MONDO_0011786,vasomotor rhinitis|allergic rhinitis,PGS001109,1907,-0.8643635
+MONDO_0006011,viral hepatitis,PGS018419,1584,-0.38619403
+MONDO_0006031,chronic rhinosinusitis,PGS019270,16,0.012601838
+MONDO_0006107,benign thyroid gland neoplasm,PGS018635,90,0.36493496
+MONDO_0006181,digestive system carcinoma,PGS004320,16,2.547156
+MONDO_0006244,HER2 positive breast carcinoma,PGS000215,330,2.046602
+MONDO_0006512,estrogen-receptor positive breast cancer,PGS005105,44,4.5864
+MONDO_0006513,estrogen-receptor negative breast cancer,PGS005106,24,3.2628
+MONDO_0006611,skin sarcoidosis,PGS001872,79,0.62761247
+MONDO_0006626,diabetic neuropathy,PGS018734,669,0.1402498
+MONDO_0006629,osteoarthritis,PGS002728,44,8.726
+MONDO_0006644,alcoholic liver cirrhosis,PGS001777,3,1.7725
+MONDO_0006814,iritis,PGS000966,,
+MONDO_0006816,arthropathy,PGS019682,5,0.12508026
+MONDO_0006953,Rh isoimmunization,PGS001868,30,2.8738201
+MONDO_0007009+MONDO_0008171,ureterolithiasis|nephrolithiasis,PGS001250,341,-0.095518682
+MONDO_0007079,alcohol dependence,PGS018961,15,-0.044923219
+MONDO_0007147,obstructive sleep apnea syndrome,PGS003858,6,-0.15210886
+MONDO_0007179,autoimmune disease,PGS002580,206,-0.57536249
+MONDO_0007254,breast cancer,PGS018530,3475,0.74772052
+MONDO_0007319,chondrocalcinosis 2,PGS018816,7370,-1.0114621
+MONDO_0007576,esophageal cancer,PGS018475,5,-0.21108098
+MONDO_0007642,isolated agenesis of gallbladder,PGS019395,94,0.28118785
+MONDO_0007699,Hashimoto thyroiditis,PGS005270,55,6.6743
+MONDO_0007886,uterine corpus leiomyoma,PGS001032,161,0.030693784
+MONDO_0007915,systemic lupus erythematosus,PGS003757,,
+MONDO_0008315,prostate cancer,PGS003418,7,2.512379
+MONDO_0008375,retinal detachment,PGS001137,321,0.19056275
+MONDO_0008383,rheumatoid arthritis,PGS001311,2,0.13018442
+MONDO_0008420,seborrheic keratosis,PGS001140,1367,-0.14809549
+MONDO_0008661,vitiligo,PGS000760,42,3.0728275
+MONDO_0009387,familial lipoprotein lipase deficiency,PGS018806,26,-0.90523684
+MONDO_0009693,plasma cell myeloma,PGS000654,21,4.5863324
+MONDO_0009891,acquired polycythemia vera,PGS001810,67,1.6262684
+MONDO_0010030,Sjogren syndrome,PGS001308,7,0.25907651
+MONDO_0010138,thyrotoxicosis,PGS001042,221,0.5272709
+MONDO_0010811,benign prostatic hyperplasia,PGS001338,1222,-0.2683933
+MONDO_0011122,obesity disorder,PGS003400,97,2.5142
+MONDO_0011429,juvenile idiopathic arthritis,PGS000114,26,0.094331669
+MONDO_0011849,psoriatic arthritis,PGS000343,,
+MONDO_0011962,endometrial cancer,PGS002300,19,2.5631347
+MONDO_0012672,cholelithiasis,PGS012582,13,0.098602
+MONDO_0013209,metabolic dysfunction-associated steatotic liver disease,PGS000872,5,0.3061
+MONDO_0013600,insomnia,PGS003320,147,-0.30548115
+MONDO_0015075,thyroid gland carcinoma,PGS000633,5,2.0826653
+MONDO_0015129,chronic primary adrenal insufficiency,PGS004239,11,3.4271
+MONDO_0015263,Brugada syndrome,PGS000737,3,0.07
+MONDO_0015486,keratoconus,PGS002292,36,1.228
+MONDO_0015722,congenital vitamin K-dependent coagulation factors deficiency,PGS001826,45,-1.8072846
+MONDO_0015925,interstitial lung disease,PGS001251,57,0.64170376
+MONDO_0016158,narcolepsy-cataplexy syndrome,PGS000757,5,5
+MONDO_0017376,reactive arthritis,PGS001110,5,-0.03454368
+MONDO_0017604,marginal zone lymphoma,PGS003451,2,1.4730224
+MONDO_0018102,corneal dystrophy,PGS001835,38,1.9477332
+MONDO_0018177,glioblastoma,PGS003384,910,23.633016
+MONDO_0018905,diffuse large B-cell lymphoma,PGS003454,5,1.723124
+MONDO_0018906,follicular lymphoma,PGS002304,6,1.6920407
+MONDO_0018908,non-Hodgkin lymphoma,PGS000642,10,3.5013214
+MONDO_0019086,carcinoma of esophagus,PGS005160,11,0.315
+MONDO_0019254,inborn disorder of purine or pyrimidine metabolism,PGS018839,89,0.49525929
+MONDO_0019338,sarcoidosis,PGS000922,10,-0.23682414
+MONDO_0019432,rheumatoid factor-negative juvenile idiopathic arthritis,PGS000326,12,0.036130065
+MONDO_0019433,oligoarticular juvenile idiopathic arthritis,PGS000325,21,0.086530148
+MONDO_0019437,enthesitis-related juvenile idiopathic arthritis,PGS000324,138,0.20825013
+MONDO_0019735,polymyalgia rheumatica,PGS001051,64,-0.054522053
+MONDO_0020283,uveitis,PGS019061,20,1.333591
+MONDO_0020804,basal cell carcinoma,PGS000450,8,0.004351719
+MONDO_0021040,pancreatic neoplasm,PGS003742,19,3.195
+MONDO_0021042,glioma,PGS000155,19,18.59311
+MONDO_0021042+MONDO_0021211,glioma|brain neoplasm,PGS000781,5,1.2326849
+MONDO_0021068,ovarian neoplasm,PGS000547,6,-0.4156
+MONDO_0021100,breast neoplasm,PGS019537,7018,0.77927291
+MONDO_0021107,narcolepsy,PGS000926,4194,-0.084841447
+MONDO_0021115,luminal B breast carcinoma,PGS000214,330,2.8417749
+MONDO_0021116,luminal A breast carcinoma,PGS000212,330,2.13
+MONDO_0021146,headache disorder,PGS001928,5709,0.22155108
+MONDO_0021148,female reproductive system neoplasm,PGS000543,8,0.03861678
+MONDO_0021187,hyperlipidemia,PGS018811,594,-0.2735376
+MONDO_0021211,brain neoplasm,PGS003737,26,4.995
+MONDO_0021315,malignant tumor of nasopharynx,PGS018470,211,0.034769074
+MONDO_0021398+MONDO_0060766,polyp of rectum|anal polyp,PGS001859,789,0.12369868
+MONDO_0021698,alcohol-related disorders,PGS018956,30,-0.11771096
+MONDO_0022394,cervical intraepithelial neoplasia,PGS018550,21,-0.089316704
+MONDO_0024331,colorectal carcinoma,PGS003386,61,0.84676907
+MONDO_0024355,respiratory tract infectious disorder,PGS000925,400,0.073945911
+MONDO_0024431,bilirubin metabolism disease,PGS001824,22,3.4931476
+MONDO_0024431+MONDO_0037821,bilirubin metabolism disease|porphyrin metabolism disease,PGS000924,5,2.427714
+MONDO_0024644,myocardial ischemia,PGS000962,2166,1.3487169
+MONDO_0024647,urolithiasis,PGS001864,5599,1.1845739
+MONDO_0024881,secondary malignant neoplasm,PGS018600,1,-0.028264779
+MONDO_0026045,prurigo nodularis,PGS004324,6314,2576.656
+MONDO_0043765,presbycusis,PGS000763,4270,-0.25243458
+MONDO_0056798,disorder of appendix,PGS001853,19,0.012320721
+MONDO_0100096,COVID-19,PGS002272,6,2.0006922
+MONDO_0100280,Waldenstrom macroglobulinemia,PGS003452,2,4.6404022
+OBA_0000173,urinary volume,PGS019473,2608,-0.03903484
+OBA_0002272,reticulocyte amount,PGS000989,6251,0.4109705
+OBA_0002313,strand of hair color,PGS001097,21,0.72594726
+OBA_0003277,platelet volume,PGS000179,654,25.909497
+OBA_0003460,erythrocyte volume,PGS000176,685,25.675132
+OBA_0003747,glomerular filtration rate,PGS005318,49,-0.0791
+OBA_0003747+OBA_1001005,glomerular filtration rate|creatine level,PGS003250,108,-0.2433
+OBA_0005494,aging rate,PGS001072,39,0.25078477
+OBA_1000110,bone tissue density,PGS000122,33,33
+OBA_1000840,alcohol consumption quality,PGS002826,19,0.2266164
+OBA_1000968,vitamin D level,PGS003180,5,-0.598895
+OBA_1000983,Thyroid stimulating hormone level,PGS012585,59,1.2575
+OBA_1001005,creatine level,PGS003245,3503,277.40866
+OBA_1001010,thyroxine level,PGS004907,31,0.309
+OBA_1001015,folic acid level,PGS001153,3,0.018302559
+OBA_1001085,waist circumference,PGS019956,91,2.4429
+OBA_1001085+PATO_0000383,waist circumference|female,PGS000828,149,0.816
+OBA_1001085+PATO_0000384,waist circumference|male,PGS000827,113,0.267
+OBA_1001086,QRS duration,PGS000736,26,-2.37
+OBA_1001087,heart rate,PGS000300,80,-2.4991
+OBA_2040171,sleep duration trait,PGS003764,78,80.94
+OBA_2045215,menstrual cycle attribute,PGS001913,339,0.25008696
+OBA_2045221,bowel opening frequency,PGS001376,845,0.09040479
+OBA_2045224,visceral adipose tissue quantity,PGS000844,518,-0.35127365
+OBA_2045237,dentate gyrus volume,PGS003594,12,0.0116213
+OBA_2045244,hippocampal formation volume,PGS003653,19,-0.228627
+OBA_2050005,parasubiculum volume,PGS003698,1050,1.999535
+OBA_2050015,kidney volume,PGS019479,2076,-0.058371111
+OBA_2050024,subiculum volume,PGS003717,15,0.051304
+OBA_2050043,hippocampal fissure volume,PGS003646,3822,3.7858509
+OBA_2050049,presubiculum volume,PGS003705,98,-0.022133
+OBA_2050050,hippocampus molecular layer volume,PGS003686,6,0.09215
+OBA_2050062,serum alanine aminotransferase amount,PGS003342,51,1.5024
+OBA_2050084,serum IgE amount,PGS000315,7,-0.03
+OBA_2050095,urine potassium amount,PGS000693,2423,-0.027811059
+OBA_2050116,smoking behavior trait,PGS001388,1,0.03312251
+OBA_2050117,reproductive behavior trait,PGS002585,12,0.0009194722
+OBA_2050130,insulin-like protein level,PGS002295,413,0.266
+OBA_2050200,prostate specific antigen amount,PGS005107,111,0.4635
+OBA_VT0000188,blood glucose amount,PGS002925,13,-0.114
+OBA_VT0000217,leukocyte quantity,PGS000191,636,17.14771
+OBA_VT0000254,cerebrospinal fluid amount,PGS001070,880,5455.2859
+OBA_VT0001253,body height,PGS003837,49,-2.918094
+OBA_VT0001560,blood insulin amount,PGS000307,12,0.201446
+OBA_VT0002460,blood immunoglobulin amount,PGS001772,156,652.19716
+OBA_VT0003564,insulin secretion trait,PGS000871,14,1.6216804
+OBA_VT0005265,blood urea nitrogen amount,PGS019792,7043,0.051635443
+OBA_VT0005372,life span determination trait,PGS002795,4,0.5127
+OBA_VT0005416,blood protein amount,PGS001081,9,262.21205
+OBA_VT0010046,fatty acid amount,PGS012572,163,-9.0893369

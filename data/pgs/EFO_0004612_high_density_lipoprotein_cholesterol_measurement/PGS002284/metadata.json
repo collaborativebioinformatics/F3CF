@@ -1,0 +1,126 @@
+{
+  "id": "PGS002284",
+  "name": "GRS_286_HDL",
+  "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS002284/ScoringFiles/PGS002284.txt.gz",
+  "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS002284/ScoringFiles/Harmonized/PGS002284_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS002284/ScoringFiles/Harmonized/PGS002284_hmPOS_GRCh38.txt.gz"
+    }
+  },
+  "publication": {
+    "id": "PGP000313",
+    "title": "Transferability of genetic risk scores in African populations.",
+    "doi": "10.1038/s41591-022-01835-x",
+    "PMID": 35654908,
+    "journal": "Nat Med",
+    "firstauthor": "Kamiza AB",
+    "date_publication": "2022-06-02"
+  },
+  "matches_publication": true,
+  "samples_variants": [
+    {
+      "sample_number": 312571,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": 92.0,
+      "sample_age": {
+        "estimate_type": "mean",
+        "estimate": "62.4 [48.9, 75.9]",
+        "unit": "years"
+      },
+      "phenotyping_free": "EHR",
+      "followup_time": null,
+      "ancestry_broad": "African American or Afro-Caribbean, European, Hispanic or Latin American",
+      "ancestry_free": null,
+      "ancestry_country": "USA",
+      "ancestry_additional": "African American, European, Hispanic",
+      "source_GWAS_catalog": null,
+      "source_PMID": 30275531,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "MVP",
+          "name_full": "Million Veteran Program",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    }
+  ],
+  "samples_training": [
+    {
+      "sample_number": 6407,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": 26.2,
+      "sample_age": {
+        "estimate_type": "mean",
+        "estimate": "34.1 [15.8, 52.4]",
+        "unit": "years"
+      },
+      "phenotyping_free": "Non-fasting serum lipid levels were measured using the Cobas Integra 400 Plus Chemistry analyser, an automated analyser that employs four different technologies: absorption photometry, fluorescence polarization immunoassay, immune-turbidimetry, and potentiometry for accurate analysis. LDL-C were measured using the homogeneous enzymatic colorimetric assays",
+      "followup_time": null,
+      "ancestry_broad": "Sub-Saharan African",
+      "ancestry_free": "Ugandans",
+      "ancestry_country": "Uganda",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": 31675503,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "UGR",
+          "name_full": "Uganda Genome Resource",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    }
+  ],
+  "trait_reported": "HDL cholesterol",
+  "trait_additional": null,
+  "trait_efo": [
+    {
+      "id": "EFO_0004612",
+      "label": "high density lipoprotein cholesterol measurement",
+      "description": "The measurement of HDL cholesterol in blood used as a risk indicator for heart disease.",
+      "url": "http://www.ebi.ac.uk/efo/EFO_0004612"
+    }
+  ],
+  "method_name": "PRSice",
+  "method_params": "For GRS construction, SNPs from MVP serum lipid summary statistics were clumped based on their linkage disequilibrium. We clumped SNPs at different r2 thresholds, and a 500kb clumping window with r2 of 0.5 proved to be the best fitting and best performing model for all lipid traits. We also tested the best P-value threshold for selecting which clumped SNPs we would include in the final GRS for the range of 1 to 5E-08. The P-value threshold, which accounted for the highest proportion of the variance of the trait R2, was selected as the best GRS.",
+  "variants_number": 286,
+  "variants_interactions": 0,
+  "variants_genomebuild": "GRCh38",
+  "weight_type": "beta",
+  "ancestry_distribution": {
+    "dev": {
+      "dist": {
+        "AFR": 100
+      },
+      "count": 6407
+    },
+    "eval": {
+      "dist": {
+        "AFR": 100
+      },
+      "count": 1
+    },
+    "gwas": {
+      "dist": {
+        "MAE": 100
+      },
+      "count": 312571,
+      "multi": [
+        "MAE_AFR",
+        "MAE_EUR",
+        "MAE_AMR"
+      ]
+    }
+  },
+  "date_release": "2022-06-09",
+  "license": "PGS obtained from the Catalog should be cited appropriately, and used in accordance with any licensing restrictions set by the authors. See EBI Terms of Use (https://www.ebi.ac.uk/about/terms-of-use/) for additional details."
+}

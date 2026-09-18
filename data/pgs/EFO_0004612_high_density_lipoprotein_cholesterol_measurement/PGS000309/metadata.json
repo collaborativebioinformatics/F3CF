@@ -1,0 +1,112 @@
+{
+  "id": "PGS000309",
+  "name": "GRS247_HDL",
+  "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000309/ScoringFiles/PGS000309.txt.gz",
+  "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000309/ScoringFiles/Harmonized/PGS000309_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000309/ScoringFiles/Harmonized/PGS000309_hmPOS_GRCh38.txt.gz"
+    }
+  },
+  "publication": {
+    "id": "PGP000092",
+    "title": "Genetic Risk Scores for Complex Disease Traits in Youth.",
+    "doi": "10.1161/circgen.119.002775",
+    "PMID": 32527150,
+    "journal": "Circ Genom Precis Med",
+    "firstauthor": "Xie T",
+    "date_publication": "2020-06-11"
+  },
+  "matches_publication": true,
+  "samples_variants": [
+    {
+      "sample_number": 62166,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "Finland, Sweden, Iceland, Netherlands, Germany, U.K., Estonia",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST002899",
+      "source_PMID": 25961943,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 237050,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "U.S., Germany, Netherlands, Denmark, Estonia, Finland, Iceland, Republic of Ireland, Sweden, U.K., Croatia, Greece, Italy",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST009148",
+      "source_PMID": 29083408,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 94595,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "NR",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST002223",
+      "source_PMID": 24097068,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": null
+    }
+  ],
+  "samples_training": [],
+  "trait_reported": "HDL cholesterol",
+  "trait_additional": null,
+  "trait_efo": [
+    {
+      "id": "EFO_0004612",
+      "label": "high density lipoprotein cholesterol measurement",
+      "description": "The measurement of HDL cholesterol in blood used as a risk indicator for heart disease.",
+      "url": "http://www.ebi.ac.uk/efo/EFO_0004612"
+    }
+  ],
+  "method_name": "GWAS-significant (lead and secondary) variants",
+  "method_params": "r2 threshold = 0.1",
+  "variants_number": 247,
+  "variants_interactions": 0,
+  "variants_genomebuild": "GRCh37",
+  "weight_type": "beta",
+  "ancestry_distribution": {
+    "eval": {
+      "dist": {
+        "EUR": 100
+      },
+      "count": 1
+    },
+    "gwas": {
+      "dist": {
+        "EUR": 100
+      },
+      "count": 393811
+    }
+  },
+  "date_release": "2020-08-19",
+  "license": "PGS obtained from the Catalog should be cited appropriately, and used in accordance with any licensing restrictions set by the authors. See EBI Terms of Use (https://www.ebi.ac.uk/about/terms-of-use/) for additional details."
+}

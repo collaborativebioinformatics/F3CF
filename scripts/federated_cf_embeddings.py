@@ -112,6 +112,49 @@ def train_reconstruction(
     return l2_normalize_rows_torch(phenotypes).detach(), last_loss
 
 
+def train_sparse_reconstruction(
+    n_rows: int,
+    row_index: Tensor,
+    entry_local_col: Tensor,
+    values: Tensor,
+    local_col_index: Tensor,
+    phenotype_embeddings: Tensor,
+    *,
+    local_epochs: int = 20,
+    lr: float = 0.05,
+) -> tuple[Tensor, float]:
+    """Fit shared phenotype embeddings to observed SNP–trait effect weights only."""
+    n_phenotypes, n_factors = phenotype_embeddings.shape
+    device = phenotype_embeddings.device
+    rows = row_index.to(device=device, dtype=torch.long)
+    local_cols = entry_local_col.to(device=device, dtype=torch.long)
+    target = values.to(device=device, dtype=torch.float32)
+    columns = local_col_index.to(device=device)
+
+    row_embeddings = nn.Parameter(0.1 * torch.randn(n_rows, n_factors, device=device))
+    phenotypes = nn.Parameter(l2_normalize_rows_torch(phenotype_embeddings.detach().clone()))
+    optimizer = torch.optim.Adam([row_embeddings, phenotypes], lr=lr)
+
+    observed = torch.zeros((n_phenotypes, 1), device=device)
+    observed[columns] = 1.0
+    last_loss = 0.0
+
+    for _ in range(local_epochs):
+        optimizer.zero_grad()
+        unit_phenotypes = l2_normalize_rows_torch(phenotypes)
+        predicted = (row_embeddings[rows] * unit_phenotypes[columns[local_cols]]).sum(dim=-1)
+        loss = F.mse_loss(predicted, target)
+        loss.backward()
+        if phenotypes.grad is not None:
+            phenotypes.grad.mul_(observed)
+        optimizer.step()
+        with torch.no_grad():
+            phenotypes.copy_(l2_normalize_rows_torch(phenotypes))
+        last_loss = float(loss.item())
+
+    return l2_normalize_rows_torch(phenotypes).detach(), last_loss
+
+
 def fedavg_normalized(
     contributions: list[EmbeddingContribution],
     previous: np.ndarray | None = None,

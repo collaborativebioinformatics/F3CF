@@ -1,0 +1,217 @@
+{
+  "id": "PGS000192",
+  "name": "GS9",
+  "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000192/ScoringFiles/PGS000192.txt.gz",
+  "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000192/ScoringFiles/Harmonized/PGS000192_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000192/ScoringFiles/Harmonized/PGS000192_hmPOS_GRCh38.txt.gz"
+    }
+  },
+  "publication": {
+    "id": "PGP000079",
+    "title": "Polymorphisms associated with cholesterol and risk of cardiovascular events.",
+    "doi": "10.1056/nejmoa0706728",
+    "PMID": 18354102,
+    "journal": "N Engl J Med",
+    "firstauthor": "Kathiresan S",
+    "date_publication": "2008-03-01"
+  },
+  "matches_publication": true,
+  "samples_variants": [
+    {
+      "sample_number": 9185,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "Denmark",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": null,
+      "source_DOI": "10.1210/jc.2005-0974",
+      "cohorts": [
+        {
+          "name_short": "CCHS",
+          "name_full": "Copenhagen City Heart Study",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 1822,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "African American or Afro-Caribbean",
+      "ancestry_free": null,
+      "ancestry_country": "USA",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": null,
+      "source_DOI": "10.1086/500615",
+      "cohorts": [
+        {
+          "name_short": "DaHS",
+          "name_full": "Dallas Heart Study",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 1045,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "USA",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": null,
+      "source_DOI": "10.1086/500615",
+      "cohorts": [
+        {
+          "name_short": "DaHS",
+          "name_full": "Dallas Heart Study",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 601,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "Hispanic or Latin American",
+      "ancestry_free": null,
+      "ancestry_country": "USA",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": null,
+      "source_DOI": "10.1086/500615",
+      "cohorts": [
+        {
+          "name_short": "DaHS",
+          "name_full": "Dallas Heart Study",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 13677,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "NR",
+      "ancestry_free": null,
+      "ancestry_country": "NR",
+      "ancestry_additional": "Meta-analysis",
+      "source_GWAS_catalog": null,
+      "source_PMID": null,
+      "source_DOI": "10.1161/01.CIR.0000153341.46271.4",
+      "cohorts": [],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 1465,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "USA",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": null,
+      "source_DOI": "10.1073/pnas.94.9.4532",
+      "cohorts": [],
+      "cohorts_additional": null
+    },
+    {
+      "sample_number": 3000,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": "Sweden, Finland",
+      "ancestry_additional": null,
+      "source_GWAS_catalog": null,
+      "source_PMID": null,
+      "source_DOI": null,
+      "cohorts": [],
+      "cohorts_additional": "https://www.broadinstitute.org/diabetes-genetics-initiative/whole-genome-scan-type-2-diabetes-scandinavian-cohort"
+    }
+  ],
+  "samples_training": [],
+  "trait_reported": "Cholesterol",
+  "trait_additional": null,
+  "trait_efo": [
+    {
+      "id": "EFO_0004611",
+      "label": "low density lipoprotein cholesterol measurement",
+      "description": "The measurement of LDL cholesterol in blood used as a risk indicator for heart disease.",
+      "url": "http://www.ebi.ac.uk/efo/EFO_0004611"
+    },
+    {
+      "id": "EFO_0004612",
+      "label": "high density lipoprotein cholesterol measurement",
+      "description": "The measurement of HDL cholesterol in blood used as a risk indicator for heart disease.",
+      "url": "http://www.ebi.ac.uk/efo/EFO_0004612"
+    }
+  ],
+  "method_name": "Curated variant associations",
+  "method_params": "Correlated SNPs were pruned from the score",
+  "variants_number": 9,
+  "variants_interactions": 0,
+  "variants_genomebuild": "NCBI35",
+  "weight_type": "Unweighted",
+  "ancestry_distribution": {
+    "eval": {
+      "dist": {
+        "EUR": 100
+      },
+      "count": 1
+    },
+    "gwas": {
+      "dist": {
+        "NR": 44.4,
+        "AFR": 5.9,
+        "AMR": 2,
+        "EUR": 47.7
+      },
+      "count": 30795
+    }
+  },
+  "date_release": "2020-05-20",
+  "license": "PGS obtained from the Catalog should be cited appropriately, and used in accordance with any licensing restrictions set by the authors. See EBI Terms of Use (https://www.ebi.ac.uk/about/terms-of-use/) for additional details."
+}

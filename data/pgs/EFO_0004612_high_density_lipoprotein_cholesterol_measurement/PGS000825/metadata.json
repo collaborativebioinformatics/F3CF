@@ -1,0 +1,199 @@
+{
+  "id": "PGS000825",
+  "name": "HDL-C_PGS",
+  "ftp_scoring_file": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000825/ScoringFiles/PGS000825.txt.gz",
+  "ftp_harmonized_scoring_files": {
+    "GRCh37": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000825/ScoringFiles/Harmonized/PGS000825_hmPOS_GRCh37.txt.gz"
+    },
+    "GRCh38": {
+      "positions": "https://ftp.ebi.ac.uk/pub/databases/spot/pgs/scores/PGS000825/ScoringFiles/Harmonized/PGS000825_hmPOS_GRCh38.txt.gz"
+    }
+  },
+  "publication": {
+    "id": "PGP000210",
+    "title": "Genetic Predisposition Impacts Clinical Changes in a Lifestyle Coaching Program.",
+    "doi": "10.1038/s41598-019-43058-0",
+    "PMID": 31048771,
+    "journal": "Sci Rep",
+    "firstauthor": "Zubair N",
+    "date_publication": "2019-05-02"
+  },
+  "matches_publication": true,
+  "samples_variants": [
+    {
+      "sample_number": 94595,
+      "sample_cases": null,
+      "sample_controls": null,
+      "sample_percent_male": null,
+      "sample_age": null,
+      "phenotyping_free": null,
+      "followup_time": null,
+      "ancestry_broad": "European",
+      "ancestry_free": null,
+      "ancestry_country": null,
+      "ancestry_additional": null,
+      "source_GWAS_catalog": "GCST002223",
+      "source_PMID": 24097068,
+      "source_DOI": null,
+      "cohorts": [
+        {
+          "name_short": "MedSTAR",
+          "name_full": "MedSTAR cardiac catheterization study",
+          "name_others": null
+        },
+        {
+          "name_short": "PennCATH",
+          "name_full": "PennCATH",
+          "name_others": null
+        },
+        {
+          "name_short": "ARIC",
+          "name_full": "Atherosclerosis Risk in Communities Study",
+          "name_others": null
+        },
+        {
+          "name_short": "CHS",
+          "name_full": "Cardiovascular Health Study",
+          "name_others": null
+        },
+        {
+          "name_short": "LOLIPOP",
+          "name_full": "London Life Sciences Population Study",
+          "name_others": null
+        },
+        {
+          "name_short": "FHS",
+          "name_full": "Framingham Heart Study",
+          "name_others": null
+        },
+        {
+          "name_short": "FINRISK",
+          "name_full": "FINRISK",
+          "name_others": null
+        },
+        {
+          "name_short": "AGES",
+          "name_full": "Aging Gene-Environment Susceptibility - Reykjavik Study",
+          "name_others": null
+        },
+        {
+          "name_short": "RS",
+          "name_full": "Rotterdam Study",
+          "name_others": "Rotterdam Study I, Rotterdam Study II"
+        },
+        {
+          "name_short": "KORA",
+          "name_full": "Cooperative Health Research in the Region of Augsburg",
+          "name_others": "KORA F3, KORA F4, KORA S3, KORA S4"
+        },
+        {
+          "name_short": "DGI",
+          "name_full": "Diabetes Genetics Initiative of Broad Institute of Harvard and MIT, Lund University, and Novartis Institutes of BioMedical Research",
+          "name_others": null
+        },
+        {
+          "name_short": "FUSION",
+          "name_full": "Finland-United States Investigation of Non-Insulin-Dependent Diabetes Mellitus Genetics",
+          "name_others": null
+        },
+        {
+          "name_short": "B58C",
+          "name_full": "British 1958 Birth Cohort Study",
+          "name_others": null
+        },
+        {
+          "name_short": "CoLaus",
+          "name_full": "Cohorte Lausannoise",
+          "name_others": null
+        },
+        {
+          "name_short": "GenomEUtwin",
+          "name_full": "GenomEUtwin study",
+          "name_others": null
+        },
+        {
+          "name_short": "BLSA",
+          "name_full": "Baltimore Longitudinal Study of Ageing",
+          "name_others": null
+        },
+        {
+          "name_short": "EPIC-Norfolk",
+          "name_full": "European Prospective Investigation of Cancer-Norfolk",
+          "name_others": null
+        },
+        {
+          "name_short": "Fenland",
+          "name_full": "The Fenland Study",
+          "name_others": null
+        },
+        {
+          "name_short": "InCHIANTI",
+          "name_full": "The Invecchiare in Chianti",
+          "name_others": null
+        },
+        {
+          "name_short": "NFBC",
+          "name_full": "Northern Finnish Birth Cohort Study",
+          "name_others": null
+        },
+        {
+          "name_short": "SUVIMAX",
+          "name_full": "Supplementation en Vitamines et Mineraux Antioxydants",
+          "name_others": null
+        },
+        {
+          "name_short": "BRIGHT",
+          "name_full": "British Genetics of Hypertension study",
+          "name_others": null
+        },
+        {
+          "name_short": "GENMETS",
+          "name_full": "GenMets sub cohort for the Health 2000 Study",
+          "name_others": null
+        }
+      ],
+      "cohorts_additional": null
+    }
+  ],
+  "samples_training": [],
+  "trait_reported": "HDL cholesterol",
+  "trait_additional": "EFO:0004612",
+  "trait_efo": [
+    {
+      "id": "EFO_0004612",
+      "label": "high density lipoprotein cholesterol measurement",
+      "description": "The measurement of HDL cholesterol in blood used as a risk indicator for heart disease.",
+      "url": "http://www.ebi.ac.uk/efo/EFO_0004612"
+    }
+  ],
+  "method_name": "Pruning of FDR filtered SNPs",
+  "method_params": "FDR < 5%, r^2 < 0.2",
+  "variants_number": 883,
+  "variants_interactions": 0,
+  "variants_genomebuild": "hg19",
+  "weight_type": "beta",
+  "ancestry_distribution": {
+    "eval": {
+      "dist": {
+        "MAE": 100
+      },
+      "count": 1,
+      "multi": [
+        "MAE_EUR",
+        "MAE_ASN",
+        "MAE_AMR",
+        "MAE_AFR",
+        "MAE_NR"
+      ]
+    },
+    "gwas": {
+      "dist": {
+        "EUR": 100
+      },
+      "count": 94595
+    }
+  },
+  "date_release": "2021-07-29",
+  "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)"
+}
