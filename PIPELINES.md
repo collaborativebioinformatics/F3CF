@@ -146,7 +146,7 @@ This produces the latent-space network figures used to compare uncoupled and cou
 
 ### Gene–phenotype collaborative filtering analysis
 
-Gene–phenotype associations were obtained from the GWAS Catalog using its ontology-annotated association release (Henrik/Snakefile). Associations lacking mapped genes, mapped traits, or p-values were removed, and records mapping to multiple genes or phenotypes were expanded into individual gene–phenotype pairs. When the same pair occurred in multiple studies, the association with the largest $-\log_{10}(p)$ value was retained (`Henrik/scripts/parse_gwas.py`).
+Gene–phenotype associations were obtained from the GWAS Catalog using its ontology-annotated association release (`Henrik/Snakefile`). Associations lacking mapped genes, mapped traits, or p-values were removed, and records mapping to multiple genes or phenotypes were expanded into individual gene–phenotype pairs. When the same pair occurred in multiple studies, the association with the largest $-\log_{10}(p)$ value was retained (`Henrik/scripts/parse_gwas.py`).
 
 The resulting edge list was converted to a binary gene × phenotype matrix and evaluated using collaborative filtering (`Henrik/scripts/collab_filter.py`). Ten percent of observed associations were randomly masked and excluded from training. The remaining matrix was factorized using truncated singular-value decomposition with 64 latent components. Candidate phenotype associations were reconstructed from the learned gene and phenotype factors, excluding associations already observed during training, and the 50 highest-scoring phenotypes were retained for each gene.
 
