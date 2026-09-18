@@ -8,6 +8,7 @@ Current implemented pipelines:
 * [Site-formatted conversion](#site-formatted-conversion)
 * [Federated collaborative factorization](#federated-collaborative-factorization)
 * [Embedding exploration](#embedding-exploration)
+* [Gene–phenotype collaborative filtering analysis](#gene–phenotype-collaborative-filtering-analysis)
 
 ## Overview
 
