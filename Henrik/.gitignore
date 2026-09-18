@@ -4,7 +4,7 @@ __pycache__/
 *.parquet
 *.tsv
 .snakemake/
-results/
+results/*
 .DS_Store
 
 # downloads, archives, logs
@@ -12,3 +12,22 @@ results/
 *.gz
 *.log
 *.csv.gz
+bin/
+
+# presentation notes and Office lock files
+*.docx
+*.doc
+*.pptx
+~$*
+
+# never commit: 4 GB of superseded work, and third-party papers
+archive/
+articles/
+
+# the figures and methods ARE the deliverable, so keep them despite results/ being ignored
+!results/figures/
+!results/figures/**
+!results/methods.md
+
+# last rule wins: the figure negation above must not drag these back in
+**/.DS_Store
