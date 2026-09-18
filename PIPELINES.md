@@ -2,6 +2,13 @@
 
 This document separates the pipelines that are implemented in the current proof of concept from those that are experimental or expected extensions of F3CF.
 
+Current implemented pipelines:
+
+* [Synthetic data generation using UKB and PGS catalog](#synthetic-data-generation)
+* [Site-formatted conversion](#site-formatted-conversion)
+* [Federated collaborative factorization](#federated-collaborative-factorization)
+* [Embedding exploration](#embedding-exploration)
+
 ## Overview
 
 The intended data flow is:
@@ -15,7 +22,7 @@ Standardized relation matrices
     ↓
 Local multi-relational factorization
     ↓
-Federated aggregation of selected shared entities
+[Federated aggregation of selected shared entities](#Federated collaborative factorization)
     ↓
 Shared latent structure
     ↓
@@ -117,3 +124,21 @@ learning rate = 0.05
 The server uses `federated_cf_aggregator.py` to perform size-weighted FedAvg separately for the clinical and genetic phenotype embedding tables. Updates are masked so that a site only contributes to phenotypes it actually observes, and sites without genetic data do not contribute to the genetic table. Embedding vectors are L2-normalized after local optimization and aggregation.
 
 The current main implementation therefore learns separate clinical and genetic phenotype representations; coupling these relations into a single shared phenotype space is an experimental extension rather than part of the default federated runner.
+
+### Embedding exploration
+
+The learned phenotype embeddings can be explored using `scripts/explore_embeddings.py`, which provides a Streamlit-based visualization of the clinical and genetic latent spaces.
+
+The pipeline loads `data/federated/global_phenotype_embeddings.npz`, computes pairwise cosine similarities between phenotype embeddings, and retains phenotype pairs above a user-defined similarity threshold (default `0.65`). The resulting similarity network is constructed with NetworkX and positioned using a weighted spring layout, where stronger cosine similarities exert greater influence on node placement.
+
+Phenotypes are grouped and coloured using the category definitions in `scripts/phenotype_groups.py`, and the network is rendered interactively with Plotly.
+
+For comparison of clinical and genetic structure, the same pipeline constructs a difference network using the genetic layout and classifies edges as:
+
+```text
+shared
+clinical-only
+genetic-only
+```
+
+This produces the latent-space network figures used to compare uncoupled and coupled representations.
