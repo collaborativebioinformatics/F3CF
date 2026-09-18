@@ -52,7 +52,7 @@ The framework is designed around three principles:
 - **Flexible:** new sites, entities, relation types, and modelling components can be added over time.
 
 ## Infographic
-![Infographic 2](images/infograph2.png)
+![Infographic](images/infograph.png)
 
 ## Flowchart
 
