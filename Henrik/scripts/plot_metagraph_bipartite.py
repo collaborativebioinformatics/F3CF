@@ -109,7 +109,7 @@ for ax, step in zip(axes.ravel(), STEPS):
                 ha="center", va="bottom", fontsize=10.8, color="#888888")
 
 fig.legend(handles=[Line2D([], [], color=FALSE, lw=1.6, label="false positive association"),
-                    Line2D([], [], color=CAUSAL, lw=1.6, label="association with a truly causal locus"),
+                    Line2D([], [], color=CAUSAL, lw=1.6, label="association with a causal locus"),
                     Line2D([], [], color=DORMANT, marker="o", ms=3, lw=0,
                            label="locus not yet discovered")],
            frameon=False, labelcolor="#333333", fontsize=10.0, ncol=3, loc="lower center",
