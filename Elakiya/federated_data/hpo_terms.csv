@@ -1,0 +1,33 @@
+hpo_id,label,group,hpo_release
+HP:0003119,Abnormal circulating lipid concentration,lipids,hp/releases/2026-09-01
+HP:0003077,Hyperlipidemia,lipids,hp/releases/2026-09-01
+HP:0003124,Hypercholesterolemia,lipids,hp/releases/2026-09-01
+HP:0003141,Elevated circulating LDL-C concentration,lipids,hp/releases/2026-09-01
+HP:0003233,Decreased circulating HDL-C concentration,lipids,hp/releases/2026-09-01
+HP:0002155,Hypertriglyceridemia,lipids,hp/releases/2026-09-01
+HP:6000521,Elevated circulating lipoprotein(a) concentration,lipids,hp/releases/2026-09-01
+HP:0031798,Elevated circulating apolipoprotein B concentration,lipids,hp/releases/2026-09-01
+HP:0010874,Tendon xanthomatosis,lipids,hp/releases/2026-09-01
+HP:0001084,Corneal arcus,lipids,hp/releases/2026-09-01
+HP:0001114,Xanthelasma,lipids,hp/releases/2026-09-01
+HP:0000822,Hypertension,cardiovascular,hp/releases/2026-09-01
+HP:0001677,Coronary artery atherosclerosis,cardiovascular,hp/releases/2026-09-01
+HP:0001658,Myocardial infarction,cardiovascular,hp/releases/2026-09-01
+HP:0001681,Angina pectoris,cardiovascular,hp/releases/2026-09-01
+HP:0002140,Ischemic stroke,cardiovascular,hp/releases/2026-09-01
+HP:0001712,Left ventricular hypertrophy,cardiovascular,hp/releases/2026-09-01
+HP:0001095,Hypertensive retinopathy,cardiovascular,hp/releases/2026-09-01
+HP:0000819,Diabetes mellitus,metabolic,hp/releases/2026-09-01
+HP:0005978,Type II diabetes mellitus,metabolic,hp/releases/2026-09-01
+HP:0003074,Hyperglycemia,metabolic,hp/releases/2026-09-01
+HP:0000855,Insulin resistance,metabolic,hp/releases/2026-09-01
+HP:0001513,Obesity,metabolic,hp/releases/2026-09-01
+HP:0001397,Hepatic steatosis,metabolic,hp/releases/2026-09-01
+HP:0000488,Retinopathy,metabolic,hp/releases/2026-09-01
+HP:0000093,Proteinuria,metabolic,hp/releases/2026-09-01
+HP:0012622,Chronic kidney disease,metabolic,hp/releases/2026-09-01
+HP:0002099,Asthma,respiratory_allergy,hp/releases/2026-09-01
+HP:0030828,Wheezing,respiratory_allergy,hp/releases/2026-09-01
+HP:0003193,Allergic rhinitis,respiratory_allergy,hp/releases/2026-09-01
+HP:0000964,Eczematoid dermatitis,respiratory_allergy,hp/releases/2026-09-01
+HP:0002094,Dyspnea,respiratory_allergy,hp/releases/2026-09-01
