@@ -208,10 +208,12 @@ Such extensions could turn F3CF into a framework for exploring a federated **met
 
 ## Team 8 — Nordic Conference on Future Health 2026, 14–16 September 2026
 
+https://docs.google.com/presentation/d/1Jp5w5cuf-wX1m194zMev2lda-B4DfVitLifrzrb_t6M/edit?usp=sharing
+
 * Victor Enrique Goitea
-* Chris Hart
 * Davor Vukadin
 * Henrik Formoe
 * Edvin Smajlovic
 * Sebastian Krog [writer]
 * Elakiya Sivakumar
+* Arvid Harder
