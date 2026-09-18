@@ -223,8 +223,8 @@ This measures whether including information from $D_k$ improves performance on a
 
 ## Results from the synthetic data
 
-![uncoupled_clinical_genetic_latent_networks.png](images\uncoupled_clinical_genetic_latent_networks.png)
-![metagraph_bipartite.png](images\metagraph_bipartite.png)
+![uncoupled_clinical_genetic_latent_networks.png](images/uncoupled_clinical_genetic_latent_networks.png)
+![metagraph_bipartite.png](images/metagraph_bipartite.png)
 
 For details, see [PAPER.md](PAPER.md)
 
