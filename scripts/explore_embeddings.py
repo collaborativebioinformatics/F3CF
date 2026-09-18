@@ -12,6 +12,7 @@ os.environ.setdefault("NUMBA_CACHE_DIR", str(ROOT / ".numba_cache"))
 Path(os.environ["NUMBA_CACHE_DIR"]).mkdir(parents=True, exist_ok=True)
 
 import numpy as np
+import networkx as nx
 import plotly.graph_objects as go
 import streamlit as st
 from umap import UMAP
@@ -283,8 +284,28 @@ def umap_figure(
     return fig
 
 
+@st.cache_data(show_spinner="Laying out network…")
+def force_positions(
+    nodes: tuple[int, ...],
+    edges: tuple[tuple[int, int], ...],
+    weights: tuple[float, ...],
+    seed: int,
+) -> dict[int, tuple[float, float]]:
+    graph = nx.Graph()
+    graph.add_nodes_from(nodes)
+    graph.add_weighted_edges_from((i, j, w) for (i, j), w in zip(edges, weights))
+    n_nodes = max(len(nodes), 1)
+    positions = nx.spring_layout(
+        graph,
+        seed=seed,
+        weight="weight",
+        iterations=80,
+        k=1.6 / np.sqrt(n_nodes),
+    )
+    return {int(node): (float(xy[0]), float(xy[1])) for node, xy in positions.items()}
+
+
 def graph_figure(
-    coords: np.ndarray,
     names: list[str],
     categories: list[str],
     phenotype_ids: list[str],
@@ -292,57 +313,90 @@ def graph_figure(
     threshold: float,
     title: str,
     visible: np.ndarray,
-) -> tuple[go.Figure, int]:
+    seed: int,
+) -> tuple[go.Figure, int, int]:
     visible_idx = np.flatnonzero(visible)
-    edges_x: list[float | None] = []
-    edges_y: list[float | None] = []
-    n_edges = 0
+    left = np.array([], dtype=np.int64)
+    right = np.array([], dtype=np.int64)
+    weights = np.array([], dtype=np.float32)
     if visible_idx.size:
         sub = similarity[np.ix_(visible_idx, visible_idx)]
         ii, jj = np.triu_indices(visible_idx.size, k=1)
         keep = sub[ii, jj] >= threshold
         left = visible_idx[ii[keep]]
         right = visible_idx[jj[keep]]
-        n_edges = int(left.size)
-        for i, j in zip(left, right):
-            edges_x.extend((float(coords[i, 0]), float(coords[j, 0]), None))
-            edges_y.extend((float(coords[i, 1]), float(coords[j, 1]), None))
+        weights = sub[ii[keep], jj[keep]]
+
+    connected = np.unique(np.concatenate([left, right])) if left.size else np.array([], dtype=np.int64)
+    n_edges = int(left.size)
+    n_nodes = int(connected.size)
 
     fig = go.Figure()
+    if n_nodes == 0:
+        fig.update_layout(**_base_layout(f"{title}  ·  no edges ≥ {threshold:.2f}"))
+        fig.add_annotation(
+            text="No phenotype pairs pass the similarity threshold.",
+            showarrow=False,
+            font=dict(size=14, color="#93a4bf"),
+        )
+        return fig, n_edges, n_nodes
+
+    positions = force_positions(
+        tuple(int(n) for n in connected.tolist()),
+        tuple((int(i), int(j)) for i, j in zip(left, right)),
+        tuple(round(float(w), 6) for w in weights),
+        seed,
+    )
+
+    edges_x: list[float | None] = []
+    edges_y: list[float | None] = []
+    for i, j in zip(left, right):
+        x0, y0 = positions[int(i)]
+        x1, y1 = positions[int(j)]
+        edges_x.extend((x0, x1, None))
+        edges_y.extend((y0, y1, None))
+
     fig.add_trace(
         go.Scatter(
             x=edges_x,
             y=edges_y,
             mode="lines",
-            line=dict(width=0.7, color="rgba(232,238,247,0.18)"),
+            line=dict(width=0.8, color="rgba(232,238,247,0.22)"),
             hoverinfo="skip",
             showlegend=False,
         )
     )
+    connected_set = set(connected.tolist())
     for category, color in CATEGORY_COLORS.items():
-        mask = np.array([item == category for item in categories], dtype=bool) & visible
-        if not mask.any():
+        node_ids = [
+            idx
+            for idx, category_name in enumerate(categories)
+            if category_name == category and idx in connected_set
+        ]
+        if not node_ids:
             continue
         fig.add_trace(
-            go.Scattergl(
-                x=coords[mask, 0],
-                y=coords[mask, 1],
+            go.Scatter(
+                x=[positions[idx][0] for idx in node_ids],
+                y=[positions[idx][1] for idx in node_ids],
                 mode="markers",
                 name=category,
-                marker=dict(size=10, color=color, line=dict(width=0.6, color="#0b1018"), opacity=0.95),
-                text=[names[i] for i, keep in enumerate(mask) if keep],
+                marker=dict(size=11, color=color, line=dict(width=0.6, color="#0b1018"), opacity=0.95),
+                text=[names[idx] for idx in node_ids],
                 customdata=np.stack(
                     (
-                        np.array(phenotype_ids)[mask],
-                        np.array(categories)[mask],
+                        np.array([phenotype_ids[idx] for idx in node_ids]),
+                        np.array([categories[idx] for idx in node_ids]),
                     ),
                     axis=1,
                 ),
                 hovertemplate="<b>%{text}</b><br>%{customdata[1]}<br>%{customdata[0]}<extra></extra>",
             )
         )
-    fig.update_layout(**_base_layout(f"{title}  ·  {n_edges:,} edges ≥ {threshold:.2f}"))
-    return fig, n_edges
+    fig.update_layout(
+        **_base_layout(f"{title}  ·  {n_nodes:,} nodes  ·  {n_edges:,} edges ≥ {threshold:.2f}")
+    )
+    return fig, n_edges, n_nodes
 
 
 def inject_css() -> None:
@@ -384,7 +438,7 @@ def main() -> None:
         n_neighbors = st.slider("UMAP neighbors", 5, 50, 15)
         min_dist = st.slider("UMAP min distance", 0.0, 1.0, 0.15, 0.05)
         search = st.text_input("Highlight phenotype", placeholder="e.g. heart, diabetes")
-        st.caption("Edges are undirected cosine similarities. Self-loops are hidden.")
+        st.caption("UMAP is independent of the networks. Graphs use a force layout and hide phenotypes with no edges.")
 
     phenotype_ids, nongenetic, genetic = load_embeddings(embeddings_path)
     labels = load_labels(labels_path)
@@ -415,13 +469,13 @@ def main() -> None:
     nongenetic_sim = cosine_similarity(nongenetic)
     genetic_sim = cosine_similarity(genetic)
 
-    nongenetic_graph, n_nongenetic_edges = graph_figure(
-        nongenetic_umap, names, categories, phenotype_ids.tolist(), nongenetic_sim, threshold,
-        "Nongenetic similarity network", visible,
+    nongenetic_graph, n_nongenetic_edges, n_nongenetic_nodes = graph_figure(
+        names, categories, phenotype_ids.tolist(), nongenetic_sim, threshold,
+        "Nongenetic similarity network", visible, seed=0,
     )
-    genetic_graph, n_genetic_edges = graph_figure(
-        genetic_umap, names, categories, phenotype_ids.tolist(), genetic_sim, threshold,
-        "Genetic similarity network", visible,
+    genetic_graph, n_genetic_edges, n_genetic_nodes = graph_figure(
+        names, categories, phenotype_ids.tolist(), genetic_sim, threshold,
+        "Genetic similarity network", visible, seed=1,
     )
 
     n_visible = int(visible.sum())
@@ -429,8 +483,8 @@ def main() -> None:
         f"""
         <div class="metric-row">
           <div class="metric-card"><div class="label">Phenotypes shown</div><div class="value">{n_visible} / {len(names)}</div></div>
-          <div class="metric-card"><div class="label">Nongenetic edges</div><div class="value">{n_nongenetic_edges:,}</div></div>
-          <div class="metric-card"><div class="label">Genetic edges</div><div class="value">{n_genetic_edges:,}</div></div>
+          <div class="metric-card"><div class="label">Nongenetic network</div><div class="value">{n_nongenetic_nodes:,} · {n_nongenetic_edges:,}</div></div>
+          <div class="metric-card"><div class="label">Genetic network</div><div class="value">{n_genetic_nodes:,} · {n_genetic_edges:,}</div></div>
           <div class="metric-card"><div class="label">Threshold</div><div class="value">{threshold:.2f}</div></div>
         </div>
         """,
@@ -441,19 +495,19 @@ def main() -> None:
     with left:
         st.plotly_chart(
             umap_figure(nongenetic_umap, names, categories, phenotype_ids.tolist(), "Nongenetic UMAP", visible),
-            use_container_width=True,
+            width="stretch",
         )
     with right:
         st.plotly_chart(
             umap_figure(genetic_umap, names, categories, phenotype_ids.tolist(), "Genetic UMAP", visible),
-            use_container_width=True,
+            width="stretch",
         )
 
     left, right = st.columns(2, gap="large")
     with left:
-        st.plotly_chart(nongenetic_graph, use_container_width=True)
+        st.plotly_chart(nongenetic_graph, width="stretch")
     with right:
-        st.plotly_chart(genetic_graph, use_container_width=True)
+        st.plotly_chart(genetic_graph, width="stretch")
 
 
 if __name__ == "__main__":
