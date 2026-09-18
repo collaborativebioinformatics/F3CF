@@ -1,6 +1,6 @@
 #!/bin/sh
 # Rebuilds every figure from the results already on disk. No network: uv runs with --offline and
-# every input is local. Run from the Henrik directory:  ./run_all.sh
+# every input is local. Run from the federated_meta_analysis directory:  ./run_all.sh
 set -e
 cd "$(dirname "$0")"
 UV="uv run --offline python"

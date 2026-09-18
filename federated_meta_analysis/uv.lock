@@ -356,6 +356,31 @@ wheels = [
 ]
 
 [[package]]
+name = "federated-meta-analysis"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "bed-reader" },
+    { name = "matplotlib" },
+    { name = "pandas" },
+    { name = "pyarrow" },
+    { name = "scikit-learn" },
+    { name = "scipy" },
+    { name = "snakemake" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "bed-reader", specifier = ">=1.1.0" },
+    { name = "matplotlib", specifier = ">=3.11.2" },
+    { name = "pandas", specifier = ">=3.0.2" },
+    { name = "pyarrow", specifier = ">=25.0.1" },
+    { name = "scikit-learn", specifier = ">=1.9.1" },
+    { name = "scipy", specifier = ">=1.17.1" },
+    { name = "snakemake", specifier = ">=9.27.0" },
+]
+
+[[package]]
 name = "fonttools"
 version = "4.65.0"
 source = { registry = "https://pypi.org/simple" }
@@ -489,31 +514,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/e0/36/b35747582fa4f1a5453f8f3002405dbac788e450cec7674dc2d204b6ccb5/greenlet-3.5.6-cp315-cp315t-musllinux_1_2_x86_64.whl", hash = "sha256:de9923832f2d8c1a5ecd8d7260465a6ca5a86888a0d129e3bd5cf0406d2fc5bf", size = 1702383, upload-time = "2026-09-14T14:35:58.143Z" },
     { url = "https://files.pythonhosted.org/packages/ed/69/6ec22ac9351e474d2a134d0ff9400dc80362d1c20f0721088ffffdfc205b/greenlet-3.5.6-cp315-cp315t-win_amd64.whl", hash = "sha256:2ab5f42ac6c238eb71770715e6e909ad9a1a92b6c681ccb64cd5a0f07edb953f", size = 331845, upload-time = "2026-09-14T14:27:41.723Z" },
     { url = "https://files.pythonhosted.org/packages/30/cf/697c051fd534e223461fb8b523890e21a24eeca229cd50624cff6f02fabd/greenlet-3.5.6-cp315-cp315t-win_arm64.whl", hash = "sha256:f9fe868463ec7e1363733af77e38a5fda3e9b63940337048c945d69e0c80ff24", size = 315070, upload-time = "2026-09-14T14:22:21.476Z" },
-]
-
-[[package]]
-name = "henrik-prototype"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "bed-reader" },
-    { name = "matplotlib" },
-    { name = "pandas" },
-    { name = "pyarrow" },
-    { name = "scikit-learn" },
-    { name = "scipy" },
-    { name = "snakemake" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "bed-reader", specifier = ">=1.1.0" },
-    { name = "matplotlib", specifier = ">=3.11.2" },
-    { name = "pandas", specifier = ">=3.0.2" },
-    { name = "pyarrow", specifier = ">=25.0.1" },
-    { name = "scikit-learn", specifier = ">=1.9.1" },
-    { name = "scipy", specifier = ">=1.17.1" },
-    { name = "snakemake", specifier = ">=9.27.0" },
 ]
 
 [[package]]
