@@ -202,6 +202,26 @@ Experimental or planned pipelines include:
 
 See [PIPELINES.md](PIPELINES.md) for implementation details and expected extensions.
 
+### Required pipelines for implementation
+F3CF assumes that each participating site first converts its local source data into a common site format.
+
+Before F3CF, site-specific pipelines are responsible for:
+
+* extracting and harmonizing local clinical and genomic data;
+* deriving phenotype features and genomic summary features;
+* mapping features to shared identifiers; and
+* exporting standardized relation matrices, such as `patient × phenotype` and `genomic-summary × phenotype`.
+
+F3CF then performs federated collaborative factorization across the participating sites using NVIDIA FLARE.
+
+Analysis pipelines will operate on the learned embeddings to support tasks such as:
+
+* latent-space visualization and clustering;
+* phenotype and genomic association exploration;
+* held-out reconstruction or prediction;
+* comparison with centralized or baseline models; and
+* data-source utility and ablation analyses.
+
 ## Synthetic datasets
 
 Synthetic data are used to test federation, feature-space heterogeneity, and known injected relationships before applying the framework to real clinical data.
