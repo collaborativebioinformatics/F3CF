@@ -82,9 +82,9 @@ for value, colour, text in entries:
 ax.set_ylim(0, max(heritability[t] for t in traits) * 1.10)
 steps = sorted(best["n_sites"].unique())
 ax.set_xticks(steps)
-ax.set_xticklabels([f"{step}\n({train_n[step]:,})" for step in steps])
+ax.set_xticklabels([f"{step}\n(N = {train_n[step]:,})" for step in steps])
 ax.yaxis.set_major_formatter(FuncFormatter(lambda y, _: f"{y:.2f}"))
-ax.set_xlabel("Sites in the meta-analysis (training individuals)", fontsize=8, labelpad=6)
+ax.set_xlabel("Sites in the meta-analysis", fontsize=8, labelpad=6)
 ax.set_ylabel("PRS R²", fontsize=8, labelpad=6)
 ax.tick_params(labelsize=7)
 for y, colour, text in placed:
