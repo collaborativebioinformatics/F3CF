@@ -53,116 +53,81 @@ The framework is designed around three principles:
 - **Multi-relational:** different relations can contribute to a common representation.
 - **Flexible:** new sites, entities, relation types, and modelling components can be added over time.
 
-## Infographic
-![Infographic](images/infograph.png)
-
-## Flowchart
-
+## Flowcharts
 ```mermaid
 flowchart TB
 
     %% =========================
-    %% TOP ROW — Institutions
+    %% DISTRIBUTED SITES
     %% =========================
-    subgraph INST["Distributed Data Sources"]
+    subgraph SITES["Distributed sites"]
         direction LR
 
-        subgraph C1["Clinic A"]
+        subgraph SA["Biobank A"]
             direction TB
-            A1[/Patient × Drug/]
-            A2[/Patient × Phenotype/]
-            A3[/Optional local relations/]
+            A["Patient × Phenotype<br/>Patient × PRS"]
+            LA["Local factorization"]
+            A --> LA
         end
 
-        subgraph C2["Clinic B"]
+        subgraph SB["Biobank B"]
             direction TB
-            B1[/Patient × Drug/]
-            B2[/Patient × Phenotype/]
-            B3[/Optional local relations/]
+            B["Patient × Phenotype<br/>Patient × PRS"]
+            LB["Local factorization"]
+            B --> LB
         end
 
-        subgraph BB["Biobank"]
+        subgraph SC["Clinic C"]
             direction TB
-            G1[\Phenotype × PRS\]
-            G2[\Optional genomic relations\]
+            C["Patient × Phenotype"]
+            LC["Local factorization"]
+            C --> LC
         end
     end
 
     %% =========================
-    %% CORE
+    %% PRIVACY
     %% =========================
-    F3CF(["F3CF<br/>Flexible Federated Framework for<br/>Multi-Relational Collaborative Factorization"])
-
-    P{{Raw data stay local<br/>Only model parameters / updates are shared}}
+    P["Patient-level data and patient embeddings remain local"]
 
     %% =========================
-    %% REPRESENTATIONS
+    %% FEDERATED CORE
     %% =========================
-    subgraph REP["Learned Representations"]
-        direction LR
-        L[[Local embeddings<br/>Site-specific patients]]
-        S[[Shared embeddings<br/>Phenotypes · Drugs · PRS]]
-    end
+    AGG["Federated aggregation + redistribution<br/>NVIDIA FLARE"]
 
-    Z[(Shared N-dimensional<br/>latent space)]
+    SH["Shared phenotype embeddings"]
 
-    %% =========================
-    %% OUTPUTS
-    %% =========================
-    subgraph OUT["Exploration & Applications"]
-        direction LR
-        O1>Patient stratification]
-        O2>Drug response]
-        O3>Genotype–phenotype discovery]
-        O4>Biobank utility]
-        O5>Latent structure exploration]
-    end
+    LAT["Shared latent space"]
 
     %% =========================
     %% CONNECTIONS
     %% =========================
-    A1 -->|local relation| F3CF
-    A2 -->|local relation| F3CF
-    A3 -.->|optional| F3CF
+    LA -->|"shared parameter updates"| AGG
+    LB --> AGG
+    LC --> AGG
 
-    B1 -->|local relation| F3CF
-    B2 -->|local relation| F3CF
-    B3 -.->|optional| F3CF
+    AGG --> SH
+    SH --> LAT
 
-    G1 -->|genomic relation| F3CF
-    G2 -.->|optional| F3CF
-
-    P -.->|federated learning| F3CF
-
-    F3CF -->|site-specific| L
-    F3CF -->|shared across sites| S
-
-    L --> Z
-    S --> Z
-
-    Z --> O1
-    Z --> O2
-    Z --> O3
-    Z --> O4
-    Z --> O5
+    LA -.-> P
+    LB -.-> P
+    LC -.-> P
 
     %% =========================
     %% STYLING
     %% =========================
-    classDef clinic fill:#EAF4FF,stroke:#4A90E2,stroke-width:1.5px,color:#123;
-    classDef biobank fill:#E8FFF6,stroke:#20B27A,stroke-width:1.5px,color:#123;
-    classDef core fill:#F3E8FF,stroke:#8E44AD,stroke-width:2.5px,color:#123;
-    classDef embedding fill:#EAFBF3,stroke:#2E8B57,stroke-width:1.5px,color:#123;
-    classDef latent fill:#FFF0F7,stroke:#D63384,stroke-width:2.5px,color:#123;
-    classDef output fill:#F5F5F5,stroke:#666,stroke-width:1.2px,color:#123;
-    classDef note fill:#FFFBEA,stroke:#C9A227,stroke-width:1.2px,color:#123;
+    classDef input fill:#F4F4F4,stroke:#777,stroke-width:1.2px,color:#222;
+    classDef local fill:#DCEBFA,stroke:#2867B2,stroke-width:1.4px,color:#111;
+    classDef core fill:#FFFFFF,stroke:#666,stroke-width:1.8px,color:#111;
+    classDef shared fill:#DDD3EC,stroke:#8878A5,stroke-width:1.5px,color:#111;
+    classDef latent fill:#E8F2FF,stroke:#3478D4,stroke-width:1.6px,color:#111;
+    classDef note fill:#FFFBEA,stroke:#C9A227,stroke-width:1.2px,color:#333;
 
-    class A1,A2,A3,B1,B2,B3 clinic;
-    class G1,G2 biobank;
-    class F3CF core;
-    class L,S embedding;
-    class Z latent;
-    class O1,O2,O3,O4,O5 output;
+    class A,B,C input;
+    class LA,LB,LC local;
+    class AGG core;
+    class SH shared;
+    class LAT latent;
     class P note;
 ```
 
