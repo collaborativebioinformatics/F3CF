@@ -1,13 +1,55 @@
 # F3CF: A Flexible Federated Framework for Multi-Relational Collaborative Factorization
 
-F3CF is a framework for federated exploration of a shared, multi-relational, multi-institutional latent knowledge space.
+**F3CF** (pronounced **“FREEZ-eff”**) is a framework for federated exploration of a shared, multi-relational, multi-institutional latent knowledge space.
+
+The central idea is to let clinics, biobanks, and other data sources contribute relational information to shared entity representations without requiring patient-level data to leave the originating institution.
 
 ## Demo
 
-Insert demo here.
+The current proof-of-concept can be run locally using the NVIDIA FLARE simulator.
+
+### Installation
+
+```bash
+git clone https://github.com/collaborativebioinformatics/Metametagraphs.git
+cd Metametagraphs
+
+python -m venv .venv
+source .venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+The core requirements are PyTorch, NumPy, and NVIDIA FLARE.
+
+### Run the basic federated demo
+
+```bash
+python scripts/run_federated_cf_job.py
+```
+
+By default, this:
+
+1. generates a small synthetic multi-site dataset under `data/federated/`;
+2. starts a local NVIDIA FLARE simulation;
+3. performs local collaborative-factorization training at each site;
+4. aggregates shared phenotype representations over federated rounds; and
+5. writes the global phenotype embeddings to:
+
+```text
+data/federated/global_phenotype_embeddings.npz
+```
+
+Patient-level row representations remain local to each simulated site.
 
 ## Aim
-Extract shared genotype–phenotype knowledge across biobanks and clinical datasets.
+3CF aims to make distributed clinical, genomic, and biobank data jointly explorable while preserving the local control of patient-level information.
+
+The framework is designed around three principles:
+
+- **Federated:** patient-level data remain at the originating institution.
+- **Multi-relational:** different relations can contribute to a common representation.
+- **Flexible:** new sites, entities, relation types, and modelling components can be added over time.
 
 ## Infographics
 
@@ -150,30 +192,37 @@ where $Z_a$ and $Z_b$ are latent representations of the connected entities, and 
 
 The model jointly optimizes all available relations, sharing common embeddings across sites while keeping site-specific patient representations local.
 
-## Synthetic datsets
+## Implemented pipelines
 
-For implementation testing we generate patient-level data.
+Currently implemented pipelines include:
 
-## Example F3CF using synthetic datasets
+- synthetic clinical and PRS data generation;
+- site-formatted patient–phenotype and genomic-summary relations;
+- federated collaborative factorization with NVIDIA FLARE; and
 
-Here we show results from using out implementation on our synthetic datasets.
+Experimental or planned pipelines include:
+
+- allowing patient-level covariates (age, sex);
+- additional biomedical relations such as drug × patient, phenotype x omics, or phenotype ontology edges; and
+- source-ablation analyses for estimating the utility of external datasets.
+
+See [PIPELINES.md](PIPELINES.md) for implementation details and expected extensions.
+
+## Synthetic datasets
+
+Synthetic data are used to test federation, feature-space heterogeneity, and known injected relationships before applying the framework to real clinical data.
 
 ## Exploring the latent space
 
-F3CF learns a shared latent structure for globally aligned entities such as phenotypes, drugs, and genomic features, while patient representations remain local to each institution.
+F3CF is intended to support several levels of exploration.
 
-This enables several forms of exploration:
+**Patient-level exploration**  
+A local patient representation can be compared with the shared model without sharing that patient representation across sites.
 
-* **Patient-level exploration** — a local patient representation can be queried against the shared model to identify associated phenotypes, genetic-risk features, and drugs without sharing the patient embedding across sites.
-* **Phenotype-level exploration** — examine which drugs, genomic features, and local patient profiles are most strongly associated with a phenotype.
-* **Drug-level exploration** — investigate which phenotypic or genomic patterns are associated with a drug or treatment response.
-* **Population-level exploration** — within each site, compare or cluster local patient representations relative to the globally learned latent structure.
+**Phenotype-level exploration**  
+Phenotypes can be examined in relation to other variables and genomic-risk features.
 
-The latent space can also be projected into two or three dimensions for visualization, while relation-specific similarities are evaluated in the full learned space.
-
-## Exploring data source relationships
-
-Each source can be treated as a set of observations that contributes to the shared model. Its contribution can then be assessed indirectly by measuring how the learned structure or downstream performance changes when the source is added, removed, or perturbed.
+Data source relationshipss can be explored as each source can be treated as a set of observations that contributes to the shared model. Its contribution can then be assessed indirectly by measuring how the learned structure or downstream performance changes when the source is added, removed, or perturbed.
 
 For a data source $D_k$, its structural contribution can be measured by comparing models trained with and without that source:
 
@@ -193,7 +242,16 @@ This measures whether including information from $D_k$ improves performance on a
 
 ## Results from the synthetic data
 
+Results go here.
 
+## Limitations
+
+- **Latent associations are not necessarily clinically meaningful associations.** Proximity or strong relation scores require external validation and domain interpretation.
+- **Patient-level representations are site-specific.** Direct alignment of patients across institutions is not guaranteed.
+- **Dataset imbalance can affect the shared representation.** Large or dense sites may dominate optimization unless weighting or normalization is used.
+- **Sparse relations can be weakly identified.** Entities with few observations may receive unstable representations.
+- **The current prototype does not yet implement every relation shown in the conceptual framework.**
+- **Federation does not eliminate privacy risk.** Shared updates or learned parameters may still require secure aggregation, access control, or additional privacy-preserving mechanisms in real deployments.
 
 ## Future aspects
 
