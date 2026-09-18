@@ -6,7 +6,8 @@ F3CF is a framework for federated exploration of a shared, multi-relational, mul
 
 Insert demo here.
 
-## Mission
+## Aim
+Extract shared genotype–phenotype knowledge across biobanks and clinical datasets.
 
 ## Infographics
 
@@ -16,8 +17,6 @@ Choose one of:
 * [Infographic 2](images/infograph2.png)
 * [Infographic 3](images/infograph3.png)
 * [Infographic 4](images/infograph4.png)
-
-## Milestones
 
 ## Flowchart
 
