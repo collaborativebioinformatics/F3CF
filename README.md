@@ -43,7 +43,7 @@ data/federated/global_phenotype_embeddings.npz
 Patient-level row representations remain local to each simulated site.
 
 ## Aim
-3CF aims to make distributed clinical, genomic, and biobank data jointly explorable while preserving the local control of patient-level information.
+F3CF aims to make distributed clinical, genomic, and biobank data jointly explorable while preserving the local control of patient-level information.
 
 The framework is designed around three principles:
 
@@ -51,14 +51,8 @@ The framework is designed around three principles:
 - **Multi-relational:** different relations can contribute to a common representation.
 - **Flexible:** new sites, entities, relation types, and modelling components can be added over time.
 
-## Infographics
-
-Choose one of:
-
-* [Infographic 1](images/infograph1.png)
-* [Infographic 2](images/infograph2.png)
-* [Infographic 3](images/infograph3.png)
-* [Infographic 4](images/infograph4.png)
+## Infographic
+![Infographic 2](images/infograph2.png)
 
 ## Flowchart
 
@@ -216,11 +210,8 @@ Synthetic data are used to test federation, feature-space heterogeneity, and kno
 
 F3CF is intended to support several levels of exploration.
 
-**Patient-level exploration**  
-A local patient representation can be compared with the shared model without sharing that patient representation across sites.
-
-**Phenotype-level exploration**  
-Phenotypes can be examined in relation to other variables and genomic-risk features.
+- A local patient representation can be compared with the shared model without sharing that patient representation across sites.
+- Phenotypes can be examined in relation to other variables and genomic-risk features.
 
 Data source relationshipss can be explored as each source can be treated as a set of observations that contributes to the shared model. Its contribution can then be assessed indirectly by measuring how the learned structure or downstream performance changes when the source is added, removed, or perturbed.
 
@@ -255,13 +246,13 @@ Results go here.
 
 ## Future aspects
 
-Firstly, F3CF should be tested on representative real-world datasets to determine whether the learned latent space provides clinically meaningful utility. This includes evaluating whether it recovers known biological relationships, improves prediction or stratification, and whether external data sources add measurable value to a clinical site. 
+F3CF should be tested on representative real-world datasets to determine whether the learned latent space provides clinically meaningful utility. This includes evaluating whether it recovers known biological relationships, improves prediction or stratification, and whether external data sources add measurable value to a clinical site. 
 
-Rather than limiting F3CF to classical matrix factorization, the relation operator $W_r$ could be modular. It could be a matrix factorization operator, a knowledge-graph embedding such as a bilinear relation, or potentially a graph-neural-network component. Different relations could then use different mathematical models while still contributing to the same shared representation.
+F3CF need not be limited to classical matrix factorization and the relation operator $W_r$ could be modular. It could be a matrix factorization operator, a knowledge-graph embedding such as a bilinear relation, or potentially a graph-neural-network component. Different relations could then use different mathematical models while still contributing to the same shared representation.
 
 Relationships could also be extended using known relational graphs, ontologies, and other structured knowledge. For example, phenotype ontologies, gene–pathway relationships, drug–target interactions, and disease–gene associations could provide additional constraints on the latent space. This would allow F3CF to combine relationships learned from distributed data with established biological knowledge.
 
-Such extensions could turn F3CF into a framework for exploring a federated **meta-knowledge graph**, where clinical observations, genomic associations, treatments, phenotypes, and existing biomedical knowledge contribute to a common latent representation. This could enable exploration of relationships that are not directly observed in any single dataset while preserving the distributed nature of the underlying data.
+Such extensions will turn F3CF into a framework for exploring a federated **meta-knowledge graph**, where clinical observations, genomic associations, treatments, phenotypes, and existing biomedical knowledge contribute to a common latent representation. This could enable exploration of relationships that are not directly observed in any single dataset while preserving the distributed nature of the underlying data.
 
 ## Team 8 — Nordic Conference on Future Health 2026, 14–16 September 2026
 
